@@ -1,3 +1,3 @@
 # Shihai's Blog
 
-### [View Shihai's Blog &rarr;](https://shihai.me)
+### [View Shihai's Blog &rarr;](http://shihai.github.io)

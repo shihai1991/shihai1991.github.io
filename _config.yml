@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: shihai1992@gmail.com
 description: "A coder for Huawei's IAAS of CloudBU"
 keyword: "史海, Hayes, OpenStack, Iaas, OpenSource, Linux"
-url: "https://shihai.me"              # your host, for absolute URL
+url: "http://shihai.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
@@ -72,7 +72,7 @@ netease_comment: false
 
 # Google Analytics
 ga_track_id: 'UA-87778305-1'            # Format: UA-xxxxxx-xx
-ga_domain: shihai.me
+ga_domain: shihai.github.io 
 
 
 

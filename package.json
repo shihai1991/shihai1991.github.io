@@ -1,8 +1,8 @@
 {
     "name": "shihai-blog",
-    "title": "Shihai's Blog",
+    "title": "Shi Hai's Blog",
     "author": "Shihai <shihai1992@gmail.com>",
-    "version": "1.7.0",
+    "version": "0.0.1",
     "homepage": "http://shihai.github.io",
     "repository": {
         "type": "git",

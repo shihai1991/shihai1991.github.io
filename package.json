@@ -6,9 +6,9 @@
     "homepage": "https://shihai1991.github.io",
     "repository": {
         "type": "git",
-        "url": "https://github.com/shihai1991/shihai.github.io"
+        "url": "https://github.com/shihai1991/shihai1991.github.io"
     },
-    "bugs": "https://github.com/shihai1991/shihai.github.io/issues",
+    "bugs": "https://github.com/shihai1991/shihai1991.github.io/issues",
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-less": "~0.11.4",

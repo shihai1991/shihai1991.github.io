@@ -5,5 +5,5 @@ Hi，folks. 我是史海，目前就职于华为云计算-计算服务产品部�
 * python编程语言Lab成员之一；
 
 另外，在开源社区上也承担了开发者职责：
-* 原openstack/rally项目核心开发人员；
+* 原openstack社区性能测试项目-rally服务核心开发人员；
 * python triage团队成员；

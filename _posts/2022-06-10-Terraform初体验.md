@@ -27,7 +27,7 @@ IaC确切来源已无法考证，实际还有个概念可以理解成IaC框架�
 维基定义：基础架构即代码 (IaC) 是通过机器可读的定义文件而不是物理硬件配置或交互式配置工具来管理和配置计算机数据中心的过程。
 
 # 二、Terraform
-## 2.1. centos7下安装
+## 2.1. 在centos7上安装
 配置hashicorp的yum源并安装。
 ```shell
 yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo

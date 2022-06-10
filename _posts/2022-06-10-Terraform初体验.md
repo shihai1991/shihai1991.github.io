@@ -11,7 +11,7 @@ time: '2022.06.10 10:49'
 
 # 一、Infrastructure as Code(IaC)
 ## IaC起源
-IaC确切来源无法考证，实际还有个概念和IaC戚戚相关：配置即代码（CaC）。你可以将CaC理解成IaC的一种扩展。
+IaC确切来源无法考证，实际还有个概念可以理解成IaC框架的扩展：配置即代码（CaC）。你可以将CaC理解成IaC的一种扩展，主要的CaC工具如下图所示，最早的CaC的工具是1993年开发的CEFngine。
 | Tool | Released by |Method | Approach | Written in | Comments |
 | ---- | ---- | ---- | ---- | ---- | ---- |
 |Chef|Chef (2009)|Pull|Declarative and imperative|Ruby|-|

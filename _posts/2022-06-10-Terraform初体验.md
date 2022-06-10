@@ -3,10 +3,15 @@ published: false
 ---
 # 一、Infrastructure as Code(IaC)
 ## IaC起源
+IaC确切来源无法考证，实际还有个概念和IaC戚戚相关：配置即代码（CaC）。你可以将CaC理解成IaC的一种扩展。
+| Tool | Released by |Method | Approach | Written in | Comments |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+
 
 ## IaC目标
+维基定义：基础架构即代码 (IaC) 是通过机器可读的定义文件而不是物理硬件配置或交互式配置工具来管理和配置计算机数据中心的过程。
 
 # 二、Terraform
 
 # 三、附录
-[History of Infra as Code](https://www.infoq.com/presentations/history-infra-as-code/)
+-[History of Infra as Code](https://www.infoq.com/presentations/history-infra-as-code/)

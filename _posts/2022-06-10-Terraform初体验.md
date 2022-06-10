@@ -27,6 +27,8 @@ IaC确切来源无法考证，实际还有个概念可以理解成IaC框架的�
 维基定义：基础架构即代码 (IaC) 是通过机器可读的定义文件而不是物理硬件配置或交互式配置工具来管理和配置计算机数据中心的过程。
 
 # 二、Terraform
+## 2.1. centos7下安装
+## 2.2. 使用
 
 # 三、引用附录
 -[History of Infra as Code](https://www.infoq.com/presentations/history-infra-as-code/)  

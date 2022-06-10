@@ -28,6 +28,16 @@ IaC确切来源无法考证，实际还有个概念可以理解成IaC框架的�
 
 # 二、Terraform
 ## 2.1. centos7下安装
+配置hashicorp的yum源并安装。
+```shell
+yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+yum install terraform -y
+```
+安装完成后查看terraform的版本。
+```shell
+terraform version
+```
+
 ## 2.2. 使用
 
 # 三、引用附录

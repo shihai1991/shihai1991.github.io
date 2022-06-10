@@ -12,15 +12,15 @@ time: '2022.06.10 10:49'
 # 一、Infrastructure as Code(IaC)
 ## IaC起源
 IaC确切来源无法考证，实际还有个概念可以理解成IaC框架的扩展：配置即代码（CaC）。你可以将CaC理解成IaC的一种扩展，主要的CaC工具如下图所示，最早的CaC的工具是1993年开发的CEFngine。
-| Tool               | Released by        | Method      |
-| ------------------------- | --------------------- | ------------- |
-| Chef               | Chef (2009)        |Pull        |
-| Otter               | Inedo (2015)       |Push       |
-| Puppet              | Puppet (2005)       |Pull       |
-| SaltStack            | SaltStack (2011)     |Push and Pull |
-| CFEngine             | Northern.tech (1993)  |Pull       |
-| Terraform            | HashiCorp (2014)     |Push       |
-| Ansible/Ansible Tower    | Red Hat (2012)      |Push        |
+| Tool                  | Released by          | Method        |
+| --------------------- | -------------------- | ------------- |
+| Chef                  | Chef (2009)          | Pull          |
+| Otter                 | Inedo (2015)         | Push          |
+| Puppet                | Puppet (2005)        | Pull          |
+| SaltStack             | SaltStack (2011)     | Push and Pull |
+| CFEngine              | Northern.tech (1993) | Pull          |
+| Terraform             | HashiCorp (2014)     | Push          |
+| Ansible/Ansible Tower | Red Hat (2012)       | Push          |
 
 ## IaC目标
 维基定义：基础架构即代码 (IaC) 是通过机器可读的定义文件而不是物理硬件配置或交互式配置工具来管理和配置计算机数据中心的过程。

@@ -43,4 +43,5 @@ terraform version
 # 三、引用附录
 -[History of Infra as Code](https://www.infoq.com/presentations/history-infra-as-code/)  
 -[Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code)  
+-[terraform providers](https://registry.terraform.io/browse/providers)  
 -[Terraform 实战 | 万字长文](https://posts.careerengine.us/p/6254c3bc8407c2569699ad83)

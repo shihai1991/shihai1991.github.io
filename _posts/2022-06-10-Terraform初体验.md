@@ -29,3 +29,4 @@ IaC确切来源无法考证，实际还有个概念可以理解成IaC框架的�
 
 # 三、引用附录
 -[History of Infra as Code](https://www.infoq.com/presentations/history-infra-as-code/)
+-[Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code)

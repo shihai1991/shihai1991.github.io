@@ -11,7 +11,7 @@ time: '2022.06.10 10:49'
 
 # 一、Infrastructure as Code(IaC)
 ## IaC起源
-IaC确切来源无法考证，实际还有个概念可以理解成IaC框架的扩展：配置即代码（CaC）。你可以将CaC理解成IaC的一种扩展，主要的CaC工具如下图所示，最早的CaC的工具是1993年开发的CEFngine。
+IaC确切来源无法考证，实际还有个概念可以理解成IaC框架的扩展：配置即代码（CaC）。你可以将CaC理解成IaC的一种扩展，主要的CaC工具如下图所示，最早的CaC工具是1993年开发的CEFngine。
 
 | Tool                  | Released by          | Method        |
 | --------------------- | -------------------- | ------------- |
@@ -29,5 +29,5 @@ IaC确切来源无法考证，实际还有个概念可以理解成IaC框架的�
 # 二、Terraform
 
 # 三、引用附录
--[History of Infra as Code](https://www.infoq.com/presentations/history-infra-as-code/)
+-[History of Infra as Code](https://www.infoq.com/presentations/history-infra-as-code/)  
 -[Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code)

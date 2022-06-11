@@ -33,7 +33,7 @@ IaC确切来源已无法考证，实际还有个概念可以理解成IaC框架�
 yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 yum install terraform -y
 ```
-安装完成后查看terraform的版本。
+安装完成后执行如下命令查看terraform的版本。
 ```shell
 terraform version
 ```

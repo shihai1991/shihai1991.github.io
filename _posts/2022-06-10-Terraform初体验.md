@@ -39,7 +39,7 @@ terraform version
 ```
 
 ## 2.2. 使用
-创建一个测试目录。
+本文尝试用terraform来控制docker管理相关容器实例，先创建一个测试目录。
 ```
 mkdir learn-terraform-docker-container
 cd        

@@ -89,6 +89,13 @@ Initializing provider plugins...
 │ "https://github.com/kreuzwerker/terraform-provider-docker/releases/download/v2.13.0/terraform-provider-docker_2.13.0_SHA256SUMS": net/http: request
 │ canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 ``` 
+最后执行`terraform apply`并输入`yes`则就可以通过terraform创建出一个nginx容器。如果你想删除这个容器，则可以执行`terraform destroy`来执行。
+```
+# root @ jz2e in ~/learn-terraform-docker-container [16:16:53]
+$ docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                      NAMES
+225a4c834b1b   0e901e68141f   "/docker-entrypoint.…"   3 seconds ago   Up 2 seconds   0.0.0.0:8000->80/tcp       tutorial
+```
 
 # 三、引用附录
 -[History of Infra as Code](https://www.infoq.com/presentations/history-infra-as-code/)  

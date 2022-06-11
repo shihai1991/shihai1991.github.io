@@ -39,6 +39,56 @@ terraform version
 ```
 
 ## 2.2. 使用
+创建一个测试目录。
+```
+mkdir learn-terraform-docker-container
+cd        
+```
+将下面的内容拷贝进main.tf文件中。
+```
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.13.0"
+    }
+  }
+}
+
+provider "docker" {}
+
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = false
+}
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.latest
+  name  = "tutorial"
+  ports {
+    internal = 80
+    external = 8000
+  }
+}
+```
+在`learn-terraform-docker-container`目录中执行`terraform init`，执行这个动作会下载一个用于terraform和docker进行交互的插件。  
+如果遇到了如下超时问题，则可以参考此[issue](https://github.com/hashicorp/terraform/issues/27742)解决。
+```
+# root @ jz2e in ~/learn-terraform-docker-container [16:02:22]
+$ terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Finding kreuzwerker/docker versions matching "~> 2.13.0"...
+╷
+│ Error: Failed to install provider
+│
+│ Error while installing kreuzwerker/docker v2.13.0: could not query provider registry for registry.terraform.io/kreuzwerker/docker: failed to retrieve
+│ authentication checksums for provider: the request failed after 2 attempts, please try again later: Get
+│ "https://github.com/kreuzwerker/terraform-provider-docker/releases/download/v2.13.0/terraform-provider-docker_2.13.0_SHA256SUMS": net/http: request
+│ canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+``` 
 
 # 三、引用附录
 -[History of Infra as Code](https://www.infoq.com/presentations/history-infra-as-code/)  

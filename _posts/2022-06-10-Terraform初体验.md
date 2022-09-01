@@ -37,7 +37,7 @@ yum install terraform -y
 ```shell
 terraform version
 ```
-
+ 
 ## 2.2. 使用
 本文尝试用terraform来控制docker管理相关容器实例，先创建一个测试目录。
 ```
@@ -97,7 +97,11 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS   
 225a4c834b1b   0e901e68141f   "/docker-entrypoint.…"   3 seconds ago   Up 2 seconds   0.0.0.0:8000->80/tcp       tutorial
 ```
 
-# 三、引用附录
+# 三、F&A of IAC
+## Q1: 数据库的DDL是否能作为IAC的一部分？
+A1：DDL是应用的一部分，不是infrastructure的一部分，所以DDL的变更需要有专门的数据库变更工具管理起来。[Terraform Q&A — DDL Statements in Database](https://medium.com/@anton.babenko/terraform-q-a-ddl-statements-in-database-ef21250a26c) [database-as-code](https://www.bytebase.com/blog/database-as-code)
+
+# 四、引用附录
 -[History of Infra as Code](https://www.infoq.com/presentations/history-infra-as-code/)  
 -[Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code)  
 -[tefform官网教程](https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code)  

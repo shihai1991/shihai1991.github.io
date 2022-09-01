@@ -98,7 +98,7 @@ CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS   
 ```
 
 # 三、F&A of IAC
-Q1: 数据库的DDL是否能作为IAC的一部分？  
+**Q1: 数据库的DDL是否能作为IAC的一部分？  **
 A1：DDL是应用的一部分，不是infrastructure的一部分，所以DDL的变更需要有专门的数据库变更工具管理起来。[Terraform Q&A — DDL Statements in Database](https://medium.com/@anton.babenko/terraform-q-a-ddl-statements-in-database-ef21250a26c) [database-as-code](https://www.bytebase.com/blog/database-as-code)
 
 # 四、引用附录

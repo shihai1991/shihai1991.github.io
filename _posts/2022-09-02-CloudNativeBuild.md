@@ -27,4 +27,5 @@ cd samples/apps/java-maven
 ```
 pack build myapp --builder cnbs/sample-builder:bionic
 ```
+执行过程如下所示，由于我司有特殊限制，具体的错误后面有时间在自己个人虚拟机上在执行试试。
 ![]({{site.baseurl}}/img/2022/Q3/2022090201 pack build.png)

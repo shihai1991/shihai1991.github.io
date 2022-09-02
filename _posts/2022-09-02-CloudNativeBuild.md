@@ -37,7 +37,7 @@ pack build myapp --builder cnbs/sample-builder:bionic
 - detector：通过`/bin/detect`选择`buildpacks`并且生成一个`build`计划；
 - restorer：从上一个应用镜像和缓存中恢复`layer metadata`及`cached layers`；
 - builder：通过`/bin/build`执行`buildpacks`；
-- exporter：创建镜像和`caches layers`。
+- exporter：创建镜像和`caches layers`。  
 或者
 - creator：运行上面的五个阶段。
 

@@ -27,3 +27,4 @@ cd samples/apps/java-maven
 ```
 pack build myapp --builder cnbs/sample-builder:bionic
 ```
+![]({{site.baseurl}}/img/2022/Q3/2022090201 pack build.png)

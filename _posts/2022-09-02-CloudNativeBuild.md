@@ -15,3 +15,15 @@ time: '2022.09.02 10:36:00'
 ![buildpack](https://d2908q01vomqb2.cloudfront.net/fe2ef495a1152561572949784c16bf23abb28057/2021/09/16/Buildpacks_img1.jpg)
 
 # 安装及使用
+下载示例代码。
+```
+git clone https://github.com/buildpacks/samples
+```
+`cd`到示例代码的一个应用。
+```
+cd samples/apps/java-maven
+```
+通过[pack](https://buildpacks.io/docs/tools/pack/)构建应用。
+```
+pack build myapp --builder cnbs/sample-builder:bionic
+```

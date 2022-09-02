@@ -9,6 +9,7 @@ tags:
 time: '2022.09.02 10:36:00'
 ---
 # 一、基本概念介绍
+Cloud Native Buildpacks可以将你的应用源码转换为在任意云上运行的容器镜像。
 - buildpack：buildpack的职责是收集你的应用在`build`和`run`阶段所需的所有要素；
 - builder：builder是一个包含执行`build`所需所有组件的镜像。
 

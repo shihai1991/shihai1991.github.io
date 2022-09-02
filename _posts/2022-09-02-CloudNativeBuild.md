@@ -53,7 +53,7 @@ pack build sample-java-maven-app --builder cnbs/sample-builder:bionic --buildpac
 - rebaser：从上一个更新基础`layers`的image上创建image。
 
 # 四、FAQ
-- Q1：samples/buildpacks中的[build](https://github.com/buildpacks/samples/blob/main/buildpacks/java-maven/bin/build)、detect脚本在哪个代码里面被调用？
+- Q1：samples/buildpacks中的[build](https://github.com/buildpacks/samples/blob/main/buildpacks/java-maven/bin/build)、detect脚本在哪个代码里面被调用？  
 A1：最开始的pack版本模块没有拆分，调用代码在pack工具中，现在最新版本的执行代码在[lifecycle](https://github.com/buildpacks/lifecycle/blob/4f52db0a90b5637e718328e7019bf8e592fdeece/buildpack/build.go#L101)中。
 
 # 五、参考文档

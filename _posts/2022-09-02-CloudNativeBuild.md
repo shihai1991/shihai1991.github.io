@@ -39,7 +39,7 @@ pack build myapp --builder cnbs/sample-builder:bionic
 - builder：通过`/bin/build`执行`buildpacks`；
 - exporter：创建镜像和`caches layers`。  
 或者
-- creator：运行上面的五个阶段，[代码执行详情](https://github.com/buildpacks/lifecycle/blob/4f52db0a90b5637e718328e7019bf8e592fdeece/cmd/lifecycle/creator.go#L162)。
+- creator：运行上面的五个阶段，[代码执行详情](https://github.com/buildpacks/lifecycle/blob/4f52db0a90b5637e718328e7019bf8e592fdeece/cmd/lifecycle/creator.go#L162) [命令行参数传入creator](https://github.com/buildpacks/lifecycle/blob/4f52db0a90b5637e718328e7019bf8e592fdeece/cmd/lifecycle/creator.go#L54)。
 
 ## 3.2 Run
 - launcher：调用目标进程。

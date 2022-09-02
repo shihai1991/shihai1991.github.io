@@ -58,5 +58,5 @@ pack build sample-java-maven-app --builder cnbs/sample-builder:bionic --buildpac
 A1：最开始的pack版本模块没有拆分，调用代码在pack工具中，现在最新版本的执行代码在[lifecycle](https://github.com/buildpacks/lifecycle/blob/4f52db0a90b5637e718328e7019bf8e592fdeece/buildpack/build.go#L101)中。
 
 # 五、参考文档
-[Creating container images with Cloud Native Buildpacks using AWS CodeBuild and AWS CodePipeline](https://aws.amazon.com/blogs/containers/creating-container-images-with-cloud-native-buildpacks-using-aws-codebuild-and-aws-codepipeline/)
+[Creating container images with Cloud Native Buildpacks using AWS CodeBuild and AWS CodePipeline](https://aws.amazon.com/blogs/containers/creating-container-images-with-cloud-native-buildpacks-using-aws-codebuild-and-aws-codepipeline/)  
 [buildpack: build an app](https://buildpacks.io/docs/app-developer-guide/build-an-app/)

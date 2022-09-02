@@ -27,6 +27,10 @@ cd samples/apps/java-maven
 ```
 pack build myapp --builder cnbs/sample-builder:bionic
 ```
+或者指定buildpack路径进行`build`构建。
+```
+pack build sample-java-maven-app --builder cnbs/sample-builder:alpine --buildpack . --path ../../apps/java-maven
+```
 执行过程如下所示，由于我司有网络限制，具体的错误后面有时间在自己个人虚拟机上再执行试试。
 ![]({{site.baseurl}}/img/2022/Q3/2022090201 pack build.png)
 

@@ -38,7 +38,9 @@ pack build myapp --builder cnbs/sample-builder:bionic
 - restorer：从上一个应用镜像和缓存中恢复`layer metadata`及`cached layers`；
 - builder：通过`/bin/build`执行`buildpacks`；
 - exporter：创建镜像和`caches layers`。
+
 ## 3.2 Run
 - launcher：调用目标进程。
+
 ## 3.3 Rebase
 - rebaser：从上一个更新基础`layers`的image上创建image。

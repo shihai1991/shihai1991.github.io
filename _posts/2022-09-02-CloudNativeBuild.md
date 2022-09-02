@@ -9,8 +9,8 @@ tags:
 time: '2022.09.02 10:36:00'
 ---
 # 基本概念介绍
--buildpack：
--builder：
+-buildpack：buildpack的职责是收集你的应用在`build`和`run`阶段所需的所有要素；
+-builder：builder是一个包含执行`build`所需所有组件的镜像。
 
 ![buildpack](https://d2908q01vomqb2.cloudfront.net/fe2ef495a1152561572949784c16bf23abb28057/2021/09/16/Buildpacks_img1.jpg)
 

@@ -92,7 +92,7 @@ kubeadm init --apiserver-advertise-address=0.0.0.0 \
 --service-cidr=10.10.0.0/16 \
 --pod-network-cidr=10.18.0.0/16
 ```
-如果在初始化阶段提示了`x509: certificate signed by unknown authority`问题可以添加如下配置。
+如果在初始化阶段提示了`x509: certificate signed by unknown authority`问题，可以添加如下配置。
 ```
 # 在/etc/docker/daemon.json添加如下配置
 {

@@ -72,6 +72,7 @@ mkdir -p /etc/systemd/system/docker.service.d
 touch /etc/systemd/system/docker.service.d/https-proxy.conf
 #在https-proxy中添加网络代理信息
 [Service]
+Environment="HTTP_PROXY=http://user:pwd@proxy:port/"
 Environment="HTTPS_PROXY=http://user:pwd@proxy:port/"
 Environment="NO_PROXY= localhost,127.0.0.1"
 ```

@@ -81,11 +81,12 @@ systemctl restart docker
 ```
 
 ## 1.4 初始化k8s集群
+初始化k8s集群，kubernetes-version可以通过`kubelet --version`进行查询
 ```
 kubeadm init --apiserver-advertise-address=0.0.0.0 \
 --apiserver-cert-extra-sans=127.0.0.1 \
 --ignore-preflight-errors=all \
---kubernetes-version=v1.21.1 \
+--kubernetes-version=v1.25.0 \
 --service-cidr=10.10.0.0/16 \
 --pod-network-cidr=10.18.0.0/16
 ```

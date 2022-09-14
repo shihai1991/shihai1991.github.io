@@ -57,7 +57,7 @@ EOF
 安装相关组件。
 ```
 # 安装docker-ce
-yum -y install docker-ce
+yum -y install docker-ce-18.09.9-3.el7
 # 安装k8s相关组件（安装1.25.0版本在`kubeadm init`阶段各种失败，原因未知，先限定安装1.16.0，后面有时间在折腾）
 yum install -y kubectl-1.16.0-0 kubeadm-1.16.0-0 kubelet-1.16.0-0
 systemctl enable kubelet && systemctl start kubelet

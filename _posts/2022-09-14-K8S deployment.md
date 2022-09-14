@@ -108,7 +108,7 @@ systemctl restart docker
 
 
 # 二、相关组件介绍
-pass
+![]({{}}/https://www.redhat.com/cms/managed-files/kubernetes_diagram-v3-770x717_0.svg)
 
 # 参考文档
 1. [centos单机安装k8s](https://blog.51cto.com/u_15144750/3113358)

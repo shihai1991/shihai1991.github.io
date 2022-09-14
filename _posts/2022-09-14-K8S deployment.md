@@ -65,7 +65,7 @@ yum install -y kubectl kubelet kubeadm
 
 
 ## 1.3 配置容器相关代理
-由于访问过程中需要到各类镜像中心拉取k8s组件镜像，但是国内因为网络问题导致下载受限，需要配置网络代理进行访问，当然使用国内镜像源也可以，请自行谷歌。
+由于访问过程中需要到各类镜像中心拉取k8s组件镜像，但是国内因为网络问题导致下载受限，需要配置网络代理进行访问，当然使用国内镜像源也可以，请自行谷歌或本文参考文章。
 ```
 mkdir /etc/systemd/system/docker.service.d/https-proxy.conf
 #在https-proxy中添加网络代理信息

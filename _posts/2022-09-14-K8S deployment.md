@@ -96,6 +96,7 @@ kubeadm init --apiserver-advertise-address=0.0.0.0 \
 ```
 # 在/etc/docker/daemon.json添加如下配置
 {
+  "exec-opts": ["native.cgroupdriver=systemd"],
   "registry-mirrors": ["https://registry.cn-hangzhou.aliyuncs.com", "https://registry.aliyuncs.com"],
   "insecure-registries": ["k8s.gcr.io", "registry.cn-hangzhou.aliyuncs.com", "registry.aliyuncs.com"]
 }

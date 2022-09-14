@@ -32,9 +32,13 @@ sysctl --system
 ```
 
 ## 1.2 通过yum源安装k8s
-配置系统基础的yum源。
 ```
+# 配置系统基础的yum源
 sudo curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+
+# 配置docker-ce安装源
+
+# 配置k8s安装源
 ```
 
 # 参考文档

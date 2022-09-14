@@ -36,7 +36,7 @@ sysctl --system
 配置各类系统、docker-ce、k8s安装源。
 ```
 # 配置系统基础的yum源
-wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 
 # 安装yum工具类
 yum install -y yum-utils device-mapper-persistent-data lvm2 net-tools

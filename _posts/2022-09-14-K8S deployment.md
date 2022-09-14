@@ -115,3 +115,4 @@ systemctl restart docker
 1. [centos单机安装k8s](https://blog.51cto.com/u_15144750/3113358)
 2. [CentOS 搭建 K8S，一次性成功，收藏了！](https://segmentfault.com/a/1190000037682150)
 3. [k8s介绍](https://kubernetes.io/zh-cn/docs/concepts/services-networking/ingress-controllers/)
+4. [Kubernetes 架构简介](https://www.redhat.com/zh/topics/containers/kubernetes-architecture)

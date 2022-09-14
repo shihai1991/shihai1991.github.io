@@ -61,6 +61,7 @@ yum -y install docker-ce
 # 安装k8s相关组件
 yum install -y kubectl kubelet kubeadm
 ```
+如果安装过程中提示`Peer's certificate issuer has been marked as not trusted by the user.`问题，请检查各个yum源中配置的baseurl是否是https协议，如果是https请修改为http协议即可。
 
 # 二、相关组件介绍
 pass

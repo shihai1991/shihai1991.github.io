@@ -89,7 +89,18 @@ kubeadm init --apiserver-advertise-address=0.0.0.0 \
 --service-cidr=10.10.0.0/16 \
 --pod-network-cidr=10.18.0.0/16
 ```
-如果在初始化阶段提示了`output: Error response from daemon: Get "https://k8s.gcr.io/v2/": net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)`问题。
+如果在初始化阶段提示了`x509: certificate signed by unknown authority`问题可以添加如下配置。
+```
+# 在/etc/docker/daemon.json添加如下配置
+{
+  "insecure-registries": ["k8s.gcr.io"]
+}
+```
+重启docker服务。
+```
+systemctl daemon-reload
+systemctl restart docker
+```
 
 ## 1.5 安装网络驱动
 

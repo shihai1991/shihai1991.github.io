@@ -63,6 +63,12 @@ yum install -y kubectl kubelet kubeadm
 ```
 如果安装过程中提示`Peer's certificate issuer has been marked as not trusted by the user.`问题，请检查各个yum源中配置的baseurl是否是https协议，如果是https请修改为http协议即可。
 
+
+## 1.3 配置容器访问代理
+由于访问过程中需要到各类镜像中心拉取k8s组件镜像，但是国内网络问题导致下载失败，需要配置代理进行访问，当然使用国内的源也是可以的。
+## 1.4 安装网络驱动
+
+
 # 二、相关组件介绍
 pass
 

@@ -76,6 +76,7 @@ Environment="NO_PROXY= localhost,127.0.0.1"
 ```
 重启docker服务。
 ```
+systemctl enable docker.service
 systemctl daemon-reload
 systemctl restart docker
 ```

@@ -89,6 +89,7 @@ kubeadm init --apiserver-advertise-address=0.0.0.0 \
 --service-cidr=10.10.0.0/16 \
 --pod-network-cidr=10.18.0.0/16
 ```
+如果在初始化阶段提示了`X509xx`问题。
 
 ## 1.5 安装网络驱动
 

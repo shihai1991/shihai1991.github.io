@@ -113,7 +113,10 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-## 1.5 安装网络驱动
+## 1.5 安装网络驱动-fannel
+```
+wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
 
 
 # 二、相关组件介绍

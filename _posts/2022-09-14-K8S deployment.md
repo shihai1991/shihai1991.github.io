@@ -94,10 +94,10 @@ kubeadm init --apiserver-advertise-address=0.0.0.0 \
 如果在初始化阶段提示了`x509: certificate signed by unknown authority`问题可以添加如下配置。
 ```
 # 在/etc/docker/daemon.json添加如下配置
+{
   "registry-mirrors": ["https://registry.cn-hangzhou.aliyuncs.com"],
-  "data-root": "/data/docker",
   "insecure-registries": ["k8s.gcr.io", "registry.cn-hangzhou.aliyuncs.com"]
-
+}
 ```
 重启docker服务。
 ```

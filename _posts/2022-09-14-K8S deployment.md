@@ -106,6 +106,12 @@ kubeadm init --apiserver-advertise-address=0.0.0.0 \
 systemctl daemon-reload
 systemctl restart docker
 ```
+初始化顺利执行后控制台有一段使用集群的配置，按输出执行即可。
+```
+mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
 
 ## 1.5 安装网络驱动
 

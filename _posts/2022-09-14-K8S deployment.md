@@ -22,9 +22,20 @@ sed -i "s/^SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config #永久关�
 # 关闭防火墙
 sudo systemctl stop firewalld.service
 sudo systemctl disable firewalld.service
+
+# 修改内核参数
+cat <<EOF >  /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+sysctl --system
 ```
 
 ## 1.2 通过yum源安装k8s
+配置系统基础的yum源。
+```
+sudo curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+```
 
 # 参考文档
 1. [centos单机安装k8s](https://blog.51cto.com/u_15144750/3113358)

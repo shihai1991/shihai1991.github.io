@@ -67,7 +67,8 @@ yum install -y kubectl kubelet kubeadm
 ## 1.3 配置容器相关代理
 由于访问过程中需要到各类镜像中心拉取k8s组件镜像，但是国内因为网络问题导致下载受限，需要配置网络代理进行访问，当然使用国内镜像源也可以，请自行谷歌或本文参考文章。
 ```
-mkdir /etc/systemd/system/docker.service.d/https-proxy.conf
+mkdir -p /etc/systemd/system/docker.service.d
+touch /etc/systemd/system/docker.service.d/https-proxy.conf
 #在https-proxy中添加网络代理信息
 [Service]
 Environment="HTTPS_PROXY=http://user:pwd@proxy:port/"
@@ -79,7 +80,18 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
-## 1.4 安装网络驱动
+## 1.4 初始化k8s集群
+```
+kubeadm init --apiserver-advertise-address=0.0.0.0 \
+--apiserver-cert-extra-sans=127.0.0.1 \
+--image-repository=registry.aliyuncs.com/google_containers \
+--ignore-preflight-errors=all \
+--kubernetes-version=v1.21.1 \
+--service-cidr=10.10.0.0/16 \
+--pod-network-cidr=10.18.0.0/16
+```
+
+## 1.5 安装网络驱动
 
 
 # 二、相关组件介绍

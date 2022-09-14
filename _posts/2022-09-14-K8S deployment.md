@@ -73,7 +73,7 @@ mkdir /etc/systemd/system/docker.service.d/https-proxy.conf
 Environment="HTTPS_PROXY=http://user:pwd@proxy:port/"
 Environment="NO_PROXY= localhost,127.0.0.1"
 ```
-重启
+重启docker服务
 ## 1.4 安装网络驱动
 
 

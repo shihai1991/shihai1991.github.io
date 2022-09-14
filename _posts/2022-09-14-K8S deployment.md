@@ -54,10 +54,11 @@ repo_gpgcheck=0
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 EOF
 ```
-安装相关组件。
+安装相关组件并启动。
 ```
 # 安装docker-ce
 yum -y install docker-ce-18.09.9-3.el7
+systemctl enable docker.service && systemctl start docker
 # 安装k8s相关组件（安装1.25.0版本在`kubeadm init`阶段各种失败，原因未知，先限定安装1.16.0，后面有时间在折腾）
 yum install -y kubectl-1.16.0-0 kubeadm-1.16.0-0 kubelet-1.16.0-0
 systemctl enable kubelet && systemctl start kubelet
@@ -76,7 +77,6 @@ Environment="NO_PROXY= localhost,127.0.0.1"
 ```
 重启docker服务。
 ```
-systemctl enable docker.service
 systemctl daemon-reload
 systemctl restart docker
 ```

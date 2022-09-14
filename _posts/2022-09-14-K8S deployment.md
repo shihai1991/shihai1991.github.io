@@ -37,6 +37,8 @@ sysctl --system
 # 配置系统基础的yum源
 wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
 
+# 安装yum工具类
+yum install -y yum-utils device-mapper-persistent-data lvm2 net-tools
 # 配置docker-ce安装源
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
@@ -51,10 +53,8 @@ repo_gpgcheck=0
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 EOF
 ```
-安装相关rpm包。
+安装相关组件。
 ```
-# 安装yum工具类
-yum install -y yum-utils device-mapper-persistent-data lvm2 net-tools
 # 安装docker-ce
 yum -y install docker-ce
 # 安装k8s相关组件

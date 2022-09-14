@@ -85,7 +85,7 @@ systemctl restart docker
 kubeadm init --apiserver-advertise-address=0.0.0.0 \
 --apiserver-cert-extra-sans=127.0.0.1 \
 --ignore-preflight-errors=all \
---kubernetes-version=v1.25.0 \
+--kubernetes-version=v1.16.0 \
 --service-cidr=10.10.0.0/16 \
 --pod-network-cidr=10.18.0.0/16
 ```

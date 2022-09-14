@@ -109,12 +109,12 @@ systemctl restart docker
 
 
 # 二、相关组件介绍
-- kube-apiserver：
-- kube-scheduler：
-- kube-controller-manager：
-- etcd：
-- kubelet：
-- kube-proxy：
+- kube-apiserver：k8s管理面前端，可以通过REST、kubctl和kubadm进行交互访问；
+- kube-scheduler：创建的pod放到哪个node需要由此组件来调度；
+- kube-controller-manager：负责实际运行集群；
+- etcd：配置数据及有关集群状态存放于etcd中；
+- kubelet：每个计算节点的守护进程，和控制平面交互；
+- kube-proxy：每个计算节点都有，负责集群内外部的网络通信；
 ![k8s architecture](https://www.redhat.com/cms/managed-files/kubernetes_diagram-v3-770x717_0.svg)
 
 # 参考文档

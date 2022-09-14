@@ -62,6 +62,7 @@ yum install -y kubectl kubelet kubeadm
 ```
 
 # 二、相关组件介绍
+pass
 
 # 参考文档
 1. [centos单机安装k8s](https://blog.51cto.com/u_15144750/3113358)

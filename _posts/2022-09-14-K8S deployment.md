@@ -109,12 +109,12 @@ systemctl restart docker
 
 
 # 二、相关组件介绍
-- kube-apiserver
-- kube-scheduler
-- kube-controller-manager
-- etcd
-- kubelet
-- kube-proxy
+- kube-apiserver：
+- kube-scheduler：
+- kube-controller-manager：
+- etcd：
+- kubelet：
+- kube-proxy：
 ![](https://www.redhat.com/cms/managed-files/kubernetes_diagram-v3-770x717_0.svg)
 
 # 参考文档

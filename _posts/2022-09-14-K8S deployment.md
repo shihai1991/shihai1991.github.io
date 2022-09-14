@@ -116,8 +116,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ## 1.5 安装网络驱动-fannel
 ```
 wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl apply -f kube-flannel.yml
 ```
-
 
 # 二、相关组件介绍
 - kube-apiserver：k8s管理面前端，可以通过REST、kubctl和kubadm进行交互访问；

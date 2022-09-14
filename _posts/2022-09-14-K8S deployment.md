@@ -1,6 +1,6 @@
 ---
 layout: post
-title: k8s单机安装部署
+title: centos7上单机安装k8s
 category: k8s
 catalog: true
 published: true
@@ -23,6 +23,8 @@ sed -i "s/^SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config #永久关�
 sudo systemctl stop firewalld.service
 sudo systemctl disable firewalld.service
 ```
+
+## 1.2 通过yum源安装k8s
 
 # 参考文档
 1. [centos单机安装k8s](https://blog.51cto.com/u_15144750/3113358)

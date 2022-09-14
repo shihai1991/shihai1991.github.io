@@ -93,7 +93,8 @@ kubeadm init --apiserver-advertise-address=0.0.0.0 \
 ```
 # 在/etc/docker/daemon.json添加如下配置
 {
-  "insecure-registries": ["k8s.gcr.io"]
+  "registry-mirrors" : ["https://mj9kvemk.mirror.aliyuncs.com"],
+  "insecure-registries": ["k8s.gcr.io", "mirror.aliyuncs.com"]
 }
 ```
 重启docker服务。

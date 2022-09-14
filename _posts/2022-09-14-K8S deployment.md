@@ -32,6 +32,7 @@ sysctl --system
 ```
 
 ## 1.2 通过yum源安装k8s
+配置各类系统、docker-ce、k8s安装源。
 ```
 # 配置系统基础的yum源
 wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
@@ -49,6 +50,15 @@ gpgcheck=0
 repo_gpgcheck=0
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 EOF
+```
+安装相关rpm包。
+```
+# 安装yum工具类
+yum install -y yum-utils device-mapper-persistent-data lvm2 net-tools
+# 安装docker-ce
+yum -y install docker-ce
+# 安装k8s相关组件
+yum install -y kubectl kubelet kubeadm
 ```
 
 # 参考文档

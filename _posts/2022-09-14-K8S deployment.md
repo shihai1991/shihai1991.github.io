@@ -134,3 +134,4 @@ kubectl apply -f kube-flannel.yml
 2. [CentOS 搭建 K8S，一次性成功，收藏了！](https://segmentfault.com/a/1190000037682150)
 3. [k8s介绍](https://kubernetes.io/zh-cn/docs/concepts/services-networking/ingress-controllers/)
 4. [Kubernetes 架构简介](https://www.redhat.com/zh/topics/containers/kubernetes-architecture)
+5. [kubernetes之helm简介、安装、配置、使用指南](https://cloud.tencent.com/developer/article/1444758)

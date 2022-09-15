@@ -136,3 +136,4 @@ kubectl apply -f kube-flannel.yml
 4. [Kubernetes 架构简介](https://www.redhat.com/zh/topics/containers/kubernetes-architecture)
 5. [kubernetes之helm简介、安装、配置、使用指南](https://cloud.tencent.com/developer/article/1444758)
 6. [Operator 模式](https://kubernetes.io/zh-cn/docs/concepts/extend-kubernetes/operator/)
+7. [kustomize 最简实践](https://zhuanlan.zhihu.com/p/92153378)

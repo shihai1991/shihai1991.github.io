@@ -128,6 +128,7 @@ kubectl apply -f kube-flannel.yml
 - kube-proxy：每个计算节点都有，负责集群内外部的网络通信；
 ![k8s architecture](https://www.redhat.com/cms/managed-files/kubernetes_diagram-v3-770x717_0.svg)
 - helm：helm是为了配置分离，operator是为了正对复杂应用的自动化管理，annotations中承载helm的hook机制；
+
 # 参考文档
 1. [centos单机安装k8s](https://blog.51cto.com/u_15144750/3113358)
 2. [CentOS 搭建 K8S，一次性成功，收藏了！](https://segmentfault.com/a/1190000037682150)

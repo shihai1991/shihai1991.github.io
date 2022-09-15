@@ -126,8 +126,10 @@ kubectl apply -f kube-flannel.yml
 - etcd：配置数据及有关集群状态存放于etcd中；
 - kubelet：每个计算节点的守护进程，和控制平面交互；
 - kube-proxy：每个计算节点都有，负责集群内外部的网络通信；
-![k8s architecture](https://www.redhat.com/cms/managed-files/kubernetes_diagram-v3-770x717_0.svg)
+- CRD：k8s抽象资源中，虚拟资源对象被分为官方资源和自定义资源，对应资源由配套controller进行watch和更新操作，这个过程被称之为operator；
 - helm：helm是为了配置分离，operator是为了正对复杂应用的自动化管理，annotations中承载helm的hook机制；
+![k8s architecture](https://www.redhat.com/cms/managed-files/kubernetes_diagram-v3-770x717_0.svg)
+
 
 # 参考文档
 1. [centos单机安装k8s](https://blog.51cto.com/u_15144750/3113358)

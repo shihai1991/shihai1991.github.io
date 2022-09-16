@@ -13,7 +13,7 @@ time: '2022.09.16 11:34:00'
 `provisioning`和`iac`是什么关系呢？我个人理解前者是目标，后者是实施方案之一。
 
 # 二、[traits](https://github.com/oam-dev/spec/blob/master/6.traits.md)
-这个概念是`open application model`提出的。`traits`的目的是想通过此配置对分布式应用进行应用控制配置，示例配置：
+这个概念是`open application model`提出的。`traits`的目的是想通过此配置对分布式应用进行控制配置，示例配置：
 ```
 apiVersion: core.oam.dev/v1beta1
 kind: Application

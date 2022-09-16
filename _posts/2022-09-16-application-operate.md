@@ -75,3 +75,6 @@ traits对象定义如下所示。
     properties: {}
     additionalProperties: true
 ```
+
+# 三、参考文献
+1. [kubevela trait](https://github.com/kubevela/kubevela/tree/master/references/docgen/def-doc/trait)

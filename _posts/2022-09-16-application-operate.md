@@ -78,3 +78,5 @@ traits对象定义如下所示。
 
 # 三、参考文献
 1. [kubevela trait](https://github.com/kubevela/kubevela/tree/master/references/docgen/def-doc/trait)
+2. [kubevela ingress.cue](https://github.com/kubevela/kubevela/blob/master/vela-templates/definitions/deprecated/ingress.cue)
+3. [kubevela ingress.yaml](https://github.com/kubevela/kubevela/blob/master/charts/vela-core/templates/defwithtemplate/ingress.yaml)

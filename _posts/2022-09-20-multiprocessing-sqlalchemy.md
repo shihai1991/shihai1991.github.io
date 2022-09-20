@@ -153,7 +153,7 @@ def Process(ctx, *args, **kwds):
 ### 3.2.2 [rangeQuery](https://github.com/sqlalchemy/sqlalchemy/wiki/RangeQuery-and-WindowedRangeQuery)
 
 ## 3.2 python内存管理区优化
-上面执行进程从最初的240112KB到最后的399960KB，实际是和python内存管理机制有关。如果所有内存都需要python和OS进行内存申请和释放，这个过程是比较耗时的，因此python对内存做了管理，确保你下次申请内存时尽可能从python管理的内存池中获取（到了本人知识盲区地带，没看过python解释器对内存的管理优化，大家可以看参考文献1，有时间我在补充刷新）。
+上面执行进程从最初的240112KB到最后的399960KB，实际是和python内存管理机制有关。如果所有内存都需要python和OS进行内存申请和释放，python不做二道贩子，这个过程是比较耗时的。因此，python对内存做了管理，确保你下次申请内存时尽可能从python管理的内存池中获取（到了本人知识盲区地带，没看过python解释器对内存的管理优化，大家可以看参考文献1，有时间我在补充刷新）。
 
 
 # 五、参考文献

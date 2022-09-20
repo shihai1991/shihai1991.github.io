@@ -89,7 +89,6 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 6221 root      20   0 1328580 399960   5804 S   0.0  5.0   8:41.12 python
-
 ```
 
 在控制台上的打印输出：

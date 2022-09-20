@@ -120,7 +120,7 @@ result len:100000
 ## 2.2 问题定位
 ### 2.2.1 多线程/进程是否存在内存泄露或者应用管理不当？
 #### 2.2.2.1 线程池Threadpool
-将测试代码中的`host_list()`函数内容直接改成`paas`后在继续执行，进程的内存占用始终保持在一个量级，因此初步可以认为多线程/进程和内存升高无关联。
+将测试代码中的`host_list()`函数内容直接改成`paas`后在继续执行，进程的内存占用始终保持在一个量级，因此初步可以认为多线程/进程和内存升高无直接关联。
 ```
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 8691 root      20   0 1188260  28632   5672 S   0.0  0.4   0:00.33 python
@@ -133,31 +133,7 @@ def Process(ctx, *args, **kwds):
     # Process实际是dummy.DummyProcess，是一个线程子类
     return Process(*args, **kwds)
 ```
-
-#### 2.2.2.2 进程池Pool
-在继续看一下多进程资源池的[实现逻辑](https://github.com/shihai1991/cpython/blob/9a34d853d7ad2e2f52dcd5d7fef5773a1dc98868/Lib/multiprocessing/pool.py)，实际`Pool`对象中对任务进行处理的主要是三个函数：
-- _handle_workers：根据资源池规模创建多进程/线程并启动进程/线程，从`_inqueue`队列获取task，执行完task后放入`_outqueue`队列；
-- _handle_tasks：对`taskqueue`队列中的task进行管理（暂时没看出有啥实际作用）；
-- _handle_results：从`_outqueue`队列中获取任务并刷新`ApplyResult`结果并删除自身在pool缓存中的记录信息（`pool._cache[job]`）。  
-从上面对cpython线程/进程pool的分析看pool本身不太可能出现内存泄露，那只能再看看sqlalchemy对内存的开销管理情况。
-
-### 2.2.2 sqlalchemy对内存的开销管理有问题？
-查看了stackoverflow的一些FAQ，发现sqlalchemy作者做了[比较准确的解释](https://stackoverflow.com/questions/7389759/memory-efficient-built-in-sqlalchemy-iterator-generator)：`before the SQLAlchemy ORM even gets a hold of one result, the whole result set is in memory`。
-这个结合上面多线程/进程的执行输出就能解释这个情况了。在多进程查询过程中，实际在前期所有线程/进程都一直在和数据库建立连接和查询数据，所以数据集都存在内存中，当查询陆续完成后，内存的开销也就不断下降。
-
-# 三、解决办法
-## 3.1 数据库查询优化
-### 3.1.1 [yield_per()](https://docs.sqlalchemy.org/en/14/orm/query.html?highlight=yield_per#sqlalchemy.orm.Query.yield_per)
-当查询结果较大时，可以通过调用`yield_per()`函数来批量查询结果，这样就避免python解释器开辟较大的内存区。
-
-### 3.2.2 [rangeQuery](https://github.com/sqlalchemy/sqlalchemy/wiki/RangeQuery-and-WindowedRangeQuery)
-
-## 3.2 内存管理机制
-上面执行进程从最初的240112KB到最后的399960KB，实际这个由两部分机制构成。
-
-### 3.2.1 线程的创建和管理
-在执行完多线程/进程的执行操作后，关闭pool池（`my_pool.close()`）可以看到进程的内存占用基本和进程启用时的开销基本相同。这是因为pool池中有内置的`_worker_handler`线程，此线程对线程/进程资源池进行管理，当这个线程被终止后，相关线程/进程的[相关占用内存就会被释放](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.pool.ThreadPool)。
-修改上述问题代码的`while true`循环为如下代码：
+我们继续看一下进程内对象的引用情况，修改上述问题代码的`while true`循环为如下代码：
 ```
 while True:
     time.sleep(60)
@@ -197,7 +173,7 @@ total refcount:
 total refcount:
 454399
 ```
-将`while True`循环上方补充资源池的释放后在观察引用变量和内存占用的情况。
+将`while True`循环上方补充资源池的释放后再观察引用变量和内存占用的情况。
 ```
 my_pool.close()
 
@@ -207,6 +183,36 @@ while True:
     print('total refcount:')
     print(sys.gettotalrefcount())
 ```
+实际最终的对象引用计数量维持在：
+```
+```
+进程的内存最终占用情况：
+```
+```
+
+#### 2.2.2.2 进程池Pool
+在继续看一下多进程资源池的[实现逻辑](https://github.com/shihai1991/cpython/blob/9a34d853d7ad2e2f52dcd5d7fef5773a1dc98868/Lib/multiprocessing/pool.py)，实际`Pool`对象中对任务进行处理的主要是三个函数：
+- _handle_workers：根据资源池规模创建多进程/线程并启动进程/线程，从`_inqueue`队列获取task，执行完task后放入`_outqueue`队列；
+- _handle_tasks：对`taskqueue`队列中的task进行管理（暂时没看出有啥实际作用）；
+- _handle_results：从`_outqueue`队列中获取任务并刷新`ApplyResult`结果并删除自身在pool缓存中的记录信息（`pool._cache[job]`）。  
+从上面对cpython线程/进程pool的分析看pool本身不太可能出现内存泄露，那只能再看看sqlalchemy对内存的开销管理情况。
+
+### 2.2.2 sqlalchemy对内存的开销管理有问题？
+查看了stackoverflow的一些FAQ，发现sqlalchemy作者做了[比较准确的解释](https://stackoverflow.com/questions/7389759/memory-efficient-built-in-sqlalchemy-iterator-generator)：`before the SQLAlchemy ORM even gets a hold of one result, the whole result set is in memory`。
+这个结合上面多线程/进程的执行输出就能解释这个情况了。在多进程查询过程中，实际在前期所有线程/进程都一直在和数据库建立连接和查询数据，所以数据集都存在内存中，当查询陆续完成后，内存的开销也就不断下降。
+
+# 三、解决办法
+## 3.1 数据库查询优化
+### 3.1.1 [yield_per()](https://docs.sqlalchemy.org/en/14/orm/query.html?highlight=yield_per#sqlalchemy.orm.Query.yield_per)
+当查询结果较大时，可以通过调用`yield_per()`函数来批量查询结果，这样就避免python解释器开辟较大的内存区。
+
+### 3.2.2 [rangeQuery](https://github.com/sqlalchemy/sqlalchemy/wiki/RangeQuery-and-WindowedRangeQuery)
+
+## 3.2 内存管理机制
+上面执行进程从最初的240112KB到最后的399960KB，实际这个由两部分机制构成。
+
+### 3.2.1 线程的创建和管理
+在执行完多线程/进程的执行操作后，关闭pool池（`my_pool.close()`）可以看到进程的内存占用基本和进程启用时的开销基本相同。这是因为pool池中有内置的`_worker_handler`线程，此线程对线程/进程资源池进行管理，当这个线程被终止后，相关线程/进程的[相关占用内存就会被释放](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.pool.ThreadPool)。
 
 ### 3.2.2 python内存管理机制
 如果所有内存都需要python和OS进行内存申请和释放，python不做二道贩子，这个过程是比较耗时的。因此，python对内存做了管理，确保你下次申请内存时尽可能从python管理的内存池中获取（到了本人知识盲区地带，没看过python解释器对内存的管理，大家可以先看参考文献1，有时间我在补充刷新）。

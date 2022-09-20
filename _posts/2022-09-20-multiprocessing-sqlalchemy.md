@@ -132,7 +132,7 @@ def Process(ctx, *args, **kwds):
     # Process实际是dummy.DummyProcess，是一个线程子类
     return Process(*args, **kwds)
 ```
-我们继续看一下进程内对象的引用情况，修改上述问题代码的`while true`循环为如下代码：
+我们继续看一下进程内对象的引用情况，修改上述问题代码的`while True`循环为如下代码：
 ```
 while True:
     time.sleep(60)

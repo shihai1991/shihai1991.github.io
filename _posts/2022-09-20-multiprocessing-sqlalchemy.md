@@ -185,9 +185,13 @@ while True:
 ```
 实际最终的对象引用计数量维持在：
 ```
+total refcount:
+453631
 ```
 进程的内存最终占用情况：
 ```
+PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+15658 root      20   0 1308252 257684   5804 S   0.0  3.2  12:55.51 python
 ```
 
 #### 2.2.2.2 进程池Pool

@@ -33,6 +33,7 @@ Session = sessionmaker(engine)
 my_pool = Pool(20)
 Base = declarative_base()
 
+
 # 数据库只是示例，可以选择任意自己的数据库表，出现内存快速上升现象的数据库表数据建议超10K+
 class UserModel(Base):
     __tablename__ = 'users'

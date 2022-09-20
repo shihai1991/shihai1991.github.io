@@ -70,7 +70,7 @@ while True:
     time.sleep(1)
 ```
 
-持续观测到的进程内存消耗情况如下所示：
+持续观测到的进程内存消耗(`top -p 进程ID`)情况如下所示：
 ```
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 6221 root      20   0 1400680 240112   5780 S 180.0  3.0   0:26.16 python
@@ -197,6 +197,17 @@ total refcount:
 total refcount:
 454399
 ```
+将`while True`循环上方补充资源池的释放后在观察引用变量和内存占用的情况。
+```
+my_pool.close()
+
+
+while True:
+    time.sleep(60)
+    print('total refcount:')
+    print(sys.gettotalrefcount())
+```
+
 ### 3.2.2 python内存管理机制
 如果所有内存都需要python和OS进行内存申请和释放，python不做二道贩子，这个过程是比较耗时的。因此，python对内存做了管理，确保你下次申请内存时尽可能从python管理的内存池中获取（到了本人知识盲区地带，没看过python解释器对内存的管理，大家可以先看参考文献1，有时间我在补充刷新）。
 ```

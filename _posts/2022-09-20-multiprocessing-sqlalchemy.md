@@ -127,8 +127,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 在继续看一下多进程资源池的[实现逻辑](https://github.com/shihai1991/cpython/blob/9a34d853d7ad2e2f52dcd5d7fef5773a1dc98868/Lib/multiprocessing/pool.py)，实际`Pool`对象中对任务进行处理的主要是三个函数：
 - _handle_workers：根据资源池规模创建多进程并启动进程，从`_inqueue`队列获取task，执行完task后放入`_outqueue`队列；
 - _handle_tasks：对`taskqueue`队列中的task进行管理（暂时没看出有啥实际作用）；
-- _handle_results：从`_outqueue`队列中获取任务并刷新`ApplyResult`结果并删除自身在pool缓存中的记录信息（`pool._cache[job]`）。
-
+- _handle_results：从`_outqueue`队列中获取任务并刷新`ApplyResult`结果并删除自身在pool缓存中的记录信息（`pool._cache[job]`）。  
 从上面对cpython进程pool的分析看pool本身不太可能出现内存泄露，那只能再看看sqlalchemy对内存的开销管理情况。
 
 ### 2.2.2 sqlalchemy对内存的开销管理有问题？

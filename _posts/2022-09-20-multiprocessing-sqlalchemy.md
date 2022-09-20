@@ -26,6 +26,7 @@ from sqlalchemy import String
 from sqlalchemy import Text
 from sqlalchemy.orm import sessionmaker
 
+
 # 数据库请填写自己的数据库地址
 engine = create_engine('mysql+pymysql://name:pwd@ip:port/db')
 Session = sessionmaker(engine)

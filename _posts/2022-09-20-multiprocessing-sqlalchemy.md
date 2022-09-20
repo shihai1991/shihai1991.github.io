@@ -9,6 +9,62 @@ tags:
 time: '2022.09.18 09:07:00'
 ---
 # 一、问题背景
+服务组件中有多进程对数据库进行数据拉取和消费活动，但是当数据表超过10K+以上，会发现多进程通过`sqlalchemy`连接时存在内容占用持续走高的情况。
 
 # 二、问题分析
+## 2.1 触发问题代码
+```python
+import os
+import time
+from multiprocessing.dummy import Pool
+
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
+from sqlalchemy import Column
+from sqlalchemy import Integer
+from sqlalchemy import String
+from sqlalchemy import Text
+from sqlalchemy.orm import sessionmaker
+
+# 数据库请填写自己的数据库地址
+engine = create_engine('mysql+pymysql://name:pwd@ip:port/db')
+Session = sessionmaker(engine)
+my_pool = Pool(20)
+Base = declarative_base()
+
+# 数据库只是示例，可以选择任意自己的数据库表，出现内存快速上升现象的数据库表数据建议超10K+
+class UserModel(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(255), nullable=False)
+    sex = Column(String(255), nullable=False)
+    address = Column(Text(), nullable=False)
+    age = Column(Integer())
+    @property
+    def json(self):
+        ret = {c.name: getattr(self, c.name) for c in self.__table__.columns}
+        return ret
+
+
+def host_list():
+    session = Session()
+    print('listing host')
+    result = session.query(UserModel).all()
+    print(f'result len:{len(result)}')
+    session.close()
+    return result
+
+
+def handle():
+   my_pool.apply_async(host_list)
+
+
+for _ in range(10):
+    handle()
+
+
+while True:
+    time.sleep(1)
+```
+
 # 参考文献

@@ -157,10 +157,48 @@ def Process(ctx, *args, **kwds):
 
 ### 3.2.1 线程的创建和管理
 在执行完多线程/进程的执行操作后，关闭pool池（`my_pool.close()`）可以看到进程的内存占用基本和进程启用时的开销基本相同。这是因为pool池中有内置的`_worker_handler`线程，此线程对线程/进程资源池进行管理，当这个线程被终止后，相关线程/进程的[相关占用内存就会被释放](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.pool.ThreadPool)。
-
+修改上述问题代码的`while true`循环为如下代码：
+```
+while True:
+    time.sleep(60)
+    print('total refcount:')
+    print(sys.gettotalrefcount())
+```
+引用的变化输出如下所示：
+```
+total refcount:
+10429036
+total refcount:
+15372972
+total refcount:
+19218565
+total refcount:
+22458626
+total refcount:
+25416535
+total refcount:
+27980717
+total refcount:
+30422506
+total refcount:
+32689586
+total refcount:
+34729922
+total refcount:
+36716708
+total refcount:
+38643502
+total refcount:
+35599123
+total refcount:
+454399
+total refcount:
+454399
+total refcount:
+454399
+```
 ### 3.2.2 python内存管理机制
 如果所有内存都需要python和OS进行内存申请和释放，python不做二道贩子，这个过程是比较耗时的。因此，python对内存做了管理，确保你下次申请内存时尽可能从python管理的内存池中获取（到了本人知识盲区地带，没看过python解释器对内存的管理，大家可以先看参考文献1，有时间我在补充刷新）。
-
 ```
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 14446 root      25   5 1311320 253168   5800 S   0.0  3.2  13:12.79 python

@@ -134,9 +134,13 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 查看了stackoverflow的一些FAQ，发现sqlalchemy作者做了[比较准确的解释](https://stackoverflow.com/questions/7389759/memory-efficient-built-in-sqlalchemy-iterator-generator)：`before the SQLAlchemy ORM even gets a hold of one result, the whole result set is in memory`。
 这个结合上面多进程的执行输出就能解释这个情况了。在多进程查询过程中，实际在前期所有进程都一直在和数据库建立连接和查询数据，所以数据集都存在内存中，当查询陆续完成后，内存的开销也就不断下降。
 
-# 三、遗留问题
+# 三、解决办法
+## 3.1 [yield_per()](https://docs.sqlalchemy.org/en/14/orm/query.html?highlight=yield_per#sqlalchemy.orm.Query.yield_per)
+当查询结果较大时，可以通过调用`yield_per()`函数来批量查询结果，这样就避免python解释器开辟较大的内存区。
+
+# 四、遗留问题
 1. 进程内存占用在查询后未恢复为原先的内存占用规模？
 上面的测试代码，内存占用初始的240112Kb到最后的399960Kb，这个可能和area区pool资源管理有关，待分析。
 
-# 四、参考文献
+# 五、参考文献
 paas

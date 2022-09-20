@@ -225,8 +225,6 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 ### 3.2.3 线程/进程的创建及管理
 线程和进程的创建本身调用了系统的接口，线程/进程本身有自己持有的内存开销，相关线程/进程的[相关占用内存就会被释放](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.pool.ThreadPool)。
 
-
-
 # 五、参考文献
 1.[Memory Management in Python](https://www.honeybadger.io/blog/memory-management-in-python/)  
 2.[Releasing memory in Python](https://stackoverflow.com/questions/15455048/releasing-memory-in-python)  

@@ -217,17 +217,16 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 上面执行进程从最初的240112KB到最后的399960KB，实际这个由三部分机制构成。
 
 ### 3.2.1 gc机制
+资源池未关闭导致相关查询引用计数持续存在未进行有效内存回收。
 
-### 3.2.2 线程/进程的创建和管理
+### 3.2.2 python内存管理机制
+如果所有内存都需要python和OS进行内存申请和释放，python不做二道贩子，这个过程是比较耗时的。因此，python对内存做了管理，不会每次都直接销毁，确保你下次申请内存时尽可能从python管理的内存池中获取（到了本人知识盲区地带，没看过python解释器对内存的管理，大家可以先看参考文献1，有时间我在补充刷新）。
+
+### 3.2.3 线程/进程的创建及管理
 线程和进程的创建本身调用了系统的接口，线程/进程本身有自己持有的内存开销，相关线程/进程的[相关占用内存就会被释放](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.pool.ThreadPool)。
 
-### 3.2.3 python内存管理机制
-如果所有内存都需要python和OS进行内存申请和释放，python不做二道贩子，这个过程是比较耗时的。因此，python对内存做了管理，确保你下次申请内存时尽可能从python管理的内存池中获取（到了本人知识盲区地带，没看过python解释器对内存的管理，大家可以先看参考文献1，有时间我在补充刷新）。
-```
-PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
-14446 root      25   5 1311320 253168   5800 S   0.0  3.2  13:12.79 python
 
-```
+
 # 五、参考文献
 1.[Memory Management in Python](https://www.honeybadger.io/blog/memory-management-in-python/)  
 2.[Releasing memory in Python](https://stackoverflow.com/questions/15455048/releasing-memory-in-python)  

@@ -31,7 +31,7 @@ from sqlalchemy.orm import sessionmaker
 # 数据库请填写自己的数据库地址
 engine = create_engine('mysql+pymysql://name:pwd@ip:port/db')
 Session = sessionmaker(engine)
-my_pool = Pool(20)
+my_pool = Pool(10)
 Base = declarative_base()
 
 

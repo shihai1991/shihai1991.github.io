@@ -157,4 +157,4 @@ def Process(ctx, *args, **kwds):
 上面的测试代码，内存占用初始的240112Kb到最后的399960Kb，这个可能和area区pool资源管理有关，待分析。
 
 # 五、参考文献
-paas
+1.[Memory Management in Python](https://www.honeybadger.io/blog/memory-management-in-python/)

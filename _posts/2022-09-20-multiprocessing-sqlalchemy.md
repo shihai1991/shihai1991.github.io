@@ -142,35 +142,21 @@ while True:
 引用的变化输出如下所示：
 ```
 total refcount:
-10429036
+14121337
 total refcount:
-15372972
+25266164
 total refcount:
-19218565
+31223932
 total refcount:
-22458626
+32043789
 total refcount:
-25416535
+29213107
 total refcount:
-27980717
+27321546
 total refcount:
-30422506
+20589612
 total refcount:
-32689586
-total refcount:
-34729922
-total refcount:
-36716708
-total refcount:
-38643502
-total refcount:
-35599123
-total refcount:
-454399
-total refcount:
-454399
-total refcount:
-454399
+453416
 ```
 将`while True`循环上方补充资源池的释放后再观察引用变量和内存占用的情况。
 ```

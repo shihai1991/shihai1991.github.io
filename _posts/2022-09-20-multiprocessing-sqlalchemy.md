@@ -152,10 +152,11 @@ def Process(ctx, *args, **kwds):
 
 ### 3.2.2 [rangeQuery](https://github.com/sqlalchemy/sqlalchemy/wiki/RangeQuery-and-WindowedRangeQuery)
 
-# 四、遗留问题
-1. 进程内存占用在查询后未恢复为原先的内存占用规模？
-上面的测试代码，内存占用初始的240112Kb到最后的399960Kb，这个可能和area区pool资源管理有关，待分析。
+## 3.2 python内存管理区优化
+上面执行进程从最初的240112KB到最后的399960KB，实际是和python内存管理机制有关。如果所有内存都需要python和OS进行内存申请和释放，这个过程是比较耗时的，因此python对内存做了管理，确保你下次申请内存时尽可能从python管理的内存池中获取（本人知识盲区地带，没看过python解释器对这块的管理活动，大家可以看参考文献1，有时间我在刷新）。
+
 
 # 五、参考文献
 1.[Memory Management in Python](https://www.honeybadger.io/blog/memory-management-in-python/)  
-2.[Releasing memory in Python](https://stackoverflow.com/questions/15455048/releasing-memory-in-python)
+2.[Releasing memory in Python](https://stackoverflow.com/questions/15455048/releasing-memory-in-python)  
+3.[Multiprocessing -- Thread Pool Memory Leak?](https://stackoverflow.com/questions/51272951/multiprocessing-thread-pool-memory-leak)

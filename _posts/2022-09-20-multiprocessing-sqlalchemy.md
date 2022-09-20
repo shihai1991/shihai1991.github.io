@@ -183,12 +183,12 @@ while True:
     print('total refcount:')
     print(sys.gettotalrefcount())
 ```
-实际最终的对象引用计数量维持在：
+实际最终的对象引用计数总量比不释放资源池略低。
 ```
 total refcount:
 453631
 ```
-进程的内存最终占用情况：
+进程的内存最终占用情况比初始值比略高，但低于资源池未释放的进程最终内存占用（初始内存开销：160536KB，释放资源池后最终内存开销：257684KB，不释放资源池最终内存开销：399960KB）
 ```
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 15658 root      20   0 1308252 257684   5804 S   0.0  3.2  12:55.51 python

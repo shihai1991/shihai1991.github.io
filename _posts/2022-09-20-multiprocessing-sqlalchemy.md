@@ -146,6 +146,7 @@ def Process(ctx, *args, **kwds):
 这个结合上面多进程的执行输出就能解释这个情况了。在多进程查询过程中，实际在前期所有进程都一直在和数据库建立连接和查询数据，所以数据集都存在内存中，当查询陆续完成后，内存的开销也就不断下降。
 
 # 三、解决办法
+## 数据库大结果集
 ## 3.1 [yield_per()](https://docs.sqlalchemy.org/en/14/orm/query.html?highlight=yield_per#sqlalchemy.orm.Query.yield_per)
 当查询结果较大时，可以通过调用`yield_per()`函数来批量查询结果，这样就避免python解释器开辟较大的内存区。
 

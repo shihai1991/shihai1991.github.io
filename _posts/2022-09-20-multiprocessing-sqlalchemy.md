@@ -125,7 +125,7 @@ result len:100000
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 8691 root      20   0 1188260  28632   5672 S   0.0  0.4   0:00.33 python
 ```
-`Threadpool`继承自`Pool`，主要逻辑和`Pool`一致是`Process()`静态函数的覆写。
+`Threadpool`继承自`Pool`，和`Pool`有区别的是`Process()`静态函数被覆写。
 ```
 @staticmethod
 def Process(ctx, *args, **kwds):

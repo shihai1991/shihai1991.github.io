@@ -11,7 +11,7 @@ time: '2022.09.18 09:07:00'
 # 一、问题背景
 服务组件中有多进程对数据库进行数据拉取和消费活动，但是当数据表超过10K+以上，会发现多进程通过`sqlalchemy`连接时存在内存占用持续走高并导致服务组件异常。
 
-# 二、问题分析
+# 二、问题分析及定位
 ## 2.1 问题触发代码和执行
 能触发多进程调用sqlalchemy内存占用持续走高的代码如下所示，数据库表可以连接自己的数据库服务，为了更好观测内存占比走高的情况，表内数据建议超过10K+。
 ```python
@@ -85,14 +85,44 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 6221 root      20   0 2246808 1.178g   5780 S 101.0 15.4   4:07.04 python
 
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
-6221 root      20   0 2245240 1.206g   5780 S 101.0 15.8   4:55.70 python
+6221 root      20   0 2245240 1.254g   5780 S 101.0 16.4   5:38.18 python
 
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
-6221 root      20   0 2245240 1.254g   5780 S 101.0 16.4   5:38.18 python
+6221 root      20   0 1328580 399960   5804 S   0.0  5.0   8:41.12 python
+
 ```
 
 在控制台上的打印输出：
 ```
-
+$ python leak.py
+listing host
+listing host
+listing host
+listing host
+listing host
+listing host
+listing host
+listing host
+listing host
+listing host
+result len:100000
+result len:100000
+result len:100000
+result len:100000
+result len:100000
+result len:100000
+result len:100000
+result len:100000
+result len:100000
+result len:100000
 ```
+
+## 2.2 问题定位
+### 2.2.1 多进程是否存在内存泄露或者应用管理不当？
+将测试代码中的`host_list()`函数内容直接改成`paas`后在继续执行，进程的内存占用始终保持在一个量级，因此初步可以考虑多进程和内存升高无关联。
+```
+PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+8691 root      20   0 1188260  28632   5672 S   0.0  0.4   0:00.33 python
+```
+
 # 参考文献

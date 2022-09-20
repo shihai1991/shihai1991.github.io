@@ -138,6 +138,8 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 ## 3.1 [yield_per()](https://docs.sqlalchemy.org/en/14/orm/query.html?highlight=yield_per#sqlalchemy.orm.Query.yield_per)
 当查询结果较大时，可以通过调用`yield_per()`函数来批量查询结果，这样就避免python解释器开辟较大的内存区。
 
+## 3.2 [rangeQuery](https://github.com/sqlalchemy/sqlalchemy/wiki/RangeQuery-and-WindowedRangeQuery)
+
 # 四、遗留问题
 1. 进程内存占用在查询后未恢复为原先的内存占用规模？
 上面的测试代码，内存占用初始的240112Kb到最后的399960Kb，这个可能和area区pool资源管理有关，待分析。

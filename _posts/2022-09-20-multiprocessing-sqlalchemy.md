@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 多进程调用sqlalchemy内存占用高
+title: 多线程/进程调用sqlalchemy内存占用高
 category: cpython
 catalog: true
 published: true
@@ -9,11 +9,11 @@ tags:
 time: '2022.09.18 09:07:00'
 ---
 # 一、问题背景
-服务组件中有多进程对数据库进行数据拉取和消费活动，但是当数据表超过10K+以上，会发现多进程通过`sqlalchemy`连接时存在内存占用持续走高并导致服务组件异常。
+服务组件中有多线程/进程对数据库进行数据拉取和消费活动，但是当数据表超过10K+以上，会发现多进程通过`sqlalchemy`连接时存在内存占用持续走高并导致服务组件异常。
 
 # 二、问题分析及定位
 ## 2.1 问题触发代码和执行
-能触发多进程调用sqlalchemy内存占用持续走高的代码如下所示，数据库表可以连接自己的数据库服务，为了更好观测内存占比走高的情况，表内数据建议超过10K+。
+能触发多线程/进程调用sqlalchemy内存占用持续走高的代码如下所示，数据库表可以连接自己的数据库服务，为了更好观测内存占比走高的情况，表内数据建议超过10K+。
 ```python
 import os
 import time
@@ -118,7 +118,8 @@ result len:100000
 ```
 
 ## 2.2 问题定位
-### 2.2.1 多进程是否存在内存泄露或者应用管理不当？
+### 2.2.1 多线程/进程是否存在内存泄露或者应用管理不当？
+#### 2.2.2.1 进程池Pool
 将测试代码中的`host_list()`函数内容直接改成`paas`后在继续执行，进程的内存占用始终保持在一个量级，因此初步可以考虑多进程和内存升高无关联。
 ```
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
@@ -129,6 +130,16 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 - _handle_tasks：对`taskqueue`队列中的task进行管理（暂时没看出有啥实际作用）；
 - _handle_results：从`_outqueue`队列中获取任务并刷新`ApplyResult`结果并删除自身在pool缓存中的记录信息（`pool._cache[job]`）。  
 从上面对cpython进程pool的分析看pool本身不太可能出现内存泄露，那只能再看看sqlalchemy对内存的开销管理情况。
+
+#### 2.2.2.2 线程池Threadpool
+`Threadpool`继承自`Pool`，主要逻辑和`Pool`一致是`Process()`静态函数的覆写。
+```
+@staticmethod
+def Process(ctx, *args, **kwds):
+    from .dummy import Process
+    # Process实际是dummy.DummyProcess，是一个线程子类
+    return Process(*args, **kwds)
+```
 
 ### 2.2.2 sqlalchemy对内存的开销管理有问题？
 查看了stackoverflow的一些FAQ，发现sqlalchemy作者做了[比较准确的解释](https://stackoverflow.com/questions/7389759/memory-efficient-built-in-sqlalchemy-iterator-generator)：`before the SQLAlchemy ORM even gets a hold of one result, the whole result set is in memory`。

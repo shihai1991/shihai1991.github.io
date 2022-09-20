@@ -143,7 +143,7 @@ def Process(ctx, *args, **kwds):
 
 ### 2.2.2 sqlalchemy对内存的开销管理有问题？
 查看了stackoverflow的一些FAQ，发现sqlalchemy作者做了[比较准确的解释](https://stackoverflow.com/questions/7389759/memory-efficient-built-in-sqlalchemy-iterator-generator)：`before the SQLAlchemy ORM even gets a hold of one result, the whole result set is in memory`。
-这个结合上面多线程/进程的执行输出就能解释这个情况了。在多进程查询过程中，实际在前期所有进程都一直在和数据库建立连接和查询数据，所以数据集都存在内存中，当查询陆续完成后，内存的开销也就不断下降。
+这个结合上面多线程/进程的执行输出就能解释这个情况了。在多进程查询过程中，实际在前期所有线程/进程都一直在和数据库建立连接和查询数据，所以数据集都存在内存中，当查询陆续完成后，内存的开销也就不断下降。
 
 # 三、解决办法
 ## 3.1 数据库查询优化

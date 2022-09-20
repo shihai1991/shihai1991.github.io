@@ -183,12 +183,12 @@ while True:
     print('total refcount:')
     print(sys.gettotalrefcount())
 ```
-实际最终的进程内对象引用计数总量比不释放资源池（引用总数共454399）略低。
+实际最终的进程内对象引用计数总量比不释放资源池（引用总数共454399）低768。
 ```
 total refcount:
 453631
 ```
-将`host_list()`函数的返回体改为`paas`后的到进程内的对象应用计数：
+将`host_list()`函数的返回体改为`paas`后的进程内对象引用计数和资源池释放（引用计数总共453631）低7821。
 ```
 total refcount:
 445810

@@ -69,6 +69,7 @@ for _ in range(10):
 while True:
     time.sleep(1)
 ```
+
 持续观测到的进程内存消耗情况如下所示：
 ```
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
@@ -89,6 +90,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 6221 root      20   0 2245240 1.254g   5780 S 101.0 16.4   5:38.18 python
 ```
+
 在控制台上的打印输出：
 ```
 

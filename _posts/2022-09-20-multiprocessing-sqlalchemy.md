@@ -155,7 +155,7 @@ def Process(ctx, *args, **kwds):
 ## 3.2 内存管理机制
 上面执行进程从最初的240112KB到最后的399960KB，实际这个由两部分机制构成：
 ### 3.2.1 线程的创建和管理
-在执行完多线程/进程的执行操作后，关闭pool池（`my_pool.close()`）可以看到进程的内存占用基本和进程启用时的开销相同。这是因为pool池中有内置的操作线程（`_worker_handler`），当这个线程被终止后，属于此线程的[相关内存开销就会被释放](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.pool.ThreadPool)。
+在执行完多线程/进程的执行操作后，关闭pool池（`my_pool.close()`）可以看到进程的内存占用基本和进程启用时的开销基本相同。这是因为pool池中有内置的操作线程（`_worker_handler`）及内部管理的线程/进程资源，当这个线程被终止后，相关线程/进程的[相关占用内存就会被释放](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.pool.ThreadPool)。
 
 ### 3.2.2 python内存管理机制
 如果所有内存都需要python和OS进行内存申请和释放，python不做二道贩子，这个过程是比较耗时的。因此，python对内存做了管理，确保你下次申请内存时尽可能从python管理的内存池中获取（到了本人知识盲区地带，没看过python解释器对内存的管理，大家可以看参考文献1，有时间我在补充刷新）。

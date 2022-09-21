@@ -69,7 +69,7 @@ for _ in range(10):
 while True:
     time.sleep(1)
 ```
-python的三方依赖件清单，使用的python版本为3.10
+python的三方依赖件清单，使用的python版本为3.10。
 ```
 Package    Version
 ---------- -------

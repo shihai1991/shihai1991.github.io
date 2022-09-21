@@ -174,7 +174,6 @@ total refcount:
 ```
 my_pool.close()
 
-
 while True:
     time.sleep(60)
     print('total refcount:')

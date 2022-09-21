@@ -226,7 +226,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 将`pymalloc`内存分配器关闭后（通过环境变量来控制 `export PYTHONMALLOC=malloc`）在执行初始测试代码发现最终实际进程内存占用量高了数倍。
 ```
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
-5609 root      20   0 3015228 2.122g   5804 S   0.0 27.8   7:02.09 python
+16342 root      20   0 3088992 2.150g   5776 S   0.0 28.2   7:33.13 python
 ```
 
 ### 3.2.3 线程/进程的创建及管理

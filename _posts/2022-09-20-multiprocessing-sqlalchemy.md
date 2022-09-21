@@ -69,6 +69,18 @@ for _ in range(10):
 while True:
     time.sleep(1)
 ```
+python的三方依赖件清单，使用的python版本为3.10
+```
+Package    Version
+---------- -------
+greenlet   1.1.3
+pip        20.2.3
+psycopg2   2.9.3
+PyMySQL    1.0.2
+setuptools 47.1.0
+SQLAlchemy 1.3.24
+
+```
 
 持续观测到的进程内存消耗(`top -p 进程ID`)情况如下所示：
 ```

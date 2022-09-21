@@ -223,7 +223,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 
 ### 3.2.2 python内存管理机制
 如果所有内存都需要python和OS进行内存申请和释放，这个过程是比较耗时的。因此python对内存管理做了优化，调用`[pymalloc](https://docs.python.org/3/c-api/memory.html#pymalloc)`时就会调用arena区和pool池对小于512bytes的小对象内存使用进行了优化，确保能从arena区中申请小对象内存（到了本人知识盲区地带，没太正儿八经对python解释器对内存的管理，大家可以先看参考文献1，有时间我再补充刷新）。
-将`pymalloc`开关关闭后（使用`PYTHONMALLOC=malloc`）在执行测试代码发现最终实际进程内存占用量高了数倍。
+将`pymalloc`开关关闭后（通过环境变量来控制 `export PYTHONMALLOC=malloc`）在执行测试代码发现最终实际进程内存占用量高了数倍。
 ```
 total refcount:
 452532

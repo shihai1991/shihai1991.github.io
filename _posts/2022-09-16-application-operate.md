@@ -14,7 +14,7 @@ time: '2022.09.16 11:34:00'
 
 # 二、traits
 ## 2.2 [oam中的traits](https://github.com/oam-dev/spec/blob/master/6.traits.md)
-这个概念是`open application model`提出的。`traits`的目的是想通过此配置对分布式应用进行控制配置，示例配置：
+`open application model`中给出定义，`traits`的目的是想通过此配置对分布式应用进行控制配置，示例配置：
 ```
 apiVersion: core.oam.dev/v1beta1
 kind: Application

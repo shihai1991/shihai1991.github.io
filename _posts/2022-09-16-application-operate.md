@@ -77,6 +77,7 @@ traits对象定义如下所示。
 ```
 
 ## 2.1 [os-traits](https://github.com/openstack/os-traits/blob/master/os_traits/compute/arch.py)
+openstack也有对traits的类似定义，实际对[openstack trait描述](https://specs.openstack.org/openstack/nova-specs/specs/pike/implemented/resource-provider-traits.html)和OAM中的trait中的定义极其相似，是对云资源属性特征的提炼和应用。
 
 # 三、参考文献
 1. [kubevela trait](https://github.com/kubevela/kubevela/tree/master/references/docgen/def-doc/trait)

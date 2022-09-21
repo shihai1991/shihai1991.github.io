@@ -12,7 +12,8 @@ time: '2022.09.16 11:34:00'
 `provisioning`是设置IT基础设施的过程。`provisioning`和配置不是一个事情，但是他们都是`deployment`过程中的步骤。有多种类别的`provisioning`：`server provisioning`,`network provisioning`,`user provisioning`,`service provisioning`。  
 `provisioning`和`iac`是什么关系呢？我个人理解前者是目标，后者是实施方案之一。
 
-# 二、[traits](https://github.com/oam-dev/spec/blob/master/6.traits.md)
+# 二、traits
+## 2.2 [oam中的traits](https://github.com/oam-dev/spec/blob/master/6.traits.md)
 这个概念是`open application model`提出的。`traits`的目的是想通过此配置对分布式应用进行控制配置，示例配置：
 ```
 apiVersion: core.oam.dev/v1beta1
@@ -76,7 +77,7 @@ traits对象定义如下所示。
     additionalProperties: true
 ```
 
-## 2.1 [os-traits](https://github.com/openstack/os-traits/blob/master/os_traits/compute/arch.py)
+## 2.2 [os-traits](https://github.com/openstack/os-traits/blob/master/os_traits/compute/arch.py)
 openstack对traits也有类似定义，实际对[openstack trait描述](https://specs.openstack.org/openstack/nova-specs/specs/pike/implemented/resource-provider-traits.html)和OAM中的trait中的定义极其相似，是对云资源属性特征的提炼和应用。
 
 # 三、参考文献

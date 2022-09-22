@@ -195,14 +195,14 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 30213 root      20   0 1293916 328144   5804 S   0.0  4.1   8:30.66 python
 ```
 从这个比对测试可以得出一个观测结论：**进程池资源释放能降低引用计数和内存占用，但最终的内存开销比初始进程内存占用大。**
-在进行一个主线程做数据库查询(`host_list()`)的内存占用观测和线程池规模为一的数据库查询(`host_list()`)做比对分析。
+在进行一个主线程做数据库查询(`host_list()`)的内存占用观测和线程池规模为一的数据库查询(`host_list()`)做比对分析，发现实际进程占用的`RES`内存规模和使用线程池关联度不大。
 ```
 # 主线程内做host_list查询
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 708 root      20   0  407960 214716   5644 S   0.0  2.7   0:13.27 python
 # 线程池规模为1的host_list查询
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
-1174 root      20   0  407956 214712   5640 S   0.0  2.7   0:13.07 python
+3406 root      20   0  656032 215800   5780 S   0.0  2.7   0:13.15 python
 ```
 #### 2.2.2.2 进程池Pool
 在继续看一下多进程资源池的[实现逻辑](https://github.com/shihai1991/cpython/blob/9a34d853d7ad2e2f52dcd5d7fef5773a1dc98868/Lib/multiprocessing/pool.py)，实际`Pool`对象中对任务进行处理的主要是三个函数：

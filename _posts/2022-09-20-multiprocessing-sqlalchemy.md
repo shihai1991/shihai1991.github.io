@@ -195,7 +195,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 30213 root      20   0 1293916 328144   5804 S   0.0  4.1   8:30.66 python
 ```
 从这个比对测试可以得出一个观测结论：**进程池资源释放能降低引用计数和内存占用，但最终的内存开销比初始进程内存占用大。**
-在进行一个主线程做数据库查询(`host_list()`)的内存占用观测和线程池规模为一的数据库查询(`host_list()`)做比对分析，发现实际进程占用的`RES`内存规模和使用线程池关联度不大。
+在进行一个主线程做数据库查询(`host_list()`)的内存占用观测和线程池规模为一的数据库查询(`host_list()`)做比对分析，发现实际进程占用的`RES`内存规模和使用线程池时的内存开销关联不大。
 ```
 # 主线程内做host_list查询
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
@@ -222,7 +222,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 
 ### 3.2.2 [rangeQuery](https://github.com/sqlalchemy/sqlalchemy/wiki/RangeQuery-and-WindowedRangeQuery)
 
-## 3.2 Python内存管理
+## 3.2 内存管理机制
 上面执行进程从最初的240112KB到最后的399960KB，实际从测试结果看应该由三部分机制构成。
 
 ### 3.2.1 gc机制

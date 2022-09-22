@@ -227,6 +227,9 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 
 ### 3.2.2 [rangeQuery](https://github.com/sqlalchemy/sqlalchemy/wiki/RangeQuery-and-WindowedRangeQuery)
 
+### 3.2.3 sqlalchemy内存泄漏（待确定）
+一个10K+查询操作，进程内存占用从30MB提升到180MB+，不太可能全都是因为python内存管理机制导致，[sqlalchemy是否有内存泄漏，继续移步至社区开展讨论。](https://github.com/sqlalchemy/sqlalchemy/discussions/8542)
+
 ## 3.2 内存管理机制探究
 上面执行进程从最初的240112KB到最后的399960KB，实际从测试结果看应该由三部分机制构成。
 

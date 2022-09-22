@@ -250,4 +250,4 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 2.[Releasing memory in Python](https://stackoverflow.com/questions/15455048/releasing-memory-in-python)  
 3.[Multiprocessing -- Thread Pool Memory Leak?](https://stackoverflow.com/questions/51272951/multiprocessing-thread-pool-memory-leak)  
 4.[pmap high memory usage by python script](https://stackoverflow.com/questions/29348245/pmap-high-memory-usage-by-python-script)
-5. [https://github.com/sqlalchemy/sqlalchemy/issues/4616](https://github.com/sqlalchemy/sqlalchemy/issues/4616)
+5.[https://github.com/sqlalchemy/sqlalchemy/issues/4616](https://github.com/sqlalchemy/sqlalchemy/issues/4616)

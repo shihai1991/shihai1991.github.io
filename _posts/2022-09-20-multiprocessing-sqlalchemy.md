@@ -204,6 +204,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 3406 root      20   0  656032 215800   5780 S   0.0  2.7   0:13.15 python
 ```
+
 #### 2.2.2.2 进程池Pool
 在继续看一下多进程资源池的[实现逻辑](https://github.com/shihai1991/cpython/blob/9a34d853d7ad2e2f52dcd5d7fef5773a1dc98868/Lib/multiprocessing/pool.py)，实际`Pool`对象中对任务进行处理的主要是三个函数：
 - _handle_workers：根据资源池规模创建多进程/线程并启动进程/线程，从`_inqueue`队列获取task，执行完task后放入`_outqueue`队列；

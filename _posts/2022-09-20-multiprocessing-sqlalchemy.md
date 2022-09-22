@@ -232,6 +232,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 
 ### 3.2.1 Python GC机制
 资源池未关闭导致相关对象引用计数持续存在，gc未能所有内存开销。
+建议：**可以使用多几进程进行查询，因为子进程内资源是独立的，进程完成处理后所有资源都会销毁**。
 
 ### 3.2.2 python内存管理机制
 如果所有内存都需要python和OS进行内存申请和释放，这个过程是比较耗时的。因此python对内存管理做了优化，调用`[pymalloc](https://docs.python.org/3/c-api/memory.html#pymalloc)`时就会调用arena区和pool池对小于512bytes的小对象内存使用进行了优化，确保能从arena区中申请小对象内存（到了本人知识盲区地带，没太正儿八经对python解释器对内存的管理，大家可以先看参考文献1，有时间我再补充刷新）。

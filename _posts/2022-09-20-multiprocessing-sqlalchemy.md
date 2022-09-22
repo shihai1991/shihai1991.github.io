@@ -200,6 +200,9 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 # 主线程内做host_list查询
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 708 root      20   0  407960 214716   5644 S   0.0  2.7   0:13.27 python
+# 主线程内做host_list查询，UserModel删除address和age字段
+PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+6245 root      20   0  371508 178260   5640 S   0.0  2.2   0:11.11 python
 # 线程池规模为1的host_list查询
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 3406 root      20   0  656032 215800   5780 S   0.0  2.7   0:13.15 python

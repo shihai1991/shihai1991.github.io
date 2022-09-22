@@ -151,7 +151,7 @@ while True:
     print('total refcount:')
     print(sys.gettotalrefcount())
 ```
-引用的变化输出如下所示：
+对象的引用变化输出如下所示：
 ```
 total refcount:
 14121337

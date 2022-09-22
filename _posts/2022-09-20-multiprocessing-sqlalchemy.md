@@ -222,7 +222,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 
 ### 3.2.2 [rangeQuery](https://github.com/sqlalchemy/sqlalchemy/wiki/RangeQuery-and-WindowedRangeQuery)
 
-## 3.2 内存管理机制
+## 3.2 Python内存管理
 上面执行进程从最初的240112KB到最后的399960KB，实际从测试结果看应该由三部分机制构成。
 
 ### 3.2.1 gc机制

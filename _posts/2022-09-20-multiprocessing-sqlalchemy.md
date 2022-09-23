@@ -229,7 +229,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 
 ### 3.2.3 sqlalchemy内存泄漏（待确定）
 一个10K+查询操作，进程内存占用从30MB提升到180MB+，不太可能全都是因为python内存管理机制导致，[sqlalchemy是否有内存泄漏，继续移步至社区开展讨论](https://github.com/sqlalchemy/sqlalchemy/discussions/8542)。
-从测试结果看，循环查询后内存不会无限提升，因此sqlalchemy本身也不存在内存泄露。为什么sqlalchemy多线程并发查询后缓存不会全都释放的原因，参看sqlalchemy的maintainer回答：
+从测试结果看，循环查询后内存不会无限提升，因此sqlalchemy本身也不存在内存泄露。为什么sqlalchemy多线程并发查询后缓存不会全都释放的原因，参看sqlalchemy的maintainer回复结果：
 ```
 That's unrelated to threading. If you open multiple connection some of them will be kept open in the pool, since a queue pool is used when connecting to most databases by sqlalchemy.
 ```

@@ -196,6 +196,7 @@ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 ```
 从这个比对测试可以得出一个观测结论：**进程池资源释放能降低引用计数和内存占用，但最终的内存开销比初始进程内存占用大。**  
 在进行一个主线程做数据库查询(`host_list()`)的内存占用观测和线程池规模为一的数据库查询(`host_list()`)做比对分析，发现**实际进程占用的`RES`内存规模和使用线程池时的内存开销关联不大**。
+
 ```
 # 主线程内做host_list查询(不使用pymalloc)
 PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND

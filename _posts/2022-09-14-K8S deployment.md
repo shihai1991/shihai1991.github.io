@@ -127,7 +127,7 @@ kubectl apply -f kube-flannel.yml
 - kubelet：每个计算节点的守护进程，和控制平面交互；
 - kube-proxy：每个计算节点都有，负责集群内外部的网络通信；
 - CRD：k8s抽象资源中，虚拟资源对象被分为官方资源和自定义资源，对应资源由配套controller进行watch和更新操作，这个过程被称之为operator；
-- helm：helm是为了配置分离，operator是为了针对复杂应用的自动化管理，annotations中承载helm的hook机制；
+- helm：helm是为了配置分离，operator是为了针对复杂应用的自动化管理，annotations是操作k8s资源间的关联关系(annotations没有前缀则功能和label类似)；
 ![k8s architecture](https://www.redhat.com/cms/managed-files/kubernetes_diagram-v3-770x717_0.svg)
 
 

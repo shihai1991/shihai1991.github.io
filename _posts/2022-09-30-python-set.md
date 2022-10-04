@@ -11,7 +11,8 @@ time: '2022.09.30 17:33:00'
 # Set介绍
 Set是一个没有重复元素的无序集合。
 
-# Set初始化
+# Set初始化的若干方式
+
 
 # 参考文献
 1. [datastructures](https://docs.python.org/3/tutorial/datastructures.html#sets)

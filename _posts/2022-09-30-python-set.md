@@ -19,11 +19,10 @@ Set是一个没有重复元素的无序集合。
 my_set = {'a', 'b', 'c'}
 ```
 
-## 通过set类型创建实例
+## 通过set类型创建set实例
 ```python
 my_set = set()
 ```
-## 
 
 # 参考文献
 1. [datastructures](https://docs.python.org/3/tutorial/datastructures.html#sets)

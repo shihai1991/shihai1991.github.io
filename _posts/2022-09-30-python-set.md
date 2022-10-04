@@ -11,8 +11,14 @@ time: '2022.09.30 17:33:00'
 # Set介绍
 Set是一个没有重复元素的无序集合。
 
-# Set初始化的若干方式
+# 创建Set集合的若干方式
+## 通过大括号创建Set
+通过大括号可以创建出一个`set`实例，但要注意的是如果是`my_set = {}`，则`my_set`是空的字典实例。
+```python
+my_set = {'a', 'b', 'c'}
+```
 
+## 
 
 # 参考文献
 1. [datastructures](https://docs.python.org/3/tutorial/datastructures.html#sets)

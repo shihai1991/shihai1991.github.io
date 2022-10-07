@@ -17,6 +17,7 @@ Set是一个没有重复元素的无序集合。
 通过大括号可以创建出一个`set`实例，但要注意的是如果没有集合元素，则`my_set = {}`是一个空的字典实例。
 ```python
 my_set = {'a', 'b', 'c'}
+my_set = {c for c in 'abracadabra' if c not in 'abc'}
 ```
 
 ## 通过set类型创建set实例

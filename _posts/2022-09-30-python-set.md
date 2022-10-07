@@ -25,6 +25,11 @@ my_set = {c for c in 'abracadabra' if c not in 'abc'}
 my_set = set()
 ```
 
+# FAQ
+
+## Q：my_set = set('abc')创建set实例后，my_set的值是{'abc'}吗？
+my_set的最后内容是`{'c', 'a', 'b'}`，为什么不是'abc'呢，因为set类的初始化入参是一个可迭代对象，而字符串就是一个可迭代对象，迭代的对象就是字符串里面的字符。`my_list = list('abc')`也和这个set('abc')原理相同。
+
 # 参考文献
 1. [datastructures](https://docs.python.org/3/tutorial/datastructures.html#sets)
 2. [stdtypes](https://docs.python.org/3/library/stdtypes.html#set)

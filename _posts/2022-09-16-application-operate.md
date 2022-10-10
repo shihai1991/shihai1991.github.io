@@ -9,10 +9,10 @@ tags:
 time: '2022.09.16 11:34:00'
 ---
 # 一、开通([provisioning](https://www.redhat.com/en/topics/automation/what-is-provisioning#overview))
-`provisioning`是设置IT基础设施的过程。`provisioning`和配置不是一个事情，但是他们都是`deployment`过程中的步骤。有多种类别的`provisioning`：`server provisioning`,`network provisioning`,`user provisioning`,`service provisioning`。  
+`provisioning`是设置IT基础设施的过程。`provisioning`和配置不是一个事情，但是他们都是`deployment`过程中的步骤。有多种类别的`provisioning`：`server provisioning`(服务器开通),`network provisioning`(网络开通),`user provisioning`(用户开通),`service provisioning`(服务开通)。  
 `provisioning`和`iac`是什么关系呢？我个人理解前者是目标，后者是实施方案之一。
 
-# 二、traits
+# 二、特征(traits)
 ## 2.2 [oam中的traits](https://github.com/oam-dev/spec/blob/master/6.traits.md)
 `open application model`中给出定义，`traits`的目的是想通过此配置对分布式应用进行控制配置，示例配置：
 ```
@@ -83,4 +83,5 @@ openstack对traits也有类似定义，实际对[openstack trait描述](https://
 # 三、参考文献
 1. [kubevela trait](https://github.com/kubevela/kubevela/tree/master/references/docgen/def-doc/trait)
 2. [kubevela ingress.cue](https://github.com/kubevela/kubevela/blob/master/vela-templates/definitions/deprecated/ingress.cue)
-3. [kubevela ingress.yaml](https://github.com/kubevela/kubevela/blob/master/charts/vela-core/templates/defwithtemplate/ingress.yaml)
+3. [kubevela ingress.yaml](https://github.com/kubevela/kubevela/blob/master/charts/vela-core/templates/defwithtemplate/ingress.yaml)  
+4. [provisioning](https://zh.wikipedia.org/zh-tw/%E6%9C%8D%E5%8A%A1%E5%BC%80%E9%80%9A)

@@ -1,16 +1,16 @@
 ---
 layout: post
 title: 云原生应用管理
-category: iac
+category: IaC
 catalog: true
 published: true
 tags:
-  - iac
+  - IaC
 time: '2022.09.16 11:34:00'
 ---
 # 一、开通([provisioning](https://www.redhat.com/en/topics/automation/what-is-provisioning#overview))
 `provisioning`是设置IT基础设施的过程。`provisioning`和配置不是一个事情，但是他们都是`deployment`过程中的步骤。有多种类别的`provisioning`：`server provisioning`(服务器开通),`network provisioning`(网络开通),`user provisioning`(用户开通),`service provisioning`(服务开通)。  
-`provisioning`和`iac`是什么关系呢？我个人理解前者是目标，后者是实施方案之一。
+`provisioning`和`IaC`是什么关系呢？我个人理解前者是目标，后者是实施方案之一。
 
 # 二、特征(traits)
 ## 2.2 [oam中的traits](https://github.com/oam-dev/spec/blob/master/6.traits.md)

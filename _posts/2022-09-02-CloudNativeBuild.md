@@ -1,11 +1,11 @@
 ---
 layout: post
 title: CloudNativeBuild使用及总结
-category: iac
+category: IaC
 catalog: true
 published: true
 tags:
-  - iac
+  - IaC
 time: '2022.09.02 10:36:00'
 ---
 # 一、基本概念介绍

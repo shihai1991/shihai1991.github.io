@@ -15,3 +15,4 @@ time: '2022.10.14 17:42:00'
 
 
 # 三、参考文献
+1. [TERRAFORM TUTORIAL - TERRAFORM FORMAT(TF), INTERPOLATION(VARIABLES) & TERRAFORM CONSOLE](https://www.bogotobogo.com/DevOps/Terraform/Terraform-terraform-format-tf-and-interpolation-variables.php)

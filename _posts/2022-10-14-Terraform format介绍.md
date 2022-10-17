@@ -46,7 +46,8 @@ resource "docker_container" "nginx" {
 }
 ```
 
-# 2.1 
+# 2.2 variable
+
 
 # 三、参考文献
 1. [TERRAFORM TUTORIAL - TERRAFORM FORMAT(TF), INTERPOLATION(VARIABLES) & TERRAFORM CONSOLE](https://www.bogotobogo.com/DevOps/Terraform/Terraform-terraform-format-tf-and-interpolation-variables.php)  

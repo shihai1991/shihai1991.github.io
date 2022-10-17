@@ -9,12 +9,13 @@ tags:
 time: '2022.10.14 17:42:00'
 ---
 # 一、背景介绍
-Terraform使用文本文件描述基础设施和设置变量，这些文件被称为Terraform配置文件。Terraform配置文件主要有两种格式：Terraform格式(.tf)和JSON格式(.tf.json)。
+Terraform使用文本文件描述基础设施和设置变量，这些文件被称为Terraform配置文件。Terraform配置文件主要有两种格式：Terraform格式(.tf)和JSON格式(.tf.json)。Terraform配置文件主要由provider、resource、data source和variables组成。
 
 # 二、格式介绍
 我们用[之前博客](https://shihai1991.github.io/iac/2022/06/10/Terraform%E5%88%9D%E4%BD%93%E9%AA%8C/)中介绍的一个示例来做分析。
 ```
 terraform {
+  # providers代表一个服务供应商，Terraform通过插件机制与Provider进行交互。
   required_providers {
     docker = {
       source  = "kreuzwerker/docker"
@@ -33,6 +34,7 @@ resource "docker_image" "nginx" {
 }
 
 resource "docker_container" "nginx" {
+  # docker_iamge.nginx.latest为引用资源的属性
   image = docker_image.nginx.latest
   name  = "tutorial"
   ports {

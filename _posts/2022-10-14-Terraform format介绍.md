@@ -26,6 +26,7 @@ terraform {
 # 对docker provider进行配置说明
 provider "docker" {}
 
+# docker_image是资源类型名，nginx是创建出的资源名
 resource "docker_image" "nginx" {
   name         = "nginx:latest"
   keep_locally = false
@@ -42,4 +43,5 @@ resource "docker_container" "nginx" {
 ```
 
 # 三、参考文献
-1. [TERRAFORM TUTORIAL - TERRAFORM FORMAT(TF), INTERPOLATION(VARIABLES) & TERRAFORM CONSOLE](https://www.bogotobogo.com/DevOps/Terraform/Terraform-terraform-format-tf-and-interpolation-variables.php)
+1. [TERRAFORM TUTORIAL - TERRAFORM FORMAT(TF), INTERPOLATION(VARIABLES) & TERRAFORM CONSOLE](https://www.bogotobogo.com/DevOps/Terraform/Terraform-terraform-format-tf-and-interpolation-variables.php)  
+2. [Terraform 基础知识](https://support.huaweicloud.com/basics-terraform/basics-terraform.pdf)

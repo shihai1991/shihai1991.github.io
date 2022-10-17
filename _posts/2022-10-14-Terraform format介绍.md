@@ -12,7 +12,7 @@ time: '2022.10.14 17:42:00'
 Terraform使用文本文件描述基础设施和设置变量，这些文件被称为Terraform配置文件。Terraform配置文件主要有两种格式：Terraform格式(.tf)和JSON格式(.tf.json)。
 
 # 二、格式介绍
-我们用之前博客中介绍的一个示例来做分析。
+我们用[之前博客](https://shihai1991.github.io/iac/2022/06/10/Terraform%E5%88%9D%E4%BD%93%E9%AA%8C/)中介绍的一个示例来做分析。
 ```
 terraform {
   required_providers {

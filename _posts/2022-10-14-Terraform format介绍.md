@@ -47,8 +47,10 @@ resource "docker_container" "nginx" {
 ```
 
 # 2.2 variable
-
+输入变量需要用`variable`块进行申明。
 ```
+# image_id是变量名
+# 变量名可以是任何有效标识符，关键字除外：source, version, providers, count, for_each, lifecycle, depends_on, locals.
 variable "image_id" {
   type = string
 }

@@ -77,6 +77,7 @@ variable "docker_ports" {
 ```
 
 ## 2.3 Data Sources
+`data source`是一类特殊的资源类型。就下面的例子而言，`data`块会请求Terraform从给定数据源(`aws_am_i`)读取数据并且导出到本地变量名中(`example`)中，查询到相关信息后，我们也可以在其他reosurce中使用该属性，引用格式为：data.<数据类型>.<名称>.<属性>。
 ```
 data "aws_ami" "example" {
   most_recent = true

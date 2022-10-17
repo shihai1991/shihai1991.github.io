@@ -13,6 +13,5 @@ Terraform使用文本文件描述基础设施和设置变量，这些文件被�
 
 # 二、格式介绍
 
-
 # 三、参考文献
 1. [TERRAFORM TUTORIAL - TERRAFORM FORMAT(TF), INTERPOLATION(VARIABLES) & TERRAFORM CONSOLE](https://www.bogotobogo.com/DevOps/Terraform/Terraform-terraform-format-tf-and-interpolation-variables.php)

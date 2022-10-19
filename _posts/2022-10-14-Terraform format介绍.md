@@ -47,6 +47,7 @@ resource "docker_container" "nginx" {
 ```
 
 # 2.2 Variables
+## 2.2.1 输入变量
 输入变量需要用`variable`块进行申明。
 ```
 # image_id是变量名
@@ -75,6 +76,20 @@ variable "docker_ports" {
   ]
 }
 ```
+通过如下方式可以设置输入变量：
+* 通过命令行中 -var 选项指定
+* 通过变量定义文件 (.tfvars)，在命令行中指定或自动加载
+* 设置环境变量
+在 `terraform plan` 和 `terraform apply` 命令行中，通过 -var 选项可以指定变量。
+其中，-var 选项可以多次使用，例如：
+```
+terraform apply -var='vpc_name=my_vpc'
+terraform apply -var='vpc_name=my_vpc' -var='vpc_cidr=192.168.0.0/16'
+terraform apply -var='availability_zone_names=["cn-north-1a", "cn-north-1c"]'
+```
+
+## 2.2.2 输出变量
+paas
 
 ## 2.3 Data Sources
 `data source`是一类特殊的资源类型。就下面的例子而言，`data`块会请求Terraform从给定数据源(`aws_am_i`)读取数据并且导出到本地变量名中(`example`)中，查询到相关信息后，我们也可以在其他reosurce中使用该属性，引用格式为：data.<数据类型>.<名称>.<属性>。

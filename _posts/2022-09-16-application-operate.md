@@ -85,3 +85,4 @@ openstack对traits也有类似定义，实际对[openstack trait描述](https://
 2. [kubevela ingress.cue](https://github.com/kubevela/kubevela/blob/master/vela-templates/definitions/deprecated/ingress.cue)
 3. [kubevela ingress.yaml](https://github.com/kubevela/kubevela/blob/master/charts/vela-core/templates/defwithtemplate/ingress.yaml)  
 4. [provisioning](https://zh.wikipedia.org/zh-tw/%E6%9C%8D%E5%8A%A1%E5%BC%80%E9%80%9A)
+5. [kubevela webservice.cue](https://github.com/kubevela/kubevela/blob/master/vela-templates/definitions/internal/component/webservice.cue)

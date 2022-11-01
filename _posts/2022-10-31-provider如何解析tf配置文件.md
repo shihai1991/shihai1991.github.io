@@ -29,6 +29,5 @@ resource "kubernetes_cluster_role" "example" {
 ## 2.1 主要逻辑走读
 terraform provider的实现是通过调用terraform-plugin-sdk实现provider的定义和实现。
 ![]({{site.baseurl}}/img/20221031 k8s provider读取resource处理主要逻辑.png)
-<img src="{{site.baseurl}}/img/20221031 k8s provider读取resource处理主要逻辑.png" width="1080"/>
 # 三、参考文献
 1. [kubernetes_cluster_role](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

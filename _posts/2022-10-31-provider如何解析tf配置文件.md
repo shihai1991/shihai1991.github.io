@@ -9,7 +9,7 @@ tags:
 time: '2022.10.31 20:54:00'
 ---
 # 一、背景介绍
-对于一个Terraform文件（.tf），相关providers是如何对资源`Resource`结构进行管理和资源映射应用的？如下方的k8s provider创建`kubernetes_cluster_role`的实例，是如何解析k8s资源信息？
+对于一个Terraform文件（.tf），相关providers是如何对资源`Resource`结构进行管理、资源映射到代码和最终应用？如下方的k8s provider创建`kubernetes_cluster_role`的实例，是如何解析k8s资源信息？
 
 ```
 resource "kubernetes_cluster_role" "example" {

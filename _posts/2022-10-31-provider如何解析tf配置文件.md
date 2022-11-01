@@ -59,5 +59,24 @@ func resourceKubernetesClusterRole() *schema.Resource {
 ```
 k8s provider主要的代码执行流程图如下所示。
 ![]({{site.baseurl}}/img/20221031 k8s provider读取resource处理主要逻辑.png)
-# 三、参考文献
+
+## 2.2 配置资源到代码解析
+如实例中的cluster role定义是怎么映射到代码调用中？
+```
+  rule {
+    api_groups = [""]
+    resources  = ["namespaces", "pods"]
+    verbs      = ["get", "list", "watch"]
+  }
+```
+实际的资源获取过程依赖于`schema.ResourceData.Get()`，如获取到k8s_cluster_role中的rule资源数据，则实际函数调用过程是：
+```
+	cRole := api.ClusterRole{
+		ObjectMeta: metadata,
+     // 通过调用[d.Get("rule")](https://github.com/hashicorp/terraform-provider-kubernetes/blob/main/kubernetes/resource_kubernetes_cluster_role.go#L69)获取相关规则信息
+		Rules:      expandClusterRoleRules(d.Get("rule").([]interface{})),
+	}
+```
+
+# 三、参考文献k
 1. [kubernetes_cluster_role](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

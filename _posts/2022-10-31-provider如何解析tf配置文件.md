@@ -25,7 +25,8 @@ resource "kubernetes_cluster_role" "example" {
 }
 ```
 
-# 二、基本介绍
+# 二、代码流走读
+
 
 # 三、参考文献
 1. [kubernetes_cluster_role](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

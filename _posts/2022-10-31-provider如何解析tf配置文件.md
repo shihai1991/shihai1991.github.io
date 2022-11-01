@@ -26,7 +26,7 @@ resource "kubernetes_cluster_role" "example" {
 
 # 二、代码流走读
 ## 2.1 主要执行逻辑
-terraform provider的实现是通过调用[terraform-plugin-sdk](https://github.com/hashicorp/terraform-plugin-sdk)的[Provider](https://github.com/hashicorp/terraform-plugin-sdk/blob/b5b7dd0ab159303da4a64c94d64aeaea884c2a23/helper/schema/provider.go#L50)的[实例化](https://github.com/hashicorp/terraform-provider-kubernetes/blob/main/kubernetes/provider.go#L36)来实现。  
+terraform provider的实现是通过调用[terraform-plugin-sdk](https://github.com/hashicorp/terraform-plugin-sdk)的[Provider](https://github.com/hashicorp/terraform-plugin-sdk/blob/b5b7dd0ab159303da4a64c94d64aeaea884c2a23/helper/schema/provider.go#L50)创建[实例](https://github.com/hashicorp/terraform-provider-kubernetes/blob/main/kubernetes/provider.go#L36)来实现。  
 provider中最终要的一个环节实际是管理`Resource`资源，配置文件中所有被管理的资源对象均被抽象为`Resouce`资源。而`Resource`资源中的属性类型则被抽象为`Schema`结构体。下方代码就是`kubernetes cluster role`资源的定义逻辑。而对资源管理过程则有各种`xxxContext`函数进行管理。
 ```golang
 kubernetes/resource_kubernetes_cluster_role.go

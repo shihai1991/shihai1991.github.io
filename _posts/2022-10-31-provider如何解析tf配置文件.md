@@ -27,6 +27,6 @@ resource "kubernetes_cluster_role" "example" {
 
 # 二、代码流走读
 ![]({{site.baseurl}}/img/20221031 k8s provider读取resource处理主要逻辑.png)
-<img src="{{site.baseurl}}/img/20221031 k8s provider读取resource处理主要逻辑.png" alt="" width="100%"/>
+<img src="{{site.baseurl}}/img/20221031 k8s provider读取resource处理主要逻辑.png" width="100%"/>
 # 三、参考文献
 1. [kubernetes_cluster_role](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

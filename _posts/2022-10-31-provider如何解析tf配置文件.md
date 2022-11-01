@@ -77,6 +77,7 @@ k8s provider主要的代码执行流程图如下所示。
 		Rules:      expandClusterRoleRules(d.Get("rule").([]interface{})),
 	}
 ```
+`d.get("rule")会查询到所有rule集合信息并在`expandClusterRoleRules()`中对rule资源集合进行处理和转换。
 
 # 三、参考文献k
 1. [kubernetes_cluster_role](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

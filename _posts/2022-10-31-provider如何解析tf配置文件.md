@@ -70,7 +70,7 @@ k8s provider主要的代码执行流程图如下所示。
     verbs      = ["get", "list", "watch"]
   }
 ```
-实际的资源获取过程依赖于[`schema.ResourceData.Get()`](https://github.com/hashicorp/terraform-provider-kubernetes/blob/main/kubernetes/resource_kubernetes_cluster_role.go#L69)，如获取到k8s_cluster_role中的rule资源数据，则实际函数调用过程是：
+当对rule资源定义了`Type: schema.TypeList`后，实际的资源获取过程依赖于[`schema.ResourceData.Get()`](https://github.com/hashicorp/terraform-provider-kubernetes/blob/main/kubernetes/resource_kubernetes_cluster_role.go#L69)，如获取到k8s_cluster_role中的rule资源数据，则实际函数调用过程是：
 ```
 	cRole := api.ClusterRole{
 		ObjectMeta: metadata,
@@ -80,5 +80,8 @@ k8s provider主要的代码执行流程图如下所示。
 ```
 `d.get("rule")`会查询到所有rule集合信息并在`expandClusterRoleRules()`中对rule资源集合进行处理和转换。
 
-# 三、参考文献k
+# 三、terraform对provider的管理
+TODO: terraform和terraform-plugin-sdk已经对HCL语言逻辑做了设计和封装实现，要增加provider，直接继承扩展即可。实际核心层的逻辑后续有时间再走读。
+
+# 四、参考文献k
 1. [kubernetes_cluster_role](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role)

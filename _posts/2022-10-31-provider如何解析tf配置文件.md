@@ -73,7 +73,7 @@ k8s provider主要的代码执行流程图如下所示。
 ```
 	cRole := api.ClusterRole{
 		ObjectMeta: metadata,
-     // 通过调用d.Get("rule")获取相关规则信息
+     // 通过调用d.Get("rule")获取相关rule资源定义信息
 		Rules:      expandClusterRoleRules(d.Get("rule").([]interface{})),
 	}
 ```

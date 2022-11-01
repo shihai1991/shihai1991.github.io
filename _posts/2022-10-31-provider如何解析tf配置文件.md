@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Terraform Provider如何解析.tr文件
+title: Terraform Provider如何解析.tf文件
 category: IaC
 catalog: true
 published: true

@@ -46,7 +46,7 @@ func resourceKubernetesClusterRole() *schema.Resource {
             "metadata": metadataSchemaRBAC("clusterRole", false, false),
             "rule": {
                 // 当资源属性Type是TypeList或TypeSet则可以设置此值，已设置optional，则此值会被忽略
-                Type:        schema.TypeList,
+                Type:      schema.TypeList,
                 Description: "List of PolicyRules for this ClusterRole",
                 Optional:    true,
                 Computed:    true,

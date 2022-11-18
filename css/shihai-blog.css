@@ -826,6 +826,26 @@ samp {
 .post-container h6 + p {
   margin-top: 10px;
 }
+.post-container h1 {
+  font-size: 22px;
+}
+.post-container h2 {
+  font-size: 20px;
+}
+.post-container h3 {
+  font-size: 18px;
+}
+.post-container h4 {
+  font-size: 16px;
+}
+.post-container h5,
+.post-container h6 {
+  font-size: 15px;
+}
+.post-container ul,
+.post-container ol {
+  margin-bottom: 10px;
+}
 @media screen and (max-width: 768px) {
   .post-container h1 {
     font-size: 22px;

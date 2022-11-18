@@ -656,9 +656,10 @@ body {
      *     TypeIsBeautiful,
      *     [This Post](http://zhuanlan.zhihu.com/ibuick/20186806) etc.
      */
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif; */
+  font-family: Georgia,Cambria,serif;
   line-height: 1.7;
-  font-size: 16px;
+  font-size: 14px;
   color: #404040;
   overflow-x: hidden;
   text-rendering: auto;
@@ -683,13 +684,14 @@ h6 {
      *     TypeIsBeautiful,
      *     [This Post](http://zhuanlan.zhihu.com/ibuick/20186806) etc.
      */
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif; */
+  font-family: Georgia,Cambria,serif;
   line-height: 1.7;
   line-height: 1.1;
   font-weight: bold;
 }
 h4 {
-  font-size: 21px;
+  font-size: 18px;
 }
 a {
   color: #404040;
@@ -808,7 +810,7 @@ samp {
   margin-bottom: 30px;
 }
 .post-container h4 {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 600;
   color: gray;
 }
@@ -817,7 +819,7 @@ samp {
 }
 .post-container h5,
 .post-container h6 {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   color: gray;
 }
@@ -827,20 +829,20 @@ samp {
 }
 @media screen and (max-width: 768px) {
   .post-container h1 {
-    font-size: 30px;
-  }
-  .post-container h2 {
     font-size: 22px;
   }
-  .post-container h3 {
+  .post-container h2 {
     font-size: 20px;
   }
+  .post-container h3 {
+    font-size: 18px;
+  }
   .post-container h4 {
-    font-size: 19px;
+    font-size: 16px;
   }
   .post-container h5,
   .post-container h6 {
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 .post-container ul,

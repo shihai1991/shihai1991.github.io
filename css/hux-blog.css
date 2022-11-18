@@ -667,7 +667,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 p {
-  margin: 30px 0;
+  margin: 5px 0;
 }
 @media screen and (max-width: 768px) {
   p {
@@ -791,8 +791,8 @@ samp {
 .post-container h4,
 .post-container h5,
 .post-container h6 {
-  margin: 50px 0 20px;
-  line-height: 1.4;
+  /* margin: 50px 0 20px; */
+  line-height: 1;
 }
 .post-container h1 + p,
 .post-container h2 + p,

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CPython TODO List
-category: test
+category: cpython
 catalog: true
 published: false
 tags:

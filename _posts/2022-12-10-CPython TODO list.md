@@ -48,7 +48,7 @@ https://bugs.python.org/issue40077
 https://bugs.python.org/issue40601
 https://bugs.python.org/issue46417
 
-## 自编译器
+## 子编译器
 subinterp victor更新了一个问题
 subinterpreter相关工作
 https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit_16.html

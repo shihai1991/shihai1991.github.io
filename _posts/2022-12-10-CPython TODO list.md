@@ -1,10 +1,259 @@
 ---
 layout: post
-title: CPython TODO List 
+title: CPython TODO List
 category: test
 catalog: true
 published: false
 tags:
-  - cpython 
+  - cpython
 time: '2022.12.10 12:52:00'
 ---
+# 一、TODO List
+(a,b) = (b,a)是如何实现的
+frozen.c:70+98 有多个反复的函数申明，是否要优化？
+重点看一下：https://github.com/faster-cpython/ideas/issues/218
+
+help(b'123')是可以的，但是help('123')就不行，这个需要加强
+
+编译器加速及GIL细粒度化的信息汇总
+Eric Snow的想法
+https://bugs.python.org/issue40512 per-interpreter
+https://github.com/ericsnowcurrently/multi-core-python/issues/34
+https://bugs.python.org/issue40514
+mark shan的想法
+https://github.com/markshannon/faster-cpython/blob/master/plan.md
+sam cross对多线程优化的总结及POC：优化内存创建，refcount算法加强等方面入手
+https://github.com/colesbury/nogil
+https://docs.google.com/document/d/18CXhDb1ygxg-YXNBJNzfzZsDFosB5e6BfnXLlejd9l0/edit#
+微软faster cpython
+https://github.com/faster-cpython/ideas/issues
+
+nb_add需要补充相关架构方案：https://www.python.org/dev/peps/pep-0573/
+PEP补充说明：https://github.com/encukou/abi3/issues/19
+
+大量的xx_Finalize()太丑，看是不是需要有个完善的析构函数方式？
+
+Py_IS_TYPE()不能使用Py_TYPE()?这个可以作为一个easy问题给新人提交？
+
+https://bugs.python.org/issue45476
+https://bugs.python.org/issue45490
+https://bugs.python.org/issue44133
+https://bugs.python.org/issue39511 共享实例需要转换为子编译器化，这个需要写PEP的支持，先放一放；
+
+静态变量转换为动态变量
+
+https://bugs.python.org/issue40077
+https://bugs.python.org/issue40601
+https://bugs.python.org/issue46417
+
+
+----------------------------------------------------------------------------------------
+subinterp victor更新了一个问题
+subinterpreter相关工作
+https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit_16.html
+https://vstinner.github.io/isolate-subinterpreters.html
+https://bugs.python.org/issue40601
+构建打包问题：--libdir=%{_libdir} libdir是/usr/lib64下，lib-dynload会安装到lib64目录下，但对应的sys.path没有填写上此地址
+如果用了--libdir=%{_libdir}已经libplatform=%{_libdir}会导致python安装到/usr/usr下，实际是sys.prefix多了/usr
+--------------------------------------------------------------
+xxx_toplevel()函数申明定义在frozen.c，实际自动生成是由freeze_modules.py来处理，deepfreeze.c是有
+import __hello__或者import __phello_alias__，>> __hello__会发现模块输出的信息是会备注（frozen）信息
+调用链可以用gdb -args ./python -c "import __hello__"然后在_Py_get___hello___toplevel打断点就进来了
+deepfreeze.py生成deepfreeze.c
+--------------------------------------------------------------
+builtin module的编译在setup.py，初始化导入在import.c中的create_builtin()函数中，要导入的模块集合放到PyImport_Inittab数组中；
+--------------------------------------------------------------
+https://bugs.python.org/issue45021 可以写一篇博客
+这个case可以写一篇作用域的博客，这里的考察点是b在这里会提示UnboundLocalError错误；
+b = 6
+def test(a):
+    print(a)
+    print(b)
+
+    b = 2
+
+test(1)
+-------------------------------------------------------
+def fun():
+    temp = [lambda x: i*x for i in range(4)]
+    return temp
+
+for everyLambda in fun():
+    print(everyLambda(2))
+-------------------------------------------------------
+a = [1, 2, 3, 4]
+for i in a:
+    a.append(i)
+    a.remove(i)
+这个可以写个解析题
+--------------------------------------------------------
+float('inf')可以写个解析题float('inf') == float('inf') - 1
+---------------------------------------------------------
+这个从自己码角度可以写一个
+def func():
+    yield (x for x in range(3))
+for x in func():
+    print(type(x))
+    print(next(x))
+------------------------------------
+x = 0
+y = 0
+
+def f():
+    x = 1
+    y = 1
+   
+    class C:
+             print(x, y)
+             x = 2
+
+f()
+github token：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@
+--------------------------------------------------------------------------------------------
+返回值怎么创建的
+def func(x):
+    return x
+
+
+print(func([]) is [])
+-----------------------------
+21. 写一篇关于module内存ref cycle的博客
+
+# 二、知识点盲区
+1. 如何根据CPU配置进程并发数量
+2. 子编译器如何共享module？在import里面有两个逻辑
+   i.一个走老的逻辑直接拿interp的modules，这个会导致还在用老的创建模块方式的模块无法加载进来
+   ii.另外一个是从spec中重新创建
+子编译器是如何实现共用的，是在_PyImport_FixupExtensionObject()中会将md_dict放到def的def->m_base.m_copy中，然后切换到自编译上下文时，import操作会调用IMPORT_NAME，这个函数实际是会调用PyImport_ImportModuleLevelObject()，这个函数内判断如果子编译器没有加载module，就会调用import_find_and_load()加载模块，此函数会调用python级别的importlib._find_and_load()函数，此函数又会调用_imp.create_builtin（），这个函数在C层面会调用_imp_create_builtin()，这个函数里面主要是两层逻辑，i. 如果spec已经在extensions中了（extensions的共享当前只在主编译器中处理，也是bpo-44050问题所在），则创建对应的module，并由m_copy来更新相关的md_dict，ii. config.c里面有内置的模块，如果create_builtin是初始化相关内置模块则由此入口进，这里的初始化也是分为两种，一种是PyModule_FromDefAndSpec()，另外一种是用def.m_init进行初始化(_PyImport_FixupExtensionObject())；
+
+PyObject_GetAttrString()函数内部实现调用流量(这个可以写一篇博客）
+PyObject_GetAttrString()->PyObject_GetAttr()->
+tp->getattro(): metatype= Type_Type; meta_attribute =_PyType_Lookup(Type_Type, __qualname__); 
+实际上meta_attribute的父类是PyGetSetDescr_Type 
+meta_get = Py_TYPE(meta_attribute)->tp_descr_get;
+实际上meta_get是getset_get()
+res = meta_get(meta_attribute, (PyObject *)type, (PyObject *)metatype);
+type是要查询的类，metatype是type的父类
+_PyType_Lookup(x)这个逻辑里面实际是在用mro在Type_Type.tp_dict里面用查找，tp_dict是在type_new里面传入进来的
+这个实际tp_dict中为啥有各类的member属性，这个主要是type_new()->type_new_impl()->PyType_Ready()->type_ready()中进行初始化
+->getset_get()
+descr->d_getset->get()是type_qualname()
+PyType_Type在Objects/object.c中的_PyTypes_Init()中被初始化。
+
+PyObject_GetAttrString(t, "__qualname__")如何获取到__qualname__属性?
+
+扩展模块的创建入口在import.c中的create_builtin
+
+GIL锁：
+thread创建lock:
+https://github.com/python/cpython/blob/master/Python/thread_nt.h#L269
+thread申请获取lock：https://github.com/python/cpython/blob/master/Python/thread_nt.h#L336
+创建thread执行时获取gil（这里会继续用vectorfun去调用）：
+https://github.com/python/cpython/blob/master/Modules/_threadmodule.c#L1042
+PyEval_AcquireThread(tstate);
+
+const常量存储过程：从codeobject的co_consts中取出来先放到framework的stack_pointer上，然后在把具体的key，value从栈指针放到framework的locals中, co_consts是在编译代码块（code_block）的时候生成的，实际在compile.c中的assemble()和makecode()中封装成tupleObject。
+
+Eval评估过程：ceval.c:PyEval_EvalFrameDefault()->case(MAKE_FUNCTION)->PyFunction_NewWithQualName()->op->vectorcall = _PyFunction_Vectorcall;->_PyFunction_Vectorcall()
+
+_PyThread_CurrentFrames(): interpreter有tstate_head（有一系列tstate），每一个tstate都可能指向一个frame
+往interpreter中挂tstate可以通过new_threadstate()来添加
+
+PyEval_RestoreThread这个函数是干什么用的？
+
+为什么说GIL是控制住thread把住字节码到interpreter的入口？
+直接用fork开了一个
+https://github.com/python/cpython/blob/master/Lib/multiprocessing/context.py#L224
+最终是在这里调用：https://github.com/python/cpython/blob/master/Lib/multiprocessing/popen_fork.py#L62
+multiprocessing是一个独立的编译器？
+
+vars == __dict__: 当前类的属性字典
+dir(): 实例+基类属性
+locals(): 返回局部空间变量
+
+__getattr__和__getattribute__的区别
+先调用__getattribute__，不存在再调用__getattr__（用于处理不存在的值）
+__getitem__用于集合类
+getattr()可以获取具体类的值
+
+re.match和re.search区别：match是从第一个字符开始匹配
+
+子类覆写掉外层调用方法，内层调用还是调用父类的原因是为啥？
+
+银行家舍入：4舍，5看奇偶：奇进偶舍
+
+Each Python process gets its own Python interpreter and memory space so the GIL won’t be a problem.（只有cpython拥有GIL？）
+
+函数注解,第二个参数的默认参数是表达式
+def munge(input: AnyStr, sep: AnyStr = None, limit=1000)
+
+python和method的区别：类调用function，实例调用method
+
+装饰器装饰函数：装饰器初始化只会初始化一次
+
+staticmethod和classmethod的区别
+
+__用来避免子类覆盖
+
+C语言类的多次获取锁的具体风险？
+subprocess中的import是否和主进程import_modules隔离
+
+通过type()或者type.__new__来创建类
+X = type('X', (object,), dict(a=1))
+
+if [] 或者 if ''判断逻辑是不通过的【需要输出博客】
+
+Error要输出一份博客梳理相关逻辑错误
+
+用nm可以看object files里面的symbols，用strip工具可以去除符号表
+
+subprocess中import module会影响编译器级别的module管理不？
+发现不影响外部的进程
+
+释放内存先释放外层，再释放内层，避免悬挂指针
+
+__init__的使用：子类有则不会默认调用父类，子类没有则会默认调用父类
+
+void**==(void *)* 指向空指针的指针
+void *不知道指向的内容 void**知道指向void *的指针，我记得(void *)编译器会报错
+*(void**)(((char*)type) + slotoffsets[slot]); -->（void **）是因为传入的参数是指向结构体的指针（结构体内存放的是函数指针）
+
+from __future__ import absolute_import的原因是避免有调用模块和系统库同名冲突
+
+编码：str->unicode
+解码：unicode->str
+str1.decode('gb2312') 将gb2312的str1解码成unicode
+str2.encode('utf-8')将unicode字符串编码成utf-8字符串
+
+extern xx是意味用其他外部申明的变量
+
+gcc test_object.c -o test_object $(python3.10d-config --cflags) -L/usr/local/lib/python3.10d/config-3.10d-x86_64-linux-gnu -lpython3.10d -lpthread -ldl  -lutil -lm  -Xlinker -export-dynamic
+
+func() vs func(void)
+
+_内部属性 __说明内部函数，子类无法继承 __xx__，表示魔术方法，类或者对象对于某些事件会自动触发
+
+# 三、编译构建
+```
+yum install expat-devel -y
+yum install libffi libffi-devel -y
+yum install bzip2 bzip2-devel -y
+yum install openssl openssl-devel -y
+yum install ncurses ncurses-devel -y
+yum install tkinter tcl-devel tk-devel -y
+yum install libuuid libuuid-devel -y
+yum install readline-devel -y
+yum install zlib zlib-devel -y
+yum install xz xz-devel -y
+yum install lzma -y
+yum install sqlite-devel -y
+yum install gdbm-devel -y
+yum install ncurses-devel -y
+./configure --enable-ipv6 --with-computed-gotos=yes --with-system-expat --with-system-ffi --enable-loadable-sqlite-extensions --with-lto --enable-optimizations --enable-loadable-sqlite-extensions --with-ssl-default-suites=openssl --prefix="/usr/local/python310"
+cd /usr/local
+tar zcvf xxxx.tar.gz python39
+```
+自己机器编译：
+```python
+./configure --with-lto --enable-optimizations --with-openssl=/usr/local/openssl-1.1.1e --with-openssl-rpath=auto
+```

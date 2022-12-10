@@ -14,7 +14,6 @@ time: '2022.12.10 12:52:00'
 (a,b) = (b,a)是如何实现的
 help(b'123')是可以的，但是help('123')就不行，这个需要加强
 
-
 ## 解释器、编译器加速
 重点看一下：https://github.com/faster-cpython/ideas/issues/218
 编译器加速及GIL细粒度化的信息汇总

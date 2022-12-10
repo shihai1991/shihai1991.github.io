@@ -35,10 +35,7 @@ https://github.com/faster-cpython/ideas/issues
 ## 函数性能优化
 frozen.c:70+98 有多个反复的函数申明，是否要优化？
 
-
-
-
-
+## API优化
 nb_add需要补充相关架构方案：https://www.python.org/dev/peps/pep-0573/
 PEP补充说明：https://github.com/encukou/abi3/issues/19
 

@@ -261,7 +261,7 @@ yum install ncurses-devel -y
 cd /usr/local
 tar zcvf xxxx.tar.gz python39
 ```
-自己机器编译：
-```python
+自己机器上的编译命令：
+```shell
 ./configure --with-lto --enable-optimizations --with-openssl=/usr/local/openssl-1.1.1e --with-openssl-rpath=auto
 ```

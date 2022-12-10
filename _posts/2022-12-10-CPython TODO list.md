@@ -104,8 +104,8 @@ def f():
     y = 1
    
     class C:
-             print(x, y)
-             x = 2
+      print(x, y)
+      x = 2
 
 f()
 github token：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@
@@ -113,7 +113,6 @@ github token：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@
 返回值怎么创建的
 def func(x):
     return x
-
 
 print(func([]) is [])
 -----------------------------

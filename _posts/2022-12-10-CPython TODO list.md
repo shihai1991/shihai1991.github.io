@@ -17,15 +17,6 @@ help(b'123')是可以的，但是help('123')就不行，这个需要加强
 
 ## 解释器、编译器加速
 重点看一下：https://github.com/faster-cpython/ideas/issues/218
-
-## GIL细粒度化
-
-## 函数性能优化
-frozen.c:70+98 有多个反复的函数申明，是否要优化？
-
-
-
-
 编译器加速及GIL细粒度化的信息汇总
 Eric Snow的想法
 https://bugs.python.org/issue40512 per-interpreter
@@ -38,6 +29,15 @@ https://github.com/colesbury/nogil
 https://docs.google.com/document/d/18CXhDb1ygxg-YXNBJNzfzZsDFosB5e6BfnXLlejd9l0/edit#
 微软faster cpython
 https://github.com/faster-cpython/ideas/issues
+
+## GIL细粒度化
+
+## 函数性能优化
+frozen.c:70+98 有多个反复的函数申明，是否要优化？
+
+
+
+
 
 nb_add需要补充相关架构方案：https://www.python.org/dev/peps/pep-0573/
 PEP补充说明：https://github.com/encukou/abi3/issues/19

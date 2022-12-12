@@ -10,28 +10,25 @@ time: '2022.12.10 12:52:00'
 ---
 # 一、TODO List
 
-## 简单知识点
-help(b'123')是可以的，但是help('123')就不行，这个需要加强
+## 1.1 简单知识点
+- help()函数的差异：help(b'123')是可以的，但是help('123')就不行，这个需要加强
 
-## 解释器、编译器加速
-重点看一下：https://github.com/faster-cpython/ideas/issues/218
-编译器加速及GIL细粒度化的信息汇总
-Eric Snow的想法
+## 1.2 解释器、编译器加速
+- 微软的faster cpython计划：https://github.com/faster-cpython/ideas/issues/218
+- Eric Snow的想法
 https://bugs.python.org/issue40512 per-interpreter
 https://github.com/ericsnowcurrently/multi-core-python/issues/34
 https://bugs.python.org/issue40514
-mark shan的想法
+- mark shan的想法
 https://github.com/markshannon/faster-cpython/blob/master/plan.md
-sam cross对多线程优化的总结及POC：优化内存创建，refcount算法加强等方面入手
+- sam cross对多线程优化的总结及POC：优化内存创建，refcount算法加强等方面入手
 https://github.com/colesbury/nogil
 https://docs.google.com/document/d/18CXhDb1ygxg-YXNBJNzfzZsDFosB5e6BfnXLlejd9l0/edit#
-微软faster cpython
-https://github.com/faster-cpython/ideas/issues
 
-## GIL细粒度化
+## 1.3 GIL细粒度化
 
-## 函数性能优化
-frozen.c:70+98 有多个反复的函数申明，是否要优化？
+## 1.4 函数性能优化
+- frozen.c:70+98 有多个反复的函数申明，是否要优化？
 
 ## API优化
 nb_add需要补充相关架构方案：https://www.python.org/dev/peps/pep-0573/

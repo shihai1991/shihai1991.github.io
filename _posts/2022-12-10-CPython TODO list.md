@@ -30,21 +30,21 @@ https://docs.google.com/document/d/18CXhDb1ygxg-YXNBJNzfzZsDFosB5e6BfnXLlejd9l0/
 ## 1.4 函数性能优化
 - frozen.c:70+98 有多个反复的函数申明，是否要优化？
 
-## API优化
+## 1.5 API优化
 nb_add需要补充相关架构方案：https://www.python.org/dev/peps/pep-0573/
 PEP补充说明：https://github.com/encukou/abi3/issues/19
 
-## 风格类
+## 1.6 风格类
 大量的xx_Finalize()太丑，看是不是需要有个完善的析构函数方式？
 Py_IS_TYPE()不能使用Py_TYPE()?这个可以作为一个easy问题给新人提交？
 
-## 变量优化
+## 1.7 变量优化
 静态变量转换为动态变量
 https://bugs.python.org/issue40077
 https://bugs.python.org/issue40601
 https://bugs.python.org/issue46417
 
-## 子编译器
+## 1.8 子编译器
 subinterp victor更新了一个问题
 subinterpreter相关工作
 https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit_16.html

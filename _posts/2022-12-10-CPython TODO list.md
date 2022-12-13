@@ -49,14 +49,7 @@ https://bugs.python.org/issue45490
 https://bugs.python.org/issue44133
 https://bugs.python.org/issue39511 共享实例需要转换为子编译器化，这个需要写PEP的支持，先放一放；
 
-----------------------------------------------------------------------------------------
-xxx_toplevel()函数申明定义在frozen.c，实际自动生成是由freeze_modules.py来处理，deepfreeze.c是有
-import __hello__或者import __phello_alias__，>> __hello__会发现模块输出的信息是会备注（frozen）信息
-调用链可以用gdb -args ./python -c "import __hello__"然后在_Py_get___hello___toplevel打断点就进来了
-deepfreeze.py生成deepfreeze.c
---------------------------------------------------------------
-builtin module的编译在setup.py，初始化导入在import.c中的create_builtin()函数中，要导入的模块集合放到PyImport_Inittab数组中；
---------------------------------------------------------------
+
 https://bugs.python.org/issue45021 可以写一篇博客
 这个case可以写一篇作用域的博客，这里的考察点是b在这里会提示UnboundLocalError错误；
 b = 6

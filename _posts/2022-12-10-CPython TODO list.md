@@ -12,6 +12,7 @@ time: '2022.12.10 12:52:00'
 
 ## 1.1 简单知识点
 - help()函数的差异：help(b'123')是可以的，但是help('123')就不行，这个需要加强
+- python template渲染能力不如go templates，支持简单语法看是不是可以支持一下？
 
 ## 1.2 解释器、编译器加速
 - 微软的faster cpython计划：https://github.com/faster-cpython/ideas/issues/218

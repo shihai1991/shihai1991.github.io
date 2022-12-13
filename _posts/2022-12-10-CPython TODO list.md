@@ -50,9 +50,6 @@ https://bugs.python.org/issue44133
 https://bugs.python.org/issue39511 共享实例需要转换为子编译器化，这个需要写PEP的支持，先放一放；
 
 ----------------------------------------------------------------------------------------
-构建打包问题：--libdir=%{_libdir} libdir是/usr/lib64下，lib-dynload会安装到lib64目录下，但对应的sys.path没有填写上此地址
-如果用了--libdir=%{_libdir}已经libplatform=%{_libdir}会导致python安装到/usr/usr下，实际是sys.prefix多了/usr
---------------------------------------------------------------
 xxx_toplevel()函数申明定义在frozen.c，实际自动生成是由freeze_modules.py来处理，deepfreeze.c是有
 import __hello__或者import __phello_alias__，>> __hello__会发现模块输出的信息是会备注（frozen）信息
 调用链可以用gdb -args ./python -c "import __hello__"然后在_Py_get___hello___toplevel打断点就进来了

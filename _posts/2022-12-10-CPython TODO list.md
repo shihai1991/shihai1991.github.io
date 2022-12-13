@@ -27,8 +27,8 @@ time: '2022.12.10 12:52:00'
 - frozen.c：70-98行，有多个反复的函数申明，是否要优化？
 
 ## 1.5 API优化
-nb_add需要补充相关架构方案：https://www.python.org/dev/peps/pep-0573/
-PEP补充说明：https://github.com/encukou/abi3/issues/19
+- nb_add需要补充相关架构方案：https://www.python.org/dev/peps/pep-0573/
+- PEP补充说明：https://github.com/encukou/abi3/issues/19
 
 ## 1.6 风格类
 大量的xx_Finalize()太丑，看是不是需要有个完善的析构函数方式？

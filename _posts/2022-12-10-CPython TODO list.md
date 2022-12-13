@@ -16,15 +16,10 @@ time: '2022.12.10 12:52:00'
 
 ## 1.2 解释器、编译器加速
 - 微软的faster cpython计划：https://github.com/faster-cpython/ideas/issues/218
-- Eric Snow的想法
-https://bugs.python.org/issue40512 per-interpreter
-https://github.com/ericsnowcurrently/multi-core-python/issues/34
-https://bugs.python.org/issue40514
-- mark shan的想法
-https://github.com/markshannon/faster-cpython/blob/master/plan.md
-- sam cross对多线程优化的总结及POC：优化内存创建，refcount算法加强等方面入手
-https://github.com/colesbury/nogil
-https://docs.google.com/document/d/18CXhDb1ygxg-YXNBJNzfzZsDFosB5e6BfnXLlejd9l0/edit#
+- Eric Snow的想法：(issue 40512)[https://bugs.python.org/issue40512 per-interpreter] (multi-core-python)[https://github.com/ericsnowcurrently/multi-core-python/issues/34] (issue 40514)[https://bugs.python.org/issue40514]
+- mark shan的想法：(faster cpython)[https://github.com/markshannon/faster-cpython/blob/master/plan.md]
+- sam cross对多线程优化的总结及POC：优化内存创建，refcount算法加强等方面入手 (nogil)[https://github.com/colesbury/nogil]
+ (google docs)[https://docs.google.com/document/d/18CXhDb1ygxg-YXNBJNzfzZsDFosB5e6BfnXLlejd9l0/edit#]
 
 ## 1.3 GIL细粒度化
 

@@ -50,6 +50,7 @@ https://bugs.python.org/issue44133
 https://bugs.python.org/issue39511 共享实例需要转换为子编译器化，这个需要写PEP的支持，先放一放；
 
 
+# 二、博客待输出
 https://bugs.python.org/issue45021 可以写一篇博客
 这个case可以写一篇作用域的博客，这里的考察点是b在这里会提示UnboundLocalError错误；
 b = 6

@@ -11,7 +11,7 @@ time: '2022.12.10 12:52:00'
 # 一、TODO List
 
 ## 1.1 简单知识点
-- help()函数的差异：help(b'123')是可以的，但是help('123')就不行，这个需要加强
+- help()函数的差异：help(b'123')没问题，但help('123')不行的原因是字符串可能是代码某一模块功能(参见serhiy-storchaka的MR)[https://github.com/python/cpython/commit/1c205518a35939ef555c74d0e2f8954a5e1828e1]。
 - python template渲染能力不如go templates，支持简单语法看是不是可以支持一下？
 
 ## 1.2 解释器、编译器加速

@@ -31,8 +31,8 @@ time: '2022.12.10 12:52:00'
 - PEP补充说明：https://github.com/encukou/abi3/issues/19
 
 ## 1.6 风格类
-大量的xx_Finalize()太丑，看是不是需要有个完善的析构函数方式？
-Py_IS_TYPE()不能使用Py_TYPE()?这个可以作为一个easy问题给新人提交？
+- 大量的xx_Finalize()太丑，看是不是需要有个完善的析构函数方式？
+- Py_IS_TYPE()不能使用Py_TYPE()?这个可以作为一个easy问题给新人提交？
 
 ## 1.7 变量优化
 静态变量转换为动态变量

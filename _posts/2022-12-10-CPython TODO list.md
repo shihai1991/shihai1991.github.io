@@ -35,10 +35,7 @@ time: '2022.12.10 12:52:00'
 - Py_IS_TYPE()不能使用Py_TYPE()?这个可以作为一个easy问题给新人提交？
 
 ## 1.7 变量优化
-静态变量转换为动态变量
-https://bugs.python.org/issue40077
-https://bugs.python.org/issue40601
-https://bugs.python.org/issue46417
+- 静态变量转换为动态变量：https://bugs.python.org/issue40077 https://bugs.python.org/issue40601 https://bugs.python.org/issue46417
 
 ## 1.8 子编译器
 subinterp victor更新了一个问题

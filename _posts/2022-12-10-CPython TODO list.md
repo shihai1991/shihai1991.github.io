@@ -41,7 +41,7 @@ time: '2022.12.10 12:52:00'
 - https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit_16.html
 - https://vstinner.github.io/isolate-subinterpreters.html
 - https://bugs.python.org/issue40601
-- [在Limit CAPI中隐藏静态类型](https://github.com/python/cpython/issues/84781)
+- 【待实现】[在Limit CAPI中隐藏静态类型，需要写PEP以及demo开发](https://github.com/python/cpython/issues/84781)
 - https://bugs.python.org/issue45476
 - https://bugs.python.org/issue45490
 - https://bugs.python.org/issue44133

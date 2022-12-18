@@ -39,15 +39,14 @@ time: '2022.12.10 12:52:00'
 - 静态变量转换为动态变量：https://bugs.python.org/issue40077 https://bugs.python.org/issue40601 https://bugs.python.org/issue46417
 
 ## 1.8 子编译器
-subinterp victor更新了一个问题
-subinterpreter相关工作
-https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit_16.html
-https://vstinner.github.io/isolate-subinterpreters.html
-https://bugs.python.org/issue40601
-https://bugs.python.org/issue45476
-https://bugs.python.org/issue45490
-https://bugs.python.org/issue44133
-https://bugs.python.org/issue39511 共享实例需要转换为子编译器化，这个需要写PEP的支持，先放一放；
+- https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit_16.html
+- https://vstinner.github.io/isolate-subinterpreters.html
+- https://bugs.python.org/issue40601
+- [在Limit CAPI中隐藏静态类型](https://github.com/python/cpython/issues/84781)
+- https://bugs.python.org/issue45476
+- https://bugs.python.org/issue45490
+- https://bugs.python.org/issue44133
+- https://bugs.python.org/issue39511 共享实例需要转换为子编译器化，这个需要写PEP的支持，先放一放；
 
 
 # 二、博客待输出

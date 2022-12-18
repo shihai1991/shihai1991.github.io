@@ -27,7 +27,7 @@ time: '2022.12.10 12:52:00'
 - frozen.c：70-98行，有多个反复的函数申明，是否要优化？
 
 ## 1.5 API优化
-- 【代码检视中】[Limited C API使用](https://github.com/python/cpython/issues/85283)
+- 【PEP 620挂起】[Limited C API使用](https://github.com/python/cpython/issues/85283)
 - nb_add需要补充相关架构方案：https://www.python.org/dev/peps/pep-0573/
 - PEP补充说明：https://github.com/encukou/abi3/issues/19
 - 【Python Capi兼容性工具】[pythoncapi-compat](https://github.com/python/pythoncapi-compat)

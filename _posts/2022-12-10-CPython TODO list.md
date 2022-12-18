@@ -15,7 +15,7 @@ time: '2022.12.10 12:52:00'
 - 【Waiting Review】[PyCField_New()函数不应该对外部用户暴露](https://github.com/python/cpython/pull/14837)
 
 ## 1.2 解释器、编译器加速
-- 微软的faster cpython计划：https://github.com/faster-cpython/ideas/issues/218
+- [微软的faster cpython计划](https://github.com/faster-cpython/ideas/issues/218)
 - Eric Snow的想法：(issue 40512)[https://bugs.python.org/issue40512] (multi-core-python)[https://github.com/ericsnowcurrently/multi-core-python/issues/34] (issue 40514)[https://bugs.python.org/issue40514]
 - mark shan的想法：(faster cpython)[https://github.com/markshannon/faster-cpython/blob/master/plan.md]
 - sam cross对多线程优化的总结及POC：优化内存创建，refcount算法加强等方面入手 (nogil)[https://github.com/colesbury/nogil]

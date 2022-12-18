@@ -12,7 +12,7 @@ time: '2022.12.10 12:52:00'
 - python template渲染能力不如go templates，支持简单语法看是不是可以支持一下？
 - 【done】help()函数的差异：help(b'123')没问题，但help('123')不行的原因是字符串可能是代码某一模块功能(参见serhiy-storchaka的MR)[https://github.com/python/cpython/commit/1c205518a35939ef555c74d0e2f8954a5e1828e1]。
 - mysql中length()函数用于实际存储字节长度，char_len()用于字符串长度，在python中，length()用于字符长度，哪个用于实际存储长度？
-- 【Waiting Review】[PyCField_New()函数不应该对外部用户暴露](https://github.com/python/cpython/pull/14837)
+- 【代码检视中】[PyCField_New()函数不应该对外部用户暴露](https://github.com/python/cpython/pull/14837)
 
 ## 1.2 解释器、编译器加速
 - [微软的faster cpython计划](https://github.com/faster-cpython/ideas/issues/218)
@@ -27,6 +27,7 @@ time: '2022.12.10 12:52:00'
 - frozen.c：70-98行，有多个反复的函数申明，是否要优化？
 
 ## 1.5 API优化
+- 【】[Limited C API使用](https://github.com/python/cpython/issues/85283)
 - nb_add需要补充相关架构方案：https://www.python.org/dev/peps/pep-0573/
 - PEP补充说明：https://github.com/encukou/abi3/issues/19
 - 【Python Capi兼容性工具】[pythoncapi-compat](https://github.com/python/pythoncapi-compat)

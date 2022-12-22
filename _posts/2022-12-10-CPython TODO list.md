@@ -53,3 +53,4 @@ time: '2022.12.10 12:52:00'
 -【有争议，前向兼容问题】[创建_pydatetime模块](https://github.com/python/cpython/issues/84976)
 -【有思路，待实现】[多模块管理，有些属性相互依赖](https://github.com/encukou/abi3/issues/19)
 - 【done】[CTypes中的CFields不应该对外暴露](https://github.com/python/cpython/issues/78878)
+- 【思考中】[PEP 630还有若干开放问题](https://peps.python.org/pep-0630/#type-checking)

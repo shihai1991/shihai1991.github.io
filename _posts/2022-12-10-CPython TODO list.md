@@ -52,3 +52,4 @@ time: '2022.12.10 12:52:00'
 ## 1.9 模块优化
 -【有争议，前向兼容问题】[创建_pydatetime模块](https://github.com/python/cpython/issues/84976)
 -【有思路，待实现】[多模块管理，有些属性相互依赖](https://github.com/encukou/abi3/issues/19)
+- 【done】[CTypes中的CFields不应该对外暴露](https://github.com/python/cpython/issues/78878)

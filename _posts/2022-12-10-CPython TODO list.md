@@ -54,3 +54,4 @@ time: '2022.12.10 12:52:00'
 -【有思路，待实现】[多模块管理，有些属性相互依赖](https://github.com/encukou/abi3/issues/19)
 - 【done】[CTypes中的CFields不应该对外暴露](https://github.com/python/cpython/issues/78878)
 - 【思考中】[PEP 630还有若干开放问题待解决，解决后可以创建一个PEP](https://peps.python.org/pep-0630/#type-checking)
+- 【问题待确认】_testmultiphase_bad_slot_negative.c中的PyInit__testmultiphase_bad_slot_negative等用例是否还有效，提交commit：PyInit__testmultiphase_bad_slot_negative

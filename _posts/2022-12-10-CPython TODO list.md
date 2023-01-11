@@ -51,6 +51,9 @@ time: '2022.12.10 12:52:00'
 - https://bugs.python.org/issue39511 共享实例需要转换为子编译器化，这个需要写PEP的支持，先放一放；
 - [PEP 684: A Per-Interpreter GIL](https://discuss.python.org/t/pep-684-a-per-interpreter-gil/19583)
 
+## 1.9 GIL消减
+- [Making the Global Interpreter Lock Optional in CPython](https://peps.python.org/pep-0703/)
+
 ## 1.9 模块优化
 -【有争议，前向兼容问题】[创建_pydatetime模块](https://github.com/python/cpython/issues/84976)
 -【有思路，待实现】[多模块管理，有些属性相互依赖](https://github.com/encukou/abi3/issues/19)

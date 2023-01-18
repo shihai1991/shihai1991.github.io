@@ -12,7 +12,7 @@ time: '2022.12.10 12:52:00'
 - python template渲染能力不如go templates，支持简单语法看是不是可以支持一下？
 - 【待分析】jdk和jre是区分运行时的，python是否需要区分，比如生产环境就不能提供pdb模块？
 - 【done】help()函数的差异：help(b'123')没问题，但help('123')不行的原因是字符串可能是代码某一模块功能(参见serhiy-storchaka的MR)[https://github.com/python/cpython/commit/1c205518a35939ef555c74d0e2f8954a5e1828e1]。
-- 【】mysql中length()函数用于实际存储字节长度，char_len()用于字符串长度，在python中，length()用于字符长度，哪个用于实际存储长度？用`len(str.encode('utf-8'))`进行计算。加一个char_len()更加合适？
+- 【】mysql中length()函数用于实际存储字节长度，char_len()用于字符串长度，在python中，length()用于字符长度，哪个用于实际存储长度？可以用`len(str.encode('utf-8'))`进行计算。但加一个char_len()更加合适？
 - 【done】[PyCField_New()函数不应该对外部用户暴露](https://github.com/python/cpython/pull/14837)
 
 ## 1.2 解释器、编译器加速

@@ -60,7 +60,7 @@ time: '2022.12.10 12:52:00'
 
 ## 1.9 模块优化
 -【有争议，前向兼容问题】[创建_pydatetime模块](https://github.com/python/cpython/issues/84976)
--【ing】[多模块管理，有些属性相互依赖](https://github.com/encukou/abi3/issues/19) 在abi3_19中实现，主要思路：在`_testcapi/heaptype.c`中写一个测试用的`Type_Spec`，并扩写`nb_add`逻辑，在通过spec来判断是否能做类别判断？
+-【ing】[多模块管理，有些属性相互依赖](https://github.com/encukou/abi3/issues/19) 在本地abi3_19分支中实现，[PEP 630](https://peps.python.org/pep-0630/#open-issues)中的第二个问题，主要思路：在`_testcapi/heaptype.c`中写一个测试用的`Type_Spec`，并扩写`nb_add`逻辑，在通过spec来判断是否能做类别判断？
 - 【done】[CTypes中的CFields不应该对外暴露](https://github.com/python/cpython/issues/78878)
 - 【思考中】[PEP 630还有若干开放问题待解决，解决后可以创建一个PEP](https://peps.python.org/pep-0630/#type-checking)
 - 【问题待确认】_testmultiphase_bad_slot_negative.c中的PyInit__testmultiphase_bad_slot_negative等用例是否还有效

@@ -14,6 +14,7 @@ time: '2022.12.10 12:52:00'
 - 【done】help()函数的差异：help(b'123')没问题，但help('123')不行的原因是字符串可能是代码某一模块功能(参见serhiy-storchaka的MR)[https://github.com/python/cpython/commit/1c205518a35939ef555c74d0e2f8954a5e1828e1]。
 - 【】mysql中length()函数用于实际存储字节长度，char_len()用于字符串长度，在python中，length()用于字符长度，哪个用于实际存储长度？可以用`len(str.encode('utf-8'))`进行计算。但加一个char_len()更加合适？
 - 【done】[PyCField_New()函数不应该对外部用户暴露](https://github.com/python/cpython/pull/14837)
+- 【待分析】在`_testcapi/heaptype.c`中Type_Slots中有用{0}和{0, 0}的区别是什么？
 
 ## 1.2 测试用例优化
 - nb_add这个slot在`Modules/_testcapi/heaptype.c`模块中没有相关测试用例，需要补充？
@@ -59,7 +60,7 @@ time: '2022.12.10 12:52:00'
 
 ## 1.9 模块优化
 -【有争议，前向兼容问题】[创建_pydatetime模块](https://github.com/python/cpython/issues/84976)
--【ing】[多模块管理，有些属性相互依赖](https://github.com/encukou/abi3/issues/19) 在abi3_19中实现
+-【ing】[多模块管理，有些属性相互依赖](https://github.com/encukou/abi3/issues/19) 在abi3_19中实现，主要思路：在heaptype.c中写一个测试用例，
 - 【done】[CTypes中的CFields不应该对外暴露](https://github.com/python/cpython/issues/78878)
 - 【思考中】[PEP 630还有若干开放问题待解决，解决后可以创建一个PEP](https://peps.python.org/pep-0630/#type-checking)
 - 【问题待确认】_testmultiphase_bad_slot_negative.c中的PyInit__testmultiphase_bad_slot_negative等用例是否还有效

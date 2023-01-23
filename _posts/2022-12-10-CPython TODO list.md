@@ -15,6 +15,8 @@ time: '2022.12.10 12:52:00'
 - 【】mysql中length()函数用于实际存储字节长度，char_len()用于字符串长度，在python中，length()用于字符长度，哪个用于实际存储长度？可以用`len(str.encode('utf-8'))`进行计算。但加一个char_len()更加合适？
 - 【done】[PyCField_New()函数不应该对外部用户暴露](https://github.com/python/cpython/pull/14837)
 
+## 1.2 测试用例优化
+- nb_add这个slot在`Modules/_testcapi/heaptype.c`模块中没有相关测试用例，需要补充？
 ## 1.2 解释器、编译器加速
 - [微软的faster cpython计划](https://github.com/faster-cpython/ideas/issues/218)
 - Eric Snow的想法：(issue 40512)[https://bugs.python.org/issue40512] (multi-core-python)[https://github.com/ericsnowcurrently/multi-core-python/issues/34] (issue 40514)[https://bugs.python.org/issue40514]

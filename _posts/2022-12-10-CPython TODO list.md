@@ -17,6 +17,7 @@ time: '2022.12.10 12:52:00'
 
 ## 1.2 测试用例优化
 - nb_add这个slot在`Modules/_testcapi/heaptype.c`模块中没有相关测试用例，需要补充？
+
 ## 1.2 解释器、编译器加速
 - [微软的faster cpython计划](https://github.com/faster-cpython/ideas/issues/218)
 - Eric Snow的想法：(issue 40512)[https://bugs.python.org/issue40512] (multi-core-python)[https://github.com/ericsnowcurrently/multi-core-python/issues/34] (issue 40514)[https://bugs.python.org/issue40514]

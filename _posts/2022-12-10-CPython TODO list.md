@@ -15,7 +15,8 @@ time: '2022.12.10 12:52:00'
 - 【】mysql中length()函数用于实际存储字节长度，char_len()用于字符串长度，在python中，length()用于字符长度，哪个用于实际存储长度？可以用`len(str.encode('utf-8'))`进行计算。但加一个char_len()更加合适？
 - 【done】[PyCField_New()函数不应该对外部用户暴露](https://github.com/python/cpython/pull/14837)
 - 【待分析】在`_testcapi/heaptype.c`中Type_Slots中有用{0}和{0, 0}的区别是什么？
-- 函数是function类，和object是否有关系？issubclass(funcA, object)会出错合理吗？
+- 【待分析】函数是function类，和object是否有关系？issubclass(funcA, object)会出错合理吗？
+- 【待分析】[issue 82166](https://github.com/python/cpython/issues/82166),Serhiy的建议是重构，否则会持续恶化
 
 ## 1.2 测试用例优化
 - nb_add这个slot在`Modules/_testcapi/heaptype.c`模块中没有相关测试用例，需要补充？

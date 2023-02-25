@@ -59,7 +59,7 @@ func resourceKubernetesClusterRole() *schema.Resource {
 }
 ```
 k8s provider主要的代码执行流程图如下所示。
-![]({{site.baseurl}}/img/20221031 k8s provider读取resource处理主要逻辑.png)
+![]({{site.baseurl}}/img/20221031-k8s-provider读取resource处理主要逻辑.png)
 
 ## 2.2 配置资源到代码解析
 如实例中的cluster role定义是怎么映射到代码调用中？

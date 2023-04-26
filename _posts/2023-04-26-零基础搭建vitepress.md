@@ -49,7 +49,7 @@ $ tree -L 1
 ```
 
 ## 2.2 执行项目
-如果用`yarn vitepress init`生成初始化项目，那就可以跳过此步骤。否则需要在package.json文件添加如下的npm执行脚本用来运行项目：
+如果用`yarn vitepress init`生成初始化项目，那就可以跳过此步骤。否则就需要在package.json文件添加如下的npm执行脚本用来运行项目：
 ```
 {
   ...

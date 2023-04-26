@@ -71,7 +71,8 @@ package.json文件添加如下的npm执行脚本用来运行项目：
 yarn docs:dev --host 0.0.0.0
 ```
 
-## 2.2 
+## 2.2 项目迭代
+
 
 # 三、FAQ
 

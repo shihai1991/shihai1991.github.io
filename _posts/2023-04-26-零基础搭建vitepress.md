@@ -89,7 +89,7 @@ $ tree -a -I node_modules
 yarn docs:dev --host 0.0.0.0
 ```
 
-## 2.2 项目迭代
+## 2.3 项目扩展
 
 
 # 三、FAQ

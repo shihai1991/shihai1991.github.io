@@ -39,6 +39,9 @@ mkdir vitepress-starter && cd vitepress-starter
 # 初始化项目，会生成一个完整的vitepress示例项目
 yarn vitepress init
 ```
+用`yarn vitepress init`初始化项目需要通过配置一些配置项
+![](https://github.com/vuejs/vitepress/blob/main/docs/guide/vitepress-init.png)
+
 初始化后的目录结构如下图所示：
 ```
 $ tree -a -I node_modules

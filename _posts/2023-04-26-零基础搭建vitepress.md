@@ -41,11 +41,30 @@ yarn vitepress init
 ```
 初始化后的目录结构如下图所示：
 ```
-$ tree -L 1
+$ tree -a -I node_modules
 .
 ├── docs
-├── node_modules
-└── package.json
+│   ├── api-examples.md
+│   ├── index.md
+│   ├── markdown-examples.md
+│   └── .vitepress
+│       ├── cache
+│       │   ├── deps
+│       │   │   ├── _metadata.json
+│       │   │   ├── package.json
+│       │   │   ├── @theme_index.js
+│       │   │   ├── @theme_index.js.map
+│       │   │   ├── vue.js
+│       │   │   └── vue.js.map
+│       │   └── deps_temp_316bd56c
+│       │       ├── package.json
+│       │       ├── vue.js
+│       │       └── vue.js.map
+│       └── config.ts
+├── package.json
+└── yarn.lock
+
+5 directories, 15 files
 ```
 
 ## 2.2 执行项目

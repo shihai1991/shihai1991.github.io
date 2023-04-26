@@ -36,12 +36,8 @@ npm install -g yarn
 ```shell
 # 创建一个目录作为vitepress项目的根目录
 mkdir vitepress-starter && cd vitepress-starter
-# 初始化项目，在项目中会创建出package.json文件
-yarn init
-# 安装依赖的三方库：vitepress、vue
-yarn add --dev vitepress vue
-# 在docs目录中写入一个index.md文件
-mkdir docs && echo '# Hello World!' > docs/index.md
+# 初始化项目，会生成一个完整的vitepress示例项目
+yarn vitepress init
 ```
 初始化后的目录结构如下图所示：
 ```
@@ -53,7 +49,7 @@ $ tree -L 1
 ```
 
 ## 2.2 执行项目
-package.json文件添加如下的npm执行脚本用来运行项目：
+如果用`yarn vitepress init`生成初始化项目，那就可以跳过此步骤。否则需要在package.json文件添加如下的npm执行脚本用来运行项目：
 ```
 {
   ...

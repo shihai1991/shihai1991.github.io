@@ -60,7 +60,7 @@ package.json文件添加如下的npm执行脚本用来运行项目：
 执行如下命令启动一个服务：
 ```
 //或者 npm run docs:dev
-yarn docs:dev
+yarn docs:dev --host 0.0.0.0
 ```
 
 ## 2.2 

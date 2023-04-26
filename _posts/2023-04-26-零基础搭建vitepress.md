@@ -97,6 +97,9 @@ TODO，可以参考[vitepress的官方指导](https://github.com/vuejs/vitepress
 ### Q1: 执行yarn遇到：unable to verify the first certificate.
 可以配置`yarn`取消ssl校验，配置命令：`yarn config set "strict-ssl" false -g`。
 
+### Q2：已经有了一个项目怎么安装依赖软件包？
+通过在项目路径下执行`yarn install`来安装就可以了。`yarn install`安装会索引`package.json`文件中的`dependencies`依赖软件包。
+
 # 四、参考文献
 [nodejs安装](https://www.runoob.com/nodejs/nodejs-install-setup.html)
 [yarn简介](https://zhuanlan.zhihu.com/p/357454908)

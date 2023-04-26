@@ -32,6 +32,13 @@ npm install -g yarn
 ```
 
 # 二、vitepress搭建和运行
+## 2.1 初始化项目
+```shell
+# mkdir 创建文件夹指令； && 表示当前命令执行成功后会执行下一条指令。
+mkdir vitepress-starter && cd vitepress-starter
+```
+
+## 2.2 
 
 # 三、FAQ
 
@@ -41,3 +48,4 @@ npm install -g yarn
 # 四、参考文献
 [nodejs安装](https://www.runoob.com/nodejs/nodejs-install-setup.html)
 [yarn简介](https://zhuanlan.zhihu.com/p/357454908)
+[VitePress 手把手完全使用手册](https://juejin.cn/post/7164276166084263972#heading-8)

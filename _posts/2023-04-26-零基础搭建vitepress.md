@@ -90,7 +90,7 @@ yarn docs:dev --host 0.0.0.0
 ```
 
 ## 2.3 项目扩展
-
+TODO，可以参考[vitepress的官方指导](https://github.com/vuejs/vitepress/tree/main/docs/guide)。
 
 # 三、FAQ
 

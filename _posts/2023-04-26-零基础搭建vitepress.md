@@ -24,7 +24,15 @@ cd node-v20.0.0
 // 执行编译和安装。尴尬，没看到 https://nodejs.org/dist/v20.0.0/目录下有编译好的包，node-v20.0.0-linux-x64.tar.gz解压可以直接用
 make & make install
 ```
+
+## 1.2 配置yarn
+`yarn` 是另外一个nodejs包管理器，可以理解是`npm`的替代品。
+```
+npm install -g yarn
+```
+
 # 二、vitepress搭建和运行
 
 # 参考文献
 [nodejs安装](https://www.runoob.com/nodejs/nodejs-install-setup.html)
+[yarn简介](https://zhuanlan.zhihu.com/p/357454908)

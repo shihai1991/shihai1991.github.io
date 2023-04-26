@@ -34,8 +34,33 @@ npm install -g yarn
 # 二、vitepress搭建和运行
 ## 2.1 初始化项目
 ```shell
-# mkdir 创建文件夹指令； && 表示当前命令执行成功后会执行下一条指令。
+# 创建一个目录作为vitepress项目的根目录
 mkdir vitepress-starter && cd vitepress-starter
+# 初始化项目，在项目中会创建出package.json文件
+yarn init
+# 安装依赖的三方库：vitepress、vue
+yarn add --dev vitepress vue
+# 在docs目录中写入一个index.md文件
+mkdir docs && echo '# Hello World!' > docs/index.md
+```
+
+## 2.2 执行项目
+package.json文件添加如下的npm执行脚本用来运行项目：
+```
+{
+  ...
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  ...
+}
+```
+执行如下命令启动一个服务：
+```
+//或者 npm run docs:dev
+yarn docs:dev
 ```
 
 ## 2.2 
@@ -49,3 +74,4 @@ mkdir vitepress-starter && cd vitepress-starter
 [nodejs安装](https://www.runoob.com/nodejs/nodejs-install-setup.html)
 [yarn简介](https://zhuanlan.zhihu.com/p/357454908)
 [VitePress 手把手完全使用手册](https://juejin.cn/post/7164276166084263972#heading-8)
+[vitepress 入门](https://github.com/vuejs/vitepress/blob/main/docs/guide/getting-started.md)

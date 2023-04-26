@@ -43,6 +43,14 @@ yarn add --dev vitepress vue
 # 在docs目录中写入一个index.md文件
 mkdir docs && echo '# Hello World!' > docs/index.md
 ```
+初始化后的目录结构如下图所示：
+```
+$ tree -L 1
+.
+├── docs
+├── node_modules
+└── package.json
+```
 
 ## 2.2 执行项目
 package.json文件添加如下的npm执行脚本用来运行项目：

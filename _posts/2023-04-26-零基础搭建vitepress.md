@@ -33,6 +33,11 @@ npm install -g yarn
 
 # 二、vitepress搭建和运行
 
-# 参考文献
+# 三、FAQ
+
+### Q1: 执行yarn遇到：unable to verify the first certificate.
+可以配置`yarn`取消ssl校验，配置命令：`yarn config set "strict-ssl" false -g`。
+
+# 四、参考文献
 [nodejs安装](https://www.runoob.com/nodejs/nodejs-install-setup.html)
 [yarn简介](https://zhuanlan.zhihu.com/p/357454908)

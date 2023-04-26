@@ -13,7 +13,7 @@ time: '2023.04.01 14:52:00'
 > 搭建的环境是centos
 
 # 一、基础环境安装
-配置nodejs环境。
+## 1.1 配置nodejs
 ```shell
 // 下载nodejs包
 wget https://nodejs.org/dist/v20.0.0/node-v20.0.0.tar.gz

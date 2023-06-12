@@ -20,10 +20,12 @@ k8s测试基础设施的项目清单：
 # 一、自动化
 ## prow
 **用途**：基于k8s的CI/CD系统。  
-主要的组件清单：
-- **Crier**：用于报告prowjobs的状态，现在已有的reporter：Gerrit reporter、Pubsub reporter、GitHub reporter、Slack reporter,当然你也可以扩展reporter；
-- 
-- 
+主要的组件清单及功能：
+- **Crier**: 用于报告prowjobs的状态，现在已有的reporter：Gerrit reporter、Pubsub reporter、GitHub reporter、Slack reporter,当然你也可以扩展reporter；
+- **Deck**: 在prow页面上展示正在运行或最近运行的jobs；
+- **prow-controller-manager**：管理在k8s中运行的作业执行和生命周期；
+- **Tide**：管理Github的PR，可以对PR进行合并；
+
 ![]({{site.baseurl}}/img/2023/Q2/20230612-prow-architecture.png)
 
 [Prow Status](https://prow.k8s.io/)

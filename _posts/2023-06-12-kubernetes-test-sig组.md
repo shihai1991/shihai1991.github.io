@@ -15,6 +15,8 @@ k8s测试基础设施的项目清单：
 从PR触发测试执行流程：
 ![]({{site.baseurl}}/img/2023/Q2/20230612-test-infra工作流.png)
 
+[k8s test-infra代码仓](https://github.com/kubernetes/test-infra)
+
 # 一、自动化
 ## prow
 项目目标：

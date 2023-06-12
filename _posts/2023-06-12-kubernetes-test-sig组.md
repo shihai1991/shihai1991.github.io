@@ -96,7 +96,7 @@ resources:
 # 二、可视化
 ## testgrid
 **用途**：用于在网格中查看测试结果。  
-现在主要的代码都归档于[GCP group](https://github.com/GoogleCloudPlatform/testgrid)中。
+k8s的testgrid实例可以查看[此链接](https://testgrid.k8s.io)，现在主要的代码都归档于[GCP group](https://github.com/GoogleCloudPlatform/testgrid)中。
 
 # 三、其他
 ## kind

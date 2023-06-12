@@ -25,8 +25,8 @@ k8s测试基础设施的主要项目清单：
 - **Deck**: 在prow页面上展示正在运行或最近运行的jobs；
 - **prow-controller-manager**：管理在k8s中运行的作业执行和生命周期；
 - **Tide**：管理Github的PR，可以对PR进行合并；
-- **Horologium**: TBD;
-- **Sinker**: TBD;
+- **Horologium**: TBD；
+- **Sinker**: TBD；
 
 ![]({{site.baseurl}}/img/2023/Q2/20230612-prow-architecture.png)
 
@@ -63,7 +63,7 @@ var _ = SIGDescribe("GKE node pools [Feature:GKENodePool]", func() {
 	})
 })
 ```
-**个人遗留问题，TBD**：这里的实际用例执行为什么用的是命令行去触发？
+**个人遗留问题，TBD**：这里的实际用例执行为什么用的是命令行去触发？是用户接触的是命令行模式？还是其他什么原因？
 
 ## boskos
 用途：

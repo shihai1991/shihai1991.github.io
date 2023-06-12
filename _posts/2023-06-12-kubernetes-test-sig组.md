@@ -67,7 +67,28 @@ var _ = SIGDescribe("GKE node pools [Feature:GKENodePool]", func() {
 
 ## [boskos](https://github.com/kubernetes-sigs/boskos)
 用途：资源管理服务，为测试提供干净的GCP项目或者k8s集群。
-架构设计：
+Boskos支持两种资源类型：静态资源、动态资源。
+```
+---
+resources:
+  # Static
+  - type: "aws-account"
+    state: free
+    names:
+    - "account1"
+    - "account2"
+  # Dynamic
+  - type: "aws-cluster"
+    state: dirty
+    min-count: 1
+    max-count: 2
+    lifespan: 48h
+    needs:
+      aws-account: 1
+    config:
+      type: AWSClusterCreator
+      content: "..."
+```
 
 ## bootstrap
 存在价值：

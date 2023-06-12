@@ -90,11 +90,8 @@ resources:
       content: "..."
 ```
 
-## bootstrap
-存在价值：
-架构设计：
-
-## config
+## gopherage
+用途：go覆盖率工具，并且可以转换为testgrid兼容的junit。
 
 # 二、可视化
 # 三、其他

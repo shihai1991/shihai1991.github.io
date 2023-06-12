@@ -66,7 +66,7 @@ var _ = SIGDescribe("GKE node pools [Feature:GKENodePool]", func() {
 **个人遗留问题，TBD**：这里的实际用例执行为什么用的是命令行去触发？是用户接触的是命令行模式？还是其他什么原因？
 
 ## boskos
-用途：
+用途：资源管理服务，为测试提供干净的GCP项目或者k8s集群。
 架构设计：
 
 ## bootstrap

@@ -98,7 +98,7 @@ resources:
 ## testgrid
 **用途**：用于在网格中查看测试结果。  
 k8s的testgrid实例可以查看[此链接](https://testgrid.k8s.io)，现在主要的代码都归档于[GCP group](https://github.com/GoogleCloudPlatform/testgrid)中。
-**补充testgrid图**
+呈现的结果图如下所示：
 ![]({{site.baseurl}}/img/2023/Q2/20230612-testgrid.png)
 
 # 三、其他

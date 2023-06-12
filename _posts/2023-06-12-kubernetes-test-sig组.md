@@ -19,8 +19,15 @@ k8s测试基础设施的项目清单：
 
 # 一、自动化
 ## prow
-**用途**：基于k8s的CI/CD系统
+**用途**：基于k8s的CI/CD系统。
+主要的组件清单：
+- 
+- 
+- 
 ![]({{site.baseurl}}/img/2023/Q2/20230612-prow-architecture.png)
+
+[Prow Status](https://prow.k8s.io/)
+补充prow status图
 
 ## kubetest1/2
 

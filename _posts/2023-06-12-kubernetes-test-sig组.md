@@ -34,6 +34,7 @@ k8s测试基础设施的主要项目清单：
 补充prow status图
 
 ## kubetest1/2
+**用途**: kubetest是启动和运行端到端测试的接口，kubetest已经被kubetest2替代。
 
 ## boskos
 存在价值：

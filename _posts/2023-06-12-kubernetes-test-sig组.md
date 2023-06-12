@@ -91,9 +91,13 @@ resources:
 ```
 
 ## gopherage
-用途：go覆盖率工具，并且可以转换为testgrid兼容的junit。
+**用途**：go覆盖率工具，并且可以转换为testgrid兼容的junit。
 
 # 二、可视化
+## testgrid
+**用途**：用于在网格中查看测试结果。  
+现在主要的代码都归档于[GCP group](https://github.com/GoogleCloudPlatform/testgrid)中。
+
 # 三、其他
 ## kind
 

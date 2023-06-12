@@ -31,7 +31,7 @@ k8s测试基础设施(test-infra)的主要项目清单：
 ![]({{site.baseurl}}/img/2023/Q2/20230612-prow-architecture.png)
 
 [Prow Status](https://prow.k8s.io/)
-**补充prow status图**
+
 ![]({{site.baseurl}}/img/2023/Q2/20230612-prow-status.png)
 
 ## [kubetest1/2](https://github.com/kubernetes-sigs/kubetest2)
@@ -99,6 +99,7 @@ resources:
 **用途**：用于在网格中查看测试结果。  
 k8s的testgrid实例可以查看[此链接](https://testgrid.k8s.io)，现在主要的代码都归档于[GCP group](https://github.com/GoogleCloudPlatform/testgrid)中。
 **补充testgrid图**
+![]({{site.baseurl}}/img/2023/Q2/20230612-testgrid.png)
 
 # 三、其他
 ## kind

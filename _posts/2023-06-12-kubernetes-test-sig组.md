@@ -36,7 +36,6 @@ k8s测试基础设施的主要项目清单：
 ## [kubetest1/2](https://github.com/kubernetes/test-infra/tree/master/kubetest)
 **用途**: kubetest是启动和运行端到端测试的接口，kubetest已经被kubetest2替代。[文档](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-testing/e2e-tests.md)  
 
-
 ## boskos
 存在价值：
 架构设计：

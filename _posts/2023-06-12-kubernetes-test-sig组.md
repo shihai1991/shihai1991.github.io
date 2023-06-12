@@ -30,6 +30,7 @@ k8s测试基础设施(test-infra)的主要项目清单：
 
 ![]({{site.baseurl}}/img/2023/Q2/20230612-prow-architecture.png)
 
+prow status汇总信息图如下所示：
 [Prow Status](https://prow.k8s.io/)
 
 ![]({{site.baseurl}}/img/2023/Q2/20230612-prow-status.png)

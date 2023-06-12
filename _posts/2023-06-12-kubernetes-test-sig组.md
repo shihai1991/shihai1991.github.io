@@ -42,6 +42,7 @@ k8s中的e2e测试建立在[Ginkgo](https://onsi.github.io/ginkgo)和[Gomega](ht
 kubetest2 gce --build --legacy-mode
 # 执行测试
 kubetest2 gce --gcp-project <project> --up
+kubetest2 gce --test ginkgo -- --focus-regex "\[Feature:Performance\]"
 # 清理
 kubetest2 gce --gcp-project <project> --down
 ```

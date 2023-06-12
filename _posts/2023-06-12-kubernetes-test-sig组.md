@@ -101,6 +101,7 @@ k8s的testgrid实例可以查看[此链接](https://testgrid.k8s.io)，现在主
 
 # 三、其他
 ## kind
+TBD
 
 # 四、参考文献
 - [k8s testing sig](https://github.com/kubernetes/community/blob/master/sig-testing/README.md)

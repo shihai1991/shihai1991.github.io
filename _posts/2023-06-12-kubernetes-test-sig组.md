@@ -46,7 +46,7 @@ kubetest2 gce --test ginkgo -- --focus-regex "\[Feature:Performance\]"
 # 清理
 kubetest2 gce --gcp-project <project> --down
 ```
-一个[nodepool e2e测试用例](https://github.com/kubernetes/kubernetes/blob/master/test/e2e/cloud/gcp/gke_node_pools.go)，具体测试代码：
+一个[nodepool e2e测试用例](https://github.com/kubernetes/kubernetes/blob/master/test/e2e/cloud/gcp/gke_node_pools.go)，具体测试代码块如下所示：
 ```go
 var _ = SIGDescribe("GKE node pools [Feature:GKENodePool]", func() {
 

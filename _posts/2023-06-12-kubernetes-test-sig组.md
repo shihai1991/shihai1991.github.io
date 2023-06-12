@@ -32,6 +32,7 @@ k8s测试基础设施(test-infra)的主要项目清单：
 
 [Prow Status](https://prow.k8s.io/)
 **补充prow status图**
+![]({{site.baseurl}}/img/2023/Q2/20230612-prow-status.png)
 
 ## [kubetest1/2](https://github.com/kubernetes-sigs/kubetest2)
 **用途**: kubetest是一个部署k8s集群并能运行端到端测试，kubetest已经被kubetest2替代。[详细文档](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-testing/e2e-tests.md)  

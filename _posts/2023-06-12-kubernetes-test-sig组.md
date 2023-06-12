@@ -3,7 +3,7 @@ layout: post
 title: kubernetes test SIG组梳理
 category: k8s
 catalog: true
-published: false
+published: true
 tags:
   - k8s
   - test

@@ -17,6 +17,8 @@ k8s测试基础设施的项目清单：
 
 # 一、自动化
 ## prow
+![]({{site.baseurl}}/img/2023/Q2/20230612-prow-architecture.png)
+
 ## kubetest1/2
 
 ## boskos

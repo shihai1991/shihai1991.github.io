@@ -35,7 +35,7 @@ k8s测试基础设施的主要项目清单：
 
 ## [kubetest1/2](https://github.com/kubernetes/test-infra/tree/master/kubetest)
 **用途**: kubetest是启动和运行端到端测试的接口，kubetest已经被kubetest2替代。[文档](https://github.com/kubernetes/community/blob/master/contributors/devel/sig-testing/e2e-tests.md)  
-k8s中的e2e测试建立在Ginkgo和Gomega之上，该行为驱动开发测试框架提供了很多特性。
+k8s中的e2e测试建立在[Ginkgo](https://onsi.github.io/ginkgo)和[Gomega](https://onsi.github.io/gomega)之上，该行为驱动开发测试框架提供了很多特性。
 
 ## boskos
 存在价值：

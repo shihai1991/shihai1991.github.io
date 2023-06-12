@@ -33,7 +33,7 @@ k8s测试基础设施的主要项目清单：
 [Prow Status](https://prow.k8s.io/)
 补充prow status图
 
-## kubetest1/2
+## [kubetest1/2](https://github.com/kubernetes/test-infra/tree/master/kubetest)
 **用途**: kubetest是启动和运行端到端测试的接口，kubetest已经被kubetest2替代。
 
 ## boskos

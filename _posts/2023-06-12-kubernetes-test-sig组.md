@@ -38,7 +38,12 @@ k8s测试基础设施的主要项目清单：
 k8s中的e2e测试建立在[Ginkgo](https://onsi.github.io/ginkgo)和[Gomega](https://onsi.github.io/gomega)之上，该行为驱动开发测试框架提供了很多特性。
 构建k8s、启动cluster、执行测试、清理所有资源，可以使用这些命令：
 ```shell
-kubetest --build --up --test --down
+# 构建k8s
+kubetest2 gce --build --legacy-mode
+# 执行测试
+kubetest2 gce --gcp-project <project> --up
+# 清理
+kubetest2 gce --gcp-project <project> --down
 ```
 
 ## boskos

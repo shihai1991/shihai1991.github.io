@@ -46,6 +46,7 @@ kubetest2 gce --test ginkgo -- --focus-regex "\[Feature:Performance\]"
 # 清理
 kubetest2 gce --gcp-project <project> --down
 ```
+一个[nodepool e2e测试用例](https://github.com/kubernetes/kubernetes/blob/master/test/e2e/cloud/gcp/gke_node_pools.go)。
 
 ## boskos
 存在价值：

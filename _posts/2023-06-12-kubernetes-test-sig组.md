@@ -65,7 +65,7 @@ var _ = SIGDescribe("GKE node pools [Feature:GKENodePool]", func() {
 ```
 
 ## boskos
-存在价值：
+用途：
 架构设计：
 
 ## bootstrap

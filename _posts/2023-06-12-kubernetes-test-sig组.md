@@ -63,6 +63,7 @@ var _ = SIGDescribe("GKE node pools [Feature:GKENodePool]", func() {
 	})
 })
 ```
+**个人遗留问题，TBD**：这里的实际用例执行为什么用的是命令行去触发？
 
 ## boskos
 用途：

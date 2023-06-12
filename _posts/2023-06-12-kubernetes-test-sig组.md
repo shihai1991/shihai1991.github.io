@@ -9,7 +9,7 @@ tags:
   - test
 time: '2023.06.12 09:35:00'
 ---
-k8s测试基础设施的主要项目清单：
+k8s测试基础设施(test-infra)的主要项目清单：
 ![]({{site.baseurl}}/img/2023/Q2/20230612-k8s-test-infra.png)
 
 从PR触发测试执行流程：

@@ -26,7 +26,7 @@ k8s测试基础设施的主要项目清单：
 - **prow-controller-manager**：管理在k8s中运行的作业执行和生命周期；
 - **Tide**：管理Github的PR，可以对PR进行合并；
 - **Horologium**: TBD;
-- **Sinker**: TBD
+- **Sinker**: TBD;
 
 ![]({{site.baseurl}}/img/2023/Q2/20230612-prow-architecture.png)
 

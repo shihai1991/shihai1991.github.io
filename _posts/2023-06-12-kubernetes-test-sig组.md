@@ -46,8 +46,23 @@ kubetest2 gce --test ginkgo -- --focus-regex "\[Feature:Performance\]"
 # 清理
 kubetest2 gce --gcp-project <project> --down
 ```
-一个[nodepool e2e测试用例](https://github.com/kubernetes/kubernetes/blob/master/test/e2e/cloud/gcp/gke_node_pools.go)。
+一个[nodepool e2e测试用例](https://github.com/kubernetes/kubernetes/blob/master/test/e2e/cloud/gcp/gke_node_pools.go)，具体代码：
+```go
+var _ = SIGDescribe("GKE node pools [Feature:GKENodePool]", func() {
 
+	f := framework.NewDefaultFramework("node-pools")
+	f.NamespacePodSecurityEnforceLevel = admissionapi.LevelPrivileged
+
+	ginkgo.BeforeEach(func() {
+		e2eskipper.SkipUnlessProviderIs("gke")
+	})
+
+	ginkgo.It("should create a cluster with multiple node pools [Feature:GKENodePool]", func(ctx context.Context) {
+		framework.Logf("Start create node pool test")
+		testCreateDeleteNodePool(ctx, f, "test-pool")
+	})
+})
+```
 ## boskos
 存在价值：
 架构设计：

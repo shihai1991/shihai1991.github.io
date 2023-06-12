@@ -16,14 +16,14 @@ k8s测试基础设施的项目清单：
 ![]({{site.baseurl}}/img/2023/Q2/20230612-test-infra工作流.png)
 
 # 一、自动化
-## kubetest1/2
 ## prow
+## kubetest1/2
 
-## 1.1 boskos
+## boskos
 存在价值：
 架构设计：
 
-## 1.2 bootstrap
+## bootstrap
 存在价值：
 架构设计：
 

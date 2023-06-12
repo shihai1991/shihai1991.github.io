@@ -18,7 +18,7 @@ k8s测试基础设施的主要项目清单：
 [k8s test-infra代码仓](https://github.com/kubernetes/test-infra)
 
 # 一、自动化
-## prow
+## [prow](https://github.com/kubernetes/test-infra/tree/master/prow)
 **用途**：基于k8s的CI/CD系统。  
 主要的组件清单及功能：
 - **Crier**: 用于报告prowjobs的状态，现在已有的reporter：Gerrit reporter、Pubsub reporter、GitHub reporter、Slack reporter,当然你也可以扩展reporter；

@@ -140,5 +140,6 @@ kubectl apply -f kube-flannel.yml
 7. [kustomize 最简实践](https://zhuanlan.zhihu.com/p/92153378)
 8. [Kong Ingress Controller](https://zhuanlan.zhihu.com/p/136411744)
 9. [Custom Resource Define](https://www.qikqiak.com/k8strain/operator/crd/#:~:text=Custom%20Resource%20Define%20%E7%AE%80%E7%A7%B0CRD,%E7%B1%BB%E4%BC%BC%E4%BA%8E%E6%93%8D%E4%BD%9CPod%20%E4%B8%80%E6%A0%B7%E3%80%82)
+10. [k8s sample-controller](https://github.com/kubernetes/sample-controller)
 10. [k8s annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
 11. [How to Setup Prometheus Monitoring On Kubernetes Cluster](https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/)

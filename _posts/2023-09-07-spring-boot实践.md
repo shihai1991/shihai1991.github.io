@@ -18,5 +18,6 @@ time: '2023.09.07 20:53:00'
 
 - Cannot resolve symbol 'var'
 确保IDE内的所有Language Level配置都是按项目jdk版本要求进行配置。
+
 # 参考文章
 - [Spring Boot开发](https://www.liaoxuefeng.com/wiki/1252599548343744/1266265175882464)

@@ -16,5 +16,7 @@ time: '2023.09.07 20:53:00'
 2. 在setting中的Maven.Runner.VM Options中填入：-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true
 3. 在setting中的Maven.importing.VM options for importer中填入：-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true
 
+- Cannot resolve symbol 'var'
+确保IDE内的所有Language Level配置都是按项目jdk版本要求进行配置。
 # 参考文章
 - [Spring Boot开发](https://www.liaoxuefeng.com/wiki/1252599548343744/1266265175882464)

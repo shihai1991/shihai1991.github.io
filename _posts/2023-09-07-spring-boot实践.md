@@ -8,6 +8,7 @@ tags:
   - spring
 time: '2023.09.07 20:53:00'
 ---
+# 集成[OpenAPI](https://www.openapis.org/)
 
 # FAQ
 - org.springframework.boot:spring-boot-starter-parent:pom:3.0.0 failed to transfer from xxx

@@ -9,7 +9,7 @@ tags:
   - java
 time: '2023.09.07 20:53:00'
 ---
-> 学习中，先把能在搜索引擎上找到的信息搬砖搬到一起。
+> 学习中，先把能在搜索引擎上找到的信息汇总一起方便学习。
 
 # [Spring WebFlux](https://docs.spring.io/spring-framework/docs/5.0.0.M5/spring-framework-reference/html/web-reactive.html)
 Spring框架中的响应式堆栈框架。

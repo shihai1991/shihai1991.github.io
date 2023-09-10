@@ -6,6 +6,7 @@ catalog: true
 published: true
 tags:
   - spring
+  - java
 time: '2023.09.07 20:53:00'
 ---
 # Spring WebFlux

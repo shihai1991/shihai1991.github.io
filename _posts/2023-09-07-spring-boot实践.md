@@ -9,6 +9,25 @@ tags:
 time: '2023.09.07 20:53:00'
 ---
 # 集成[OpenAPI](https://www.openapis.org/)
+spring有两种方式可以支持OpenAPI swagger UI。实际动作就是添加或者更新依赖。
+一种是支持Spring WebMvc。
+```
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+      <version>2.2.0</version>
+   </dependency>
+```
+而另外一种则是支持Spring WebFlux。[详情](https://springdoc.org/modules.html)
+```
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+      <version>2.2.0</version>
+   </dependency>
+```
+
+`springdoc-openapi-starter-xxx-ui`都是`springdoc-openapi-v2`系列的软件包，而`springdoc-openapi-v1`的软件包则略有不同。[详情](https://springdoc.org/#migrating-from-springdoc-v1)
 
 # FAQ
 - org.springframework.boot:spring-boot-starter-parent:pom:3.0.0 failed to transfer from xxx

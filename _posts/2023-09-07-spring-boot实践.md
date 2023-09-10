@@ -9,8 +9,11 @@ tags:
   - java
 time: '2023.09.07 20:53:00'
 ---
+> 学习中，先在搜索引擎上找到的信息搬砖搬到一起。
+
 # [Spring WebFlux](https://docs.spring.io/spring-framework/docs/5.0.0.M5/spring-framework-reference/html/web-reactive.html)
 ## [Reactive Programming](https://spring.io/blog/2016/06/07/notes-on-reactive-programming-part-i-the-reactive-landscape)
+
 
 ![](https://docs.spring.io/spring-framework/docs/5.0.0.M5/spring-framework-reference/html/images/webflux-overview.png)
 

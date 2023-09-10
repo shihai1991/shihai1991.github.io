@@ -16,6 +16,9 @@ time: '2023.09.07 20:53:00'
 ## [Reactive Programming](https://spring.io/blog/2016/06/07/notes-on-reactive-programming-part-i-the-reactive-landscape)
 响应式编程是关于异步和事件驱动的非阻塞式应用。
 
+## [Reactor](https://projectreactor.io/)
+Spring框架在内部使用`Reactor`来提供自身的反应式支持。
+
 ![](https://docs.spring.io/spring-framework/docs/5.0.0.M5/spring-framework-reference/html/images/webflux-overview.png)
 
 # 集成[OpenAPI](https://www.openapis.org/)

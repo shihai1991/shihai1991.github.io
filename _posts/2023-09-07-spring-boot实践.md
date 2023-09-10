@@ -8,6 +8,7 @@ tags:
   - spring
 time: '2023.09.07 20:53:00'
 ---
+# Spring WebFlux
 # 集成[OpenAPI](https://www.openapis.org/)
 spring有两种方式可以支持OpenAPI swagger UI。实际动作就是添加或者更新依赖。
 一种是支持Spring WebMvc。

@@ -9,7 +9,7 @@ tags:
   - java
 time: '2023.09.07 20:53:00'
 ---
-# Spring WebFlux
+# [Spring WebFlux](https://docs.spring.io/spring-framework/docs/5.0.0.M5/spring-framework-reference/html/web-reactive.html)
 ![](https://docs.spring.io/spring-framework/docs/5.0.0.M5/spring-framework-reference/html/images/webflux-overview.png)
 
 # 集成[OpenAPI](https://www.openapis.org/)

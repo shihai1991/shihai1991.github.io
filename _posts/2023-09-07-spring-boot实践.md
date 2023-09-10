@@ -11,7 +11,7 @@ time: '2023.09.07 20:53:00'
 # 集成[OpenAPI](https://www.openapis.org/)
 spring有两种方式可以支持OpenAPI swagger UI。实际动作就是添加或者更新依赖。
 一种是支持Spring WebMvc。
-```
+```maven
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
@@ -19,7 +19,7 @@ spring有两种方式可以支持OpenAPI swagger UI。实际动作就是添加�
    </dependency>
 ```
 而另外一种则是支持Spring WebFlux。[详情](https://springdoc.org/modules.html)
-```
+```maven
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>

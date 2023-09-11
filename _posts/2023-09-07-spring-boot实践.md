@@ -18,7 +18,7 @@ Spring框架中的响应式堆栈框架。
 响应式编程是关于异步和事件驱动的非阻塞式应用。
 
 ## [Reactor](https://projectreactor.io/)
-Spring框架在内部使用`Reactor`来提供自身的反应式支持。
+Spring框架在内部使用`Reactor`来提供自身的响应式支持。
 
 ## [Annotated Controllers](https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/web-reactive.html#webflux-controller)
 TBD

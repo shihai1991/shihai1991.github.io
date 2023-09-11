@@ -24,7 +24,7 @@ Spring框架在内部使用`Reactor`来提供自身的反应式支持。
 TBD
 
 ## [Response Entity](https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/web-reactive.html#webflux-ann-responseentity)
-TBD
+WebFlux支持使用单值的[`reactive type`](https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/web-reactive.html#webflux-reactive-libraries)来异步地生成`ResponseEntity `。
 
 ![](https://docs.spring.io/spring-framework/docs/5.0.0.M5/spring-framework-reference/html/images/webflux-overview.png)
 

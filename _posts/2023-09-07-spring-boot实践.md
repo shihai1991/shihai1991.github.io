@@ -20,6 +20,12 @@ Spring框架中的响应式堆栈框架。
 ## [Reactor](https://projectreactor.io/)
 Spring框架在内部使用`Reactor`来提供自身的反应式支持。
 
+## Annotated Controllers
+TBD
+
+## [Response Entity](https://docs.spring.io/spring-framework/docs/5.3.29/reference/html/web-reactive.html#webflux-ann-responseentity)
+TBD
+
 ![](https://docs.spring.io/spring-framework/docs/5.0.0.M5/spring-framework-reference/html/images/webflux-overview.png)
 
 # 集成[OpenAPI](https://www.openapis.org/)

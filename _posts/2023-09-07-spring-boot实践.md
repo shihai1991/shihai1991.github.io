@@ -55,3 +55,4 @@ spring有两种方式可以支持OpenAPI swagger UI。实际动作就是添加�
 
 # 参考文章
 - [Spring Boot开发](https://www.liaoxuefeng.com/wiki/1252599548343744/1266265175882464)
+- [Spring Framework Docs](https://docs.spring.io/spring-framework/docs)

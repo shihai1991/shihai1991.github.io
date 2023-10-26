@@ -10,7 +10,8 @@ time: '2022.09.16 11:34:00'
 ---
 # 一、开通([provisioning](https://www.redhat.com/en/topics/automation/what-is-provisioning#overview))
 `provisioning`是设置IT基础设施的过程。`provisioning`和配置不是一个事情，但是他们都是`deployment`过程中的步骤。有多种类别的`provisioning`：`server provisioning`(服务器开通),`network provisioning`(网络开通),`user provisioning`(用户开通),`service provisioning`(服务开通)。  
-`provisioning`和`IaC`是什么关系呢？我个人理解前者是目标，后者是实施方案之一。
+`provisioning`和`IaC`是什么关系呢？我个人理解前者是目标，后者是实施方案之一。  
+另外，`deployment`和`runtime`这两者关系应该怎么理解比较合适？我个人理解是`deployment`是一个执行动作，实际从终态的`服务/应用`视角来看就是`runtime`需要依赖哪些资源 [类似oam中component.cpu](https://github.com/oam-dev/spec/blob/master/3.component_model.md)。
 
 # 二、特征(traits)
 ## 2.2 [oam中的traits](https://github.com/oam-dev/spec/blob/master/6.traits.md)
@@ -86,3 +87,4 @@ openstack对traits也有类似定义，实际对[openstack trait描述](https://
 3. [kubevela ingress.yaml](https://github.com/kubevela/kubevela/blob/master/charts/vela-core/templates/defwithtemplate/ingress.yaml)  
 4. [provisioning](https://zh.wikipedia.org/zh-tw/%E6%9C%8D%E5%8A%A1%E5%BC%80%E9%80%9A)
 5. [kubevela webservice.cue](https://github.com/kubevela/kubevela/blob/master/vela-templates/definitions/internal/component/webservice.cue)
+6. [Google Cloud: Cloud Deployment Manager](https://cloud.google.com/deployment-manager/docs/manage-cloud-resources-deployment?hl=zh-cn)

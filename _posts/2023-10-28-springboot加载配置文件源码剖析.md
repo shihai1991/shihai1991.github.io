@@ -56,3 +56,4 @@ main:31, Application (com.xxxx.xxxx)
 # 参考文档
 - [Stackoverflow: In a spring boot project, how to load application.yaml into Java Properties](https://stackoverflow.com/questions/43796664/in-a-spring-boot-project-how-to-load-application-yaml-into-java-properties)
 - [Stackoverflow: In which class in the source code of spring-boot or spring is the application.yml or application.properties file processed?](https://stackoverflow.com/questions/73352379/in-which-class-in-the-source-code-of-spring-boot-or-spring-is-the-application-ym)
+- [Access a File from the Classpath in a Spring Application](https://www.baeldung.com/spring-classpath-file-access)

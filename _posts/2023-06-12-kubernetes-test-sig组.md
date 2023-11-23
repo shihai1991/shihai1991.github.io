@@ -20,7 +20,7 @@ time: '2023.06.12 09:35:00'
 k8s测试基础设施(test-infra)的主要项目清单：
 ![]({{site.baseurl}}/img/2023/Q2/20230612-k8s-test-infra.png)
 
-从PR触发测试执行流程：
+从PR触发测试执行的完整流程：
 ![]({{site.baseurl}}/img/2023/Q2/20230612-test-infra工作流.png)
 
 [k8s test-infra代码仓](https://github.com/kubernetes/test-infra)
@@ -110,7 +110,7 @@ k8s的testgrid实例可以查看[此链接](https://testgrid.k8s.io)，现在主
 呈现的结果图如下所示：
 ![]({{site.baseurl}}/img/2023/Q2/20230612-testgrid.png)
 
-# 三、其他
+# 三、本地测试
 ## kind
 TBD
 

@@ -9,6 +9,14 @@ tags:
   - test
 time: '2023.06.12 09:35:00'
 ---
+提供的服务及相关能力：
+- 项目CI和工作流自动化工具：prow、tide；
+- 支持规划化项目CI的基础设施：boskos、ghproxy、greenhouse；
+- 测试工件的提取、展示和分析： gubernator、kettle、testgrid、triage；
+- 任务配置管理并确保它们使用一致的流程：job configs、kubetest；
+- 方便github的配置管理：peribolos、label_sync；
+- 方便k8s本地测试：greenhouse、kind；
+
 k8s测试基础设施(test-infra)的主要项目清单：
 ![]({{site.baseurl}}/img/2023/Q2/20230612-k8s-test-infra.png)
 

@@ -116,3 +116,4 @@ TBD
 
 # 四、参考文献
 - [k8s testing sig](https://github.com/kubernetes/community/blob/master/sig-testing/README.md)
+- [SIG Testing Charter](https://github.com/kubernetes/community/blob/master/sig-testing/charter.md)

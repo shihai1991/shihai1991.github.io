@@ -1,6 +1,6 @@
 ---
 layout: post
-title: centos上安装k8s
+title: Centos 上安装 K8s
 category: k8s
 catalog: true
 published: true

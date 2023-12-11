@@ -1,6 +1,6 @@
 ---
 layout: post
-title: centos7上单机安装k8s
+title: centos上安装k8s
 category: k8s
 catalog: true
 published: true
@@ -8,7 +8,33 @@ tags:
   - k8s
 time: '2022.09.14 15:15:00'
 ---
-# 一、部署
+# 一、K8s 介绍
+TBD
+
+# 二、K8s 组件
+K8s 集群由一组 `Node` 构成，每个集群至少有一个 `Worker Node`。`Worker Node` 会托管 `Pod`，而这些 `Pod` 是应用负载的组件。
+
+## 控制面组件
+控制面管理集群中的 `Worker Node` 和 `Pod`。
+- kube-apiserver：是 K8s 控制面的前端，我们可以通过REST、kubctl和kubadm与其进行交互访问；
+- etcd：配置数据及有关集群状态存放于etcd中；
+- kube-scheduler：创建的pod放到哪个node需要由此组件来调度；
+- kube-controller-manager：负责实际运行集群；
+
+## 节点组件
+- kubelet：每个计算节点的守护进程，和控制平面交互；
+- kube-proxy：每个计算节点都有，负责集群内外部的网络通信；
+- CRD：k8s抽象资源中，虚拟资源对象被分为官方资源和自定义资源，对应资源由配套controller进行watch和更新操作，这个过程被称之为operator；
+- helm：helm是为了配置分离，operator是为了针对复杂应用的自动化管理，annotations是操作k8s资源间的关联关系(annotations没有前缀则功能和label类似)；
+![k8s architecture](https://kubernetes.io/images/docs/components-of-kubernetes.svg)
+
+## 插件
+TBD
+
+# 二、环境准备
+TBD
+
+# 三、部署
 ## 1.1 关闭环境相关配置
 ```
 # 关闭交换区
@@ -119,27 +145,17 @@ wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-
 kubectl apply -f kube-flannel.yml
 ```
 
-# 二、相关组件介绍
-- kube-apiserver：k8s管理面前端，可以通过REST、kubctl和kubadm进行交互访问；
-- kube-scheduler：创建的pod放到哪个node需要由此组件来调度；
-- kube-controller-manager：负责实际运行集群；
-- etcd：配置数据及有关集群状态存放于etcd中；
-- kubelet：每个计算节点的守护进程，和控制平面交互；
-- kube-proxy：每个计算节点都有，负责集群内外部的网络通信；
-- CRD：k8s抽象资源中，虚拟资源对象被分为官方资源和自定义资源，对应资源由配套controller进行watch和更新操作，这个过程被称之为operator；
-- helm：helm是为了配置分离，operator是为了针对复杂应用的自动化管理，annotations是操作k8s资源间的关联关系(annotations没有前缀则功能和label类似)；
-![k8s architecture](https://www.redhat.com/cms/managed-files/kubernetes_diagram-v3-770x717_0.svg)
-
 # 三、参考文档
-1. [centos单机安装k8s](https://blog.51cto.com/u_15144750/3113358)
-2. [CentOS 搭建 K8S，一次性成功，收藏了！](https://segmentfault.com/a/1190000037682150)
-3. [k8s介绍](https://kubernetes.io/zh-cn/docs/concepts/services-networking/ingress-controllers/)
-4. [Kubernetes 架构简介](https://www.redhat.com/zh/topics/containers/kubernetes-architecture)
-5. [kubernetes之helm简介、安装、配置、使用指南](https://cloud.tencent.com/developer/article/1444758)
-6. [Operator 模式](https://kubernetes.io/zh-cn/docs/concepts/extend-kubernetes/operator/)
-7. [kustomize 最简实践](https://zhuanlan.zhihu.com/p/92153378)
-8. [Kong Ingress Controller](https://zhuanlan.zhihu.com/p/136411744)
-9. [Custom Resource Define](https://www.qikqiak.com/k8strain/operator/crd/#:~:text=Custom%20Resource%20Define%20%E7%AE%80%E7%A7%B0CRD,%E7%B1%BB%E4%BC%BC%E4%BA%8E%E6%93%8D%E4%BD%9CPod%20%E4%B8%80%E6%A0%B7%E3%80%82)
-10. [k8s sample-controller](https://github.com/kubernetes/sample-controller)
-10. [k8s annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
-11. [How to Setup Prometheus Monitoring On Kubernetes Cluster](https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/)
+- [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
+- [centos单机安装k8s](https://blog.51cto.com/u_15144750/3113358)
+- [CentOS 搭建 K8S，一次性成功，收藏了！](https://segmentfault.com/a/1190000037682150)
+- [k8s介绍](https://kubernetes.io/zh-cn/docs/concepts/services-networking/ingress-controllers/)
+- [Kubernetes 架构简介](https://www.redhat.com/zh/topics/containers/kubernetes-architecture)
+- [kubernetes之helm简介、安装、配置、使用指南](https://cloud.tencent.com/developer/article/1444758)
+- [Operator 模式](https://kubernetes.io/zh-cn/docs/concepts/extend-kubernetes/operator/)
+- [kustomize 最简实践](https://zhuanlan.zhihu.com/p/92153378)
+- [Kong Ingress Controller](https://zhuanlan.zhihu.com/p/136411744)
+- [Custom Resource Define](https://www.qikqiak.com/k8strain/operator/crd/#:~:text=Custom%20Resource%20Define%20%E7%AE%80%E7%A7%B0CRD,%E7%B1%BB%E4%BC%BC%E4%BA%8E%E6%93%8D%E4%BD%9CPod%20%E4%B8%80%E6%A0%B7%E3%80%82)
+- [k8s sample-controller](https://github.com/kubernetes/sample-controller)
+- [k8s annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/)
+- [How to Setup Prometheus Monitoring On Kubernetes Cluster](https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/)

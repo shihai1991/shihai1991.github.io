@@ -13,7 +13,7 @@ time: '2024.01.15 16:17:00'
 > 测试左移需要通过和物理环境解耦的来实现，否则仅测试用例的测试左移，但没有和物理环境解耦，环境的成本开销会持续变大。
 
 # openstack组件
-![OpenStack Nova架构，侵权删](https://s2.51cto.com/images/blog/202310/31103148_65406714ec82784606.png)
+![OpenStack Nova架构 侵权删]({{site.baseurl}}/img/2024/Q1/20240115-nova组件调用.png)
 # 基础工具安装
 
 ## docker

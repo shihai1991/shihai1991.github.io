@@ -3,7 +3,7 @@ layout: post
 title: 在docker上运行nova-compute
 category: openstack
 catalog: true
-published: false
+published: true
 tags:
   - openstack
   - docker

@@ -29,3 +29,4 @@ TBD
 # 参考文章
 - [docker-nova-compute](https://github.com/int32bit/docker-nova-compute?tab=readme-ov-file)
 - [Nova的作用 openstack openstack nova架构](https://blog.51cto.com/u_13354/8102414)
+- [Identity API V2 or V3](https://docs.openstack.org/keystone/10.0.3/http-api.html)

@@ -24,7 +24,7 @@ time: '2024.01.15 16:17:00'
 遇到的一些坑（下面有些涉及密码仅涉及此开源项目配置，无其他秘钥）：
 #### 1. keystone
 a. 直接用镜像拉keystone实例，容器镜像中会缺少MySQL-python，需要手动安装MySQL-python或者通过docker直接构建运行；  
-b. 非admin用户鉴权无法通过，提示401问题，需要在keystone.conf配置文件中的[DEFAULT]中添加default_domain_Id=default的id
+b. 非admin用户鉴权无法通过，提示401问题，需要在keystone.conf配置文件中的[DEFAULT]中添加default_domain_Id=default的id；
 
 #### 2. glance
 a. glance的镜像中没有安装openstack客户端，只有keystone的客户端，但此客户端版本太低，是0.10.1，所以需要在keystone实例里面创建一些资源信息，/etc/hosts需要自己配置一下否则连不上其他节点服务；  
@@ -57,3 +57,5 @@ TBD
 - [Nova的作用 openstack openstack nova架构](https://blog.51cto.com/u_13354/8102414)
 - [Identity API V2 or V3](https://docs.openstack.org/keystone/10.0.3/http-api.html)
 - [Identity API V2 docs](https://sergslipushenko.github.io/html/api-ref-identity-admin-v2.html)
+- [OpenStack Nova 总结（01）- 架构及组件详解](https://blog.csdn.net/dylloveyou/article/details/80698420)
+- [OpenStack虚拟机创建流程](https://blog.csdn.net/dylloveyou/article/details/78587308)

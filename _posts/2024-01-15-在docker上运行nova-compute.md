@@ -60,3 +60,4 @@ TBD
 - [OpenStack Nova 总结（01）- 架构及组件详解](https://blog.csdn.net/dylloveyou/article/details/80698420)
 - [OpenStack虚拟机创建流程](https://blog.csdn.net/dylloveyou/article/details/78587308)
 - [Setting Openstack compute node with a fake hypervisor](https://stackoverflow.com/questions/67677398/setting-openstack-compute-node-with-a-fake-hypervisor)
+- [Nova hypervisors](https://github.com/openstack/nova/blob/master/doc/source/admin/configuration/hypervisors.rst)

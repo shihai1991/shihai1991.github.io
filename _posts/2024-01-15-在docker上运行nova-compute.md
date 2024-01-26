@@ -12,7 +12,8 @@ time: '2024.01.15 16:17:00'
 ---
 > 测试左移需要通过和物理环境解耦的来实现，否则仅测试用例的测试左移，但没有和物理环境解耦，环境的成本开销会随着测试的持续左移而变大（可以等价理解为用物理资源换测试效率）。
 
-# openstack组件
+# openstack服务
+openstack的核心服务有：keystone、nova、neutron、cinder和glance。
 ![OpenStack Nova架构 侵权删]({{site.baseurl}}/img/2024/Q1/20240115-nova组件调用.png)
 
 ## keystone
@@ -23,6 +24,51 @@ TBD
 - nova scheduler: 虚拟机调度服务，负责决定在哪个计算节点上运行虚拟机；
 - nova conductor: `nova compute`访问数据库的能力交给了`nova conductor`，确保当`nova compute`节点被攻击劫持后系统数据的安全；
 - nova compute: 管理虚拟机的核心服务，通过调用`Hypervisor API`实现虚拟机的生命周期管理；
+
+### nova-compute
+`nova-compute`组件的[main函数](https://github.com/openstack/nova/blob/6531ed6310c4c11ee807e10d1a0fa91658c3afea/nova/cmd/compute.py#L44)在`nova/cmd/compute.py`文件中。
+```python
+def main():
+    ...
+    server = service.Service.create(binary='nova-compute',
+                                    topic=compute_rpcapi.RPC_TOPIC)
+    service.serve(server)
+    service.wait()
+```
+
+当我们启动`nova-compute`组件时，`WSGIService`类就会根据`main函数`中指定的`binary='nova-compute')`查找倒`nova-compute`的管理器`ComputeManager`并启动。
+```python
+# 定义了各种的管理器manager
+SERVICE_MANAGERS = {
+    'nova-compute': 'nova.compute.manager.ComputeManager',
+    'nova-conductor': 'nova.conductor.manager.ConductorManager',
+    'nova-scheduler': 'nova.scheduler.manager.SchedulerManager',
+}
+
+...
+class WSGIService(service.Service):
+    ...
+    # 获取相关管理器
+    def _get_manager(self):
+        """Initialize a Manager object appropriate for this service.
+
+        Use the service name to look up a Manager subclass from the
+        configuration and initialize an instance. If no class name
+        is configured, just return None.
+
+        :returns: a Manager instance, or None.
+
+        """
+        manager = SERVICE_MANAGERS.get(self.binary)
+        if manager is None:
+            return None
+
+        manager_class = importutils.import_class(manager)
+        return manager_class()
+...
+```
+`ComputeManager`负责和`Hypervisor`交互的核心功能，所有的虚拟化计算驱动driver都在[`nova/virt`目录](https://github.com/openstack/nova/tree/master/nova/virt)中。
+
 
 ## neutron
 TBD

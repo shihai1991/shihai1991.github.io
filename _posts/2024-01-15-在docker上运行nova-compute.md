@@ -65,3 +65,4 @@ TBD
 - [Setting Openstack compute node with a fake hypervisor](https://stackoverflow.com/questions/67677398/setting-openstack-compute-node-with-a-fake-hypervisor)
 - [Nova hypervisors](https://github.com/openstack/nova/blob/master/doc/source/admin/configuration/hypervisors.rst)
 - [devstack: Fake virt driver](https://docs.openstack.org/devstack/latest/guides/nova.html#fake-virt-driver)
+- [nova与neutron交互的细节分析](https://www.jianshu.com/p/fc8ecdf11ec8)

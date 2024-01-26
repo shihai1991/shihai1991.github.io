@@ -19,10 +19,10 @@ time: '2024.01.15 16:17:00'
 TBD
 
 ## nova
-- nova api:
-- nova scheduler:
-- nova conductor:
-- nova compute:
+- nova api: 接收用户的API请求，来源于用户的API请求或者用户界面的操作；
+- nova scheduler: 虚拟机调度服务，负责决定在哪个计算节点上运行虚拟机；
+- nova conductor: `nova compute`访问数据库的能力交给了`nova conductor`，确保当`nova compute`节点被攻击劫持后系统数据的安全；
+- nova compute: 管理虚拟机的核心服务，通过调用`Hypervisor API`实现虚拟机的生命周期管理；
 
 ## neutron
 TBD
@@ -39,9 +39,7 @@ TBD
 TBD
 
 ## 安装openstack
-### 安装/运行基础组件
-### 安装/运行openstack
-遇到的一些坑（下面有些涉及密码仅涉及此开源项目配置，无其他秘钥）：
+遇到的一些坑：
 #### 1. keystone
 a. 直接用镜像拉keystone实例，容器镜像中会缺少MySQL-python，需要手动安装MySQL-python或者通过docker直接构建运行；  
 b. 非admin用户鉴权无法通过，提示401问题，需要在keystone.conf配置文件中的[DEFAULT]中添加default_domain_Id=default的id；

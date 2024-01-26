@@ -23,7 +23,7 @@ TBD
 - nova api: 接收用户的API请求，来源于用户的API请求或者用户界面的操作；
 - nova scheduler: 虚拟机调度服务，负责决定在哪个计算节点上运行虚拟机；
 - nova conductor: `nova compute`访问数据库的能力交给了`nova conductor`，确保当`nova compute`节点被攻击劫持后系统数据的安全；
-- nova compute: 管理虚拟机的核心服务，通过调用`Hypervisor API`实现虚拟机的生命周期管理；
+- nova compute: 管理虚拟机的核心服务，通过调用虚拟机管理程序`Hypervisor API`实现虚拟机的生命周期管理；
 
 ### nova-compute
 `nova-compute`组件的[main函数](https://github.com/openstack/nova/blob/6531ed6310c4c11ee807e10d1a0fa91658c3afea/nova/cmd/compute.py#L44)在`nova/cmd/compute.py`文件中。
@@ -76,7 +76,7 @@ compute_driver=libvirt.LibvirtDriver
 [libvirt]
 virt_type=kvm
 ```
-在所有的虚拟层驱动中，有个驱动driver是专门用来做测试的，这个驱动名字是`FakeDriver`，在[文件`nova/virt/fake.py`中](https://opendev.org/openstack/nova/src/branch/master/nova/virt/fake.py)。这个驱动用于控制平面服务的性能测试或者不同计算节点间的“移动”操作。`FakeDriver`驱动不会和任何的`Hypervisor`进行通信，也不会和周边的neutron、cinder、glance服务通信。
+在所有的虚拟层驱动中，有个驱动driver是专门用来做测试的，这个驱动名字是`FakeDriver`，在[文件`nova/virt/fake.py`中](https://opendev.org/openstack/nova/src/branch/master/nova/virt/fake.py)。这个驱动用于控制平面服务的性能测试或者不同计算节点间的“移动”操作。`FakeDriver`驱动不会和任何的虚拟机管理平台`Hypervisor`进行通信，也不会和周边的neutron、cinder、glance服务通信。
 
 ## neutron
 TBD

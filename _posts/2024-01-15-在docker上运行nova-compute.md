@@ -61,6 +61,9 @@ docker run -d  --link mysql:mysql --name keystone -h keystone krystism/openstack
 
 #### 3. 安装[glance](https://github.com/int32bit/docker-glance)
 执行以下命令，运行glance服务：
+
+运行过程会遇到两个问题，需要我们手动规避解决：
+- glance的镜像中没有安装openstack客户端，只有keystone的客户端，但此客户端版本太低，是0.10.1，所以需要在keystone实例里面创建好资源信息，如下命令行所示。在`/etc/hosts`中需要配置一下节点和ip信息，否则无法连不上其他节点服务；  
 ```shell
 openstack --debug user create --domain default --password GLANCE_PASS glance
 openstack role add --user glance --project service admin
@@ -69,8 +72,6 @@ openstack endpoint create  --region regionOne image public http://glance:9292
 openstack endpoint create  --region regionOne image internal http://glance:9292
 openstack endpoint create  --region regionOne image admin http://glance:9292
 ```
-运行过程会遇到两个问题，需要我们手动规避解决：
-- glance的镜像中没有安装openstack客户端，只有keystone的客户端，但此客户端版本太低，是0.10.1，所以需要在keystone实例里面创建好资源信息，如：[用户名](https://github.com/int32bit/docker-glance/blob/master/bootstrap.sh#L17)等等。在`/etc/hosts`中需要配置一下节点和ip信息，否则无法连不上其他节点服务；  
 - `i18n/_message.py`中抛`UnicodeError`错误，是一个调用直接抛错的逻辑，需要把`/usr/lib/python2.7/dist-packages/oslo/i18n/_message.py`中的第167行的`__str__()`函数直接注释掉；
 
 #### 4. 安装nova-controller
@@ -86,10 +87,7 @@ docker run -d --link mysql:mysql --link keystone:keystone --link rabbitmq:rabbit
 -h controller \
 krystism/openstack-nova-controller:latest
 ```
-运行过程会遇到和glance类似的问题，镜像中就只安装了一个keystone低版本，需要到keystone节点实例里面创建好资源信息 [需要创建的资源](https://github.com/int32bit/docker-nova-controller/blob/master/bootstrap.sh#L18)。
-
-#### 5. 安装nova-compute
-
+运行过程会遇到和glance类似的问题，镜像中就只安装了一个keystone低版本，需要到keystone节点实例里面创建好相关资源信息。
 ```shell
 openstack user create --domain default --password NOVA_PASS nova
 openstack role add --user nova --project service admin
@@ -97,6 +95,20 @@ openstack service create --name nova compute --description "OpenStack Compute"
 openstack endpoint create --region regionOne compute public http://controller:8774/v2/%\(tenant_id\)s
 openstack endpoint create --region regionOne compute internal http://controller:8774/v2/%\(tenant_id\)s
 openstack endpoint create --region regionOne compute admin http://controller:8774/v2/%\(tenant_id\)s
+```
+
+#### 5. 安装nova-compute
+执行以下命令，运行nova-compute服务：
+```shell
+docker run -d --link mysql:mysql --link keystone:keystone --link rabbitmq:rabbitmq --link glance:glance --link controller:controller \
+-e OS_USERNAME=admin \
+-e OS_PASSWORD=ADMIN_PASS \
+-e OS_AUTH_URL=http://keystone:5000/v2.0 \
+-e OS_TENANT_NAME=admin \
+--privileged \
+--name node1 \
+-h node1 \
+krystism/openstack-nova-compute:latest
 ```
 
 # 模型定义

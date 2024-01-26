@@ -14,6 +14,20 @@ time: '2024.01.15 16:17:00'
 
 # openstack组件
 ![OpenStack Nova架构 侵权删]({{site.baseurl}}/img/2024/Q1/20240115-nova组件调用.png)
+## nova
+- nova api:
+- nova scheduler:
+- nova conductor:
+- nova compute:
+
+## neutron
+TBD
+
+## cinder
+TBD
+
+## glance
+TBD
 
 # 安装
 ## 安装基础工具

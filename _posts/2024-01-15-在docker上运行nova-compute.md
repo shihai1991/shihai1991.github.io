@@ -35,17 +35,32 @@ TBD
 
 # 安装
 ## 安装基础工具
+
 ### 安装docker
+TBD
+### 安装docker-compose
 TBD
 
 ## 安装openstack
-遇到的一些坑：
-#### 1. keystone
-a. 直接用镜像拉keystone实例，容器镜像中会缺少MySQL-python，需要手动安装MySQL-python或者通过docker直接构建运行；  
-b. 非admin用户鉴权无法通过，提示401问题，需要在keystone.conf配置文件中的[DEFAULT]中添加default_domain_Id=default的id；
+我使用的是[docker-nova-compute](https://github.com/int32bit/docker-nova-compute)在docker容器中安装openstack，因为这个项目已经是10年的项目并且没有更新，使用过程会遇到一些坑：
+#### 1. 安装基础中间件服务
+执行以下命令从docker镜像源拉取rabbitmq、mariadb镜像并运行：
+```shell
+docker run -d -e RABBITMQ_NODENAME=rabbitmq -h rabbitmq --name rabbitmq rabbitmq:latest
+docker run -d -e MYSQL_ROOT_PASSWORD=MYSQL_DBPASS -h mysql --name mysql -d mariadb:latest
+```
 
-#### 2. glance
-a. glance的镜像中没有安装openstack客户端，只有keystone的客户端，但此客户端版本太低，是0.10.1，所以需要在keystone实例里面创建一些资源信息，/etc/hosts需要自己配置一下否则连不上其他节点服务；  
+#### 2. 安装[keystone](https://github.com/int32bit/docker-keystone)
+执行以下命令，运行keystone服务：
+```shell
+docker run -d  --link mysql:mysql --name keystone -h keystone krystism/openstack-keystone:latest
+```
+运行过程会遇到两个问题，需要我们手动规避解决：
+- 直接用镜像拉keystone实例，容器镜像中会缺少MySQL-python，需要手动安装MySQL-python或者通过docker直接构建运行；  
+- 非admin用户鉴权无法通过，提示401问题，需要在keystone.conf配置文件中的[DEFAULT]中添加default_domain_Id=default的id；
+
+#### 2. 安装[glance](https://github.com/int32bit/docker-glance)
+执行以下命令，运行glance服务：
 ```shell
 openstack --debug user create --domain default --password GLANCE_PASS glance
 openstack role add --user glance --project service admin
@@ -54,7 +69,9 @@ openstack endpoint create  --region regionOne image public http://glance:9292
 openstack endpoint create  --region regionOne image internal http://glance:9292
 openstack endpoint create  --region regionOne image admin http://glance:9292
 ```
-b. i18n/_message.py中抛UnicodeError错误，是一个调用直接抛错的逻辑，需要把/usr/lib/python2.7/dist-packages/oslo/i18n/_message.py 167行的__str__()函数直接注释掉；
+运行过程会遇到两个问题，需要我们手动规避解决：
+- glance的镜像中没有安装openstack客户端，只有keystone的客户端，但此客户端版本太低，是0.10.1，所以需要在keystone实例里面创建一些资源信息，/etc/hosts需要自己配置一下否则连不上其他节点服务；  
+- i18n/_message.py中抛UnicodeError错误，是一个调用直接抛错的逻辑，需要把/usr/lib/python2.7/dist-packages/oslo/i18n/_message.py 167行的__str__()函数直接注释掉；
 
 #### 3. nova-controller
 a. 和glance类似，只安装了一个keystone低版本，需要到keystone节点实例里面连接

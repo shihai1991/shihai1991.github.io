@@ -49,6 +49,7 @@ openstack endpoint create --region regionOne compute public http://controller:87
 openstack endpoint create --region regionOne compute internal http://controller:8774/v2/%\(tenant_id\)s
 openstack endpoint create --region regionOne compute admin http://controller:8774/v2/%\(tenant_id\)s
 ```
+
 # 模型定义
 ## 通过模型定义测试依赖
 TBD

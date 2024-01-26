@@ -76,7 +76,8 @@ compute_driver=libvirt.LibvirtDriver
 [libvirt]
 virt_type=kvm
 ```
-在所有的虚拟层驱动中，有个驱动driver是专门用来做测试的，这个驱动名字是`FakeDriver`，在[文件`nova/virt/fake.py`中](https://opendev.org/openstack/nova/src/branch/master/nova/virt/fake.py)。
+在所有的虚拟层驱动中，有个驱动driver是专门用来做测试的，这个驱动名字是`FakeDriver`，在[文件`nova/virt/fake.py`中](https://opendev.org/openstack/nova/src/branch/master/nova/virt/fake.py)。这个驱动用于控制平面服务的性能测试或者不同计算节点间的“移动”操作。`FakeDriver`驱动不会和任何的`Hypervisor`进行通信，也不会和周边的neutron、cinder、glance服务通信。
+
 ## neutron
 TBD
 

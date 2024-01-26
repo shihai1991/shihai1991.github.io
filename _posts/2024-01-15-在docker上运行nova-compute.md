@@ -68,8 +68,15 @@ class WSGIService(service.Service):
 ...
 ```
 `ComputeManager`负责和`Hypervisor`交互的核心功能，所有的虚拟化计算驱动driver都在[`nova/virt`目录](https://github.com/openstack/nova/tree/master/nova/virt)中。
-
-
+![nova compute组件类图]({{site.baseurl}}/img/2024/Q1/20240126-nova-compute组件类图.png)
+通过对nova-compute.conf文件中的`compute_driver`配置进行变更就可以实现对接不同的虚拟化平台。
+```shell
+[DEFAULT]
+compute_driver=libvirt.LibvirtDriver
+[libvirt]
+virt_type=kvm
+```
+在所有的虚拟层驱动中，有个驱动driver是专门用来做测试的，这个驱动名字是`FakeDriver`，在[文件`nova/virt/fake.py`中](https://opendev.org/openstack/nova/src/branch/master/nova/virt/fake.py)。
 ## neutron
 TBD
 

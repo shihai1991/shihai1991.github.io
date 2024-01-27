@@ -91,7 +91,17 @@ TBD
 ## 安装基础工具
 
 ### 安装docker
-TBD
+```
+# 使用阿里的源
+yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+# 安装docker
+yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+如果遇到了安装冲突，可以在安装命令中添加“--allowerasing”进行安装：
+```
+yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin --allowerasing
+```
+
 ### 安装docker-compose
 TBD
 
@@ -181,3 +191,4 @@ TBD
 - [Nova hypervisors](https://github.com/openstack/nova/blob/master/doc/source/admin/configuration/hypervisors.rst)
 - [devstack: Fake virt driver](https://docs.openstack.org/devstack/latest/guides/nova.html#fake-virt-driver)
 - [nova与neutron交互的细节分析](https://www.jianshu.com/p/fc8ecdf11ec8)
+- [安装docker](https://www.runoob.com/docker/centos-docker-install.html)

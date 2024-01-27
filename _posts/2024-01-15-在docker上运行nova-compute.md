@@ -91,6 +91,7 @@ TBD
 ## 安装基础工具
 
 ### 安装docker
+使用此命令进行安装：
 ```
 # 使用阿里的源
 yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo

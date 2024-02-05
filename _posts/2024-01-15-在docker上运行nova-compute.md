@@ -193,3 +193,5 @@ TBD
 - [devstack: Fake virt driver](https://docs.openstack.org/devstack/latest/guides/nova.html#fake-virt-driver)
 - [nova与neutron交互的细节分析](https://www.jianshu.com/p/fc8ecdf11ec8)
 - [安装docker](https://www.runoob.com/docker/centos-docker-install.html)
+- [使用kolla安装openstack](https://github.com/openstack/kolla)
+- [运行nova-controller时遇到iptables报错](https://stackoverflow.com/questions/21983554/iptables-v1-4-14-cant-initialize-iptables-table-nat-table-does-not-exist-d)

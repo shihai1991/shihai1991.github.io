@@ -107,6 +107,7 @@ yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin --allowe
 TBD
 
 ## 安装openstack
+这个项目[docker-nova-compute](https://github.com/int32bit/docker-nova-compute)已经10多年了并且已经不再维护期，我把这个项目进行了一定的更新和维护，放到了[docker-openstack](https://github.com/shihai1991/docker-openstack)，可以直接使用这个项目。
 我使用的是[docker-nova-compute](https://github.com/int32bit/docker-nova-compute)在docker容器中安装openstack，因为这个项目已经是10年的项目并且没有更新，使用过程会遇到一些坑：
 #### 1. 安装基础中间件服务
 执行以下命令从docker镜像源拉取rabbitmq、mariadb镜像并运行：

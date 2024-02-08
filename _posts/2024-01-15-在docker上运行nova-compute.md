@@ -69,6 +69,7 @@ class WSGIService(service.Service):
 ```
 `ComputeManager`负责和`Hypervisor`交互的核心功能，所有的虚拟化计算驱动driver都在[`nova/virt`目录](https://github.com/openstack/nova/tree/master/nova/virt)中。
 ![nova compute组件类图]({{site.baseurl}}/img/2024/Q1/20240126-nova-compute组件类图.png)
+引入`VirtAPI`类的意义是可以向`driver`提供`Manager`。因为我们可以通过`Manager`来调用周边所有服务，这样就避免了`driver`自己向周边服务发起请求，比如：在数据库中虚拟机实例信息的更新：`db.instance_update.*()`。
 通过对nova-compute.conf文件中的`compute_driver`配置进行变更就可以实现对接不同的虚拟化平台。
 ```shell
 [DEFAULT]

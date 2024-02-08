@@ -185,7 +185,7 @@ TBD
 
 # 关联PR
 - Nova `FakeDriver`类在2012年及以前是`FakeConnection`类: [convert virt drivers to fully dynamic loading](https://github.com/openstack/nova/commit/78fd35ac5520f5228d4fd5319ac47c72fa20a350)
-- Nova `libvirt`不再和`compute.node`紧耦合，`hypervisor connection`通过一个接单抽象接口被处理。另外，`connection_type`可以是`libvirt`或者`fake`，而不再需要对`fake libvirt`做单独检查处理。
+- Nova `libvirt`不再和`compute.node`紧耦合，`hypervisor connection`通过一个接单抽象接口被处理。另外，`connection_type`可以是`libvirt`或者`fake`，而不再需要对`fake libvirt`做单独检查处理。[In preparation for XenAPI support, refactor the interface between nova.compute and the hypervisor (i.e. libvirt).](https://github.com/openstack/nova/commit/f39d6549d4e57941b14f328fa5a52a3a5f925d42)
 
 # 参考文章
 - [安装openstack mitaka](https://docs.openstack.org/mitaka/zh_CN/install-guide-rdo/)

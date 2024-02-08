@@ -69,7 +69,7 @@ class WSGIService(service.Service):
 ```
 `ComputeManager`负责和`Hypervisor`交互的核心功能，所有的虚拟化计算驱动driver都在[`nova/virt`目录](https://github.com/openstack/nova/tree/master/nova/virt)中。
 ![nova compute组件类图]({{site.baseurl}}/img/2024/Q1/20240126-nova-compute组件类图.png)
-引入`VirtAPI`类的意义是可以向`driver`提供`Manager`。因为我们可以通过`Manager`来调用周边所有服务，这样就避免了`driver`自己向周边服务发起请求，比如：在数据库中虚拟机实例信息的更新：`db.instance_update.*()`。
+引入`VirtAPI`类的意义是可以向`driver`提供`Manager`。因为我们可以通过`Manager`来调用周边所有服务，这样就避免了`driver`自己向周边服务发起请求，比如：在数据库中虚拟机实例信息的更新：`db.instance_update.*()`。 [PR](https://github.com/openstack/nova/commit/081b652ce471c6c8c3de11edfc9deb47c48b2182)
 通过对nova-compute.conf文件中的`compute_driver`配置进行变更就可以实现对接不同的虚拟化平台。
 ```shell
 [DEFAULT]
@@ -183,6 +183,10 @@ krystism/openstack-nova-compute:latest
 ## 通过模型定义测试依赖
 TBD
 
+# 关联PR
+- Nova `FakeDriver`类在2012年及以前是`FakeConnection`类: [convert virt drivers to fully dynamic loading](https://github.com/openstack/nova/commit/78fd35ac5520f5228d4fd5319ac47c72fa20a350)
+- Nova `libvirt`不再和`compute.node`紧耦合，`hypervisor connection`通过一个接单抽象接口被处理。另外，`connection_type`可以是`libvirt`或者`fake`，而不再需要对`fake libvirt`做单独检查处理。
+
 # 参考文章
 - [安装openstack mitaka](https://docs.openstack.org/mitaka/zh_CN/install-guide-rdo/)
 - [docker-nova-compute](https://github.com/int32bit/docker-nova-compute?tab=readme-ov-file)
@@ -198,3 +202,4 @@ TBD
 - [安装docker](https://www.runoob.com/docker/centos-docker-install.html)
 - [使用kolla安装openstack](https://github.com/openstack/kolla)
 - [运行nova-controller时遇到iptables报错](https://stackoverflow.com/questions/21983554/iptables-v1-4-14-cant-initialize-iptables-table-nat-table-does-not-exist-d)
+

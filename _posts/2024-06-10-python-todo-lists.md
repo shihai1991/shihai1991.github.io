@@ -65,8 +65,6 @@ ceval.c:PyEval\_EvalFrameDefault()->case(MAKE\_FUNCTION)->PyFunction\_NewWithQua
 
 
 # 模块管理
-# TODO List
-
 * 大量的xx\_Finalize()太丑，看是不是需要有个完善的析构函数方式？
 * Py\_IS\_TYPE()不能使用Py\_TYPE()?这个可以作为一个easy问题给新人提交？
 
@@ -154,3 +152,138 @@ Each Python process gets its own Python interpreter and memory space so the GIL 
 发现不影响外部的进程
 
 #### 如何根据CPU配置进程并发数量？
+
+# python基础知识
+* 文档内没有小整数缓冲池的介绍，需要补充上，因为这个外部用户已经感知到。
+* python template渲染能力不如go templates，支持简单语法看是不是可以支持一下？
+* 【待分析】jdk和jre是区分运行时的，python是否需要区分，比如生产环境就不能提供pdb模块？
+* 【done】help()函数的差异：help(b'123')没问题，但help('123')不行的原因是字符串可能是代码某一模块功能(参见serhiy-storchaka的MR)\[https://github.com/python/cpython/commit/1c205518a35939ef555c74d0e2f8954a5e1828e1]。
+* 【】mysql中length()函数用于实际存储字节长度，char\_len()用于字符串长度，在python中，length()用于字符长度，哪个用于实际存储长度？可以用`len(str.encode('utf-8'))`进行计算。但加一个char\_len()更加合适？
+* 【done】[PyCField\_New()函数不应该对外部用户暴露](https://github.com/python/cpython/pull/14837)
+* 【待分析】在`_testcapi/heaptype.c`中Type\_Slots中有用{0}和{0, 0}的区别是什么？
+* 【待分析】函数是function类，和object是否有关系？issubclass(funcA, object)会出错合理吗？
+* 【待分析】[issue 82166](https://github.com/python/cpython/issues/82166),Serhiy的建议是重构，否则会持续恶化
+* 【待分析】logging模块加filter只能创建一个实例然后调用`addfilter()`函数进行添加
+
+#### re.match和re.search区别
+
+match是从第一个字符开始匹配
+
+#### 子类覆写掉外层调用方法，内层调用还是调用父类的原因是为啥？
+
+#### python中的舍入算法
+
+银行家舍入：4舍，5看奇偶：奇进偶舍
+
+#### 内置函数
+
+* vars == **dict**: 当前类的属性字典
+* dir(): 实例+基类属性
+* locals(): 返回局部变量
+
+#### function和method的区别
+
+类调用function，实例调用method
+
+#### 装饰器装饰函数
+
+装饰器初始化只会初始化一次
+
+#### staticmethod和classmethod的区别
+
+需要传入cls的是classmethod，不传入的是staticmethod
+
+#### if语句判真逻辑
+
+if \[] 或者 if ''判断逻辑是不会判真的。
+
+#### **init**()的使用
+
+子类有则不会默认调用父类，子类没有则会默认调用父类
+
+#### 作用域的调试有bug
+
+```bash
+> /home/shihai/tests/test_py/test_scope5.py(10)C()
+-> print(x, y)
+(Pdb) l
+  5         x = 1
+  6         y = 1
+  7
+  8         class C:
+  9           import pdb;pdb.set_trace()
+ 10  ->       print(x, y)
+ 11           x = 2
+ 12
+ 13     f()
+[EOF]
+(Pdb) p x
+0
+(Pdb) p y
+0
+(Pdb) c
+0 1
+```
+
+#### 通过type()或者type.**new**()来创建类
+
+X = type('X', (object,), dict(a=1))
+
+#### \_\_future\_\_的基本使用
+
+from **future** import absolute\_import的原因是避免有调用模块和系统库同名冲突
+
+#### \_和\_\_的使用
+
+\_内部属性 \_\_说明内部函数，子类无法继承 **xx**，表示魔术方法，类或者对象对于某些事件会自动触发
+
+#### 不可变对象
+
+str、bytes、tuple均是不可变对象，list、dict、set均是可变对象，创建后无法被修改。bytes和str的`replace()`实际是创建了一个新的copy副本。看是不是不可变序列，看对象是否能修改，以及修改后的执行`id()`显示的内存地址是否发生改变，内存地址发生改变就是不可变对象。
+
+#### id(**eq**)的执行逻辑
+
+下面的代码输出`a`和`b`的id(**eq**)有点诡异，待确认。
+
+```
+>>> class A:
+...     pass
+...
+>>> def b():
+...     pass
+...
+>>> id(A.__eq__)
+139834352387184
+>>> id(b.__eq__)
+139834332534160
+>>> a = A()
+>>> id(a.__eq__)
+139834332529040
+>>> id(a.__eq__)
+139834332532240
+>>> id(a.__eq__)
+139834332529040
+>>> id(a.__eq__)
+139834332532240
+>>> id(a.__eq__)
+139834332529040
+>>> id(b.__eq__)
+139834332532240
+>>> id(b.__eq__)
+139834332529040
+```
+
+### 这个可以写个解析题
+
+```
+float('inf')可以写个解析题float('inf') == float('inf') - 1
+```
+# 测试套
+### 1.2 测试用例优化
+
+* nb\_add这个slot在`Modules/_testcapi/heaptype.c`模块中没有相关测试用例，需要补充？
+
+# 工具
+### nm的使用
+
+用nm可以看object files里面的symbols，用strip工具可以去除符号表

@@ -68,6 +68,9 @@ ceval.c:PyEval\_EvalFrameDefault()->case(MAKE\_FUNCTION)->PyFunction\_NewWithQua
 * 大量的xx\_Finalize()太丑，看是不是需要有个完善的析构函数方式？
 * Py\_IS\_TYPE()不能使用Py\_TYPE()?这个可以作为一个easy问题给新人提交？
 
+### 多模块加载
+跟踪issue: https://github.com/python/cpython/issues/78878
+
 ### 模块优化
 
 【有争议，前向兼容问题】[创建\_pydatetime模块](https://github.com/python/cpython/issues/84976) -【ing】[多模块管理，有些属性相互依赖](https://github.com/encukou/abi3/issues/19) 在本地abi3\_19分支中实现，[PEP 630](https://peps.python.org/pep-0630/#open-issues)中的第二个问题，主要思路：在`_testcapi/heaptype.c`中写一个测试用的`Type_Spec`，并扩写`nb_add`逻辑，在通过spec来判断是否能做类别判断？

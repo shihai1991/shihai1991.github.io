@@ -23,6 +23,11 @@ Claude3 Sonnet 通过模型可以辅助研发人员达成分析阶段的需求�
 - [使用 Amazon CodeGuru Reviewer 检测日志记录中的安全问题](https://aws.amazon.com/cn/blogs/devops/detecting-security-issues-in-logging-with-amazon-codeguru-reviewer/)
 - [用于安全的 AI/ML](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/ai-ml.html)
 
+### CodeWhisperer
+
+许多客户使用 Amazon CloudWatch 来获取实时监控、警报和报警，以及可自定义的仪表板来可视化定制的指标，从而帮助推动业务决策。组织能够利用自定义小部件，这是一个 CloudWatch 仪表板小部件，可以使用自定义参数调用任何 AWS Lambda 函数。这大大增强了在仪表板上分析和显示数据的可能性。但是，如果您的组织没有编写 Lambda 函数的专业知识，会发生什么？Amazon CodeWhisperer 可以提供帮助，它提供编写这些函数的代码建议，从而帮助实现更好的可观察性。
+[利用生成式AI使用Amazon CodeWhisperer在Amazon CloudWatch中创建自定义仪表板小部件](https://aws.amazon.com/cn/blogs/mt/leverage-generative-ai-to-create-custom-dashboard-widgets-in-amazon-cloudwatch-using-amazon-codewhisperer/)
+
 ## 运维
 ### [Macie](https://aws.amazon.com/macie/)
 是一项数据安全服务，它使用 ML 和模式匹配来发现并帮助保护您的敏感数据。Macie 会自动检测大量且不断增长的敏感数据类型，包括个人身份信息 (PII)，例如姓名、地址和财务信息，例如信用卡号。它还让您可以持续查看存储在 Amazon Simple Storage Service (Amazon S3) 中的数据。
@@ -30,7 +35,8 @@ Claude3 Sonnet 通过模型可以辅助研发人员达成分析阶段的需求�
 ### [Devops Guru](https://aws.amazon.com/devops-guru/)
 Amazon DevOps Guru是一种采用ML的服务，可轻松提高应用程序的操作性能和可用性。DevOps Guru检测偏离正常操作模式的行为，这样您就可以在操作问题影响您的客户之前及早地识别出它们。
 
-[利用 Amazon DevOps Guru 提供的主动洞察节省成本并提高 Lambda 应用程序性能](https://aws.amazon.com/cn/blogs/devops/save-cost-and-improve-lambda-application-performance-with-proactive-insights-from-amazon-devops-guru/)
+- [利用Amazon DevOps Guru提供的主动洞察节省成本并提高Lambda应用程序性能](https://aws.amazon.com/cn/blogs/devops/save-cost-and-improve-lambda-application-performance-with-proactive-insights-from-amazon-devops-guru/)
+- [使用 Amazon DevOps Guru 和 AWS Systems Manager Incident Manager 为 AWS 中的微服务自动执行 AIOps](https://aws.amazon.com/cn/blogs/mt/automate-aiops-for-your-microservices-in-aws-using-amazon-devops-guru-and-aws-systems-manager-incident-manager/)
 
 ### [Lookout for Metrics](https://aws.amazon.com/lookout-for-metrics/)
 可自动对AWS工作负载和第三方云应用程序进行异常检测和性能监控。

@@ -1,4 +1,14 @@
-
+---
+layout: post
+title: monkeypatch在功能性测试中的应用
+category: software engineering
+catalog: true
+published: true
+tags:
+  - software engineering
+  - test
+time: '2024.07.22 10:32:00'
+---
 
 # 参考文档
 - [Martin Fowler: Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: monkeypatch在功能性测试中的应用
+title: Monkey Patch在功能性测试中的应用
 category: software engineering
 catalog: true
 published: false
@@ -9,6 +9,12 @@ tags:
   - test
 time: '2024.07.22 10:32:00'
 ---
+
+# 背景
+Monkey Patch可以让我们在运行时对类或模块进行修改。在测试阶段，Monkey Patch是一种接管部分被测代码运行环境的简单方法，并将输入依赖和输出依赖替换为更方便进行测试的对象或函数。
+通过Wiki描述，Monkey Patch这个词可能有两种来源：
+- 来源于Guerilla Patch(杂牌军Patch)，它指的是偷偷地修改代码。因为Guerilla发音很像Gorilla(猩猩)，后面改成Monkey(猴子)可能是因为让他听起来不是那么吓人；
+- 指的是Monkeying about(捣鼓)；
 
 # 参考文档
 - [Martin Fowler: Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
@@ -27,3 +33,4 @@ time: '2024.07.22 10:32:00'
 ](https://github.com/TestingConferences/testingconferences.github.io/blob/master/_data/current.yml?spm=a2c6h.12873639.article-detail.21.adea3195btld4x&file=current.yml)
 - [evelent monkey_patch()](https://github.com/eventlet/eventlet/blob/8bac9b2bb5ba02d42305446327a117ff51af177b/eventlet/patcher.py#L226)
 - [软件测试面临的挑战与发展趋势](http://ckjs.ijournals.cn/uploadfile/news_images/ckjs/2020-02-28/%E5%A4%A7%E5%AE%B6%E8%AE%BA%E5%9D%9B%EF%BC%88%E6%9C%B1%E5%B0%91%E6%B0%9120200119%EF%BC%89.pdf)
+- [Monkey Patching in Java](https://www.baeldung.com/java-monkey-patching)

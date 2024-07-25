@@ -34,3 +34,4 @@ Monkey Patch可以让我们在运行时对类或模块进行修改。在测试�
 - [evelent monkey_patch()](https://github.com/eventlet/eventlet/blob/8bac9b2bb5ba02d42305446327a117ff51af177b/eventlet/patcher.py#L226)
 - [软件测试面临的挑战与发展趋势](http://ckjs.ijournals.cn/uploadfile/news_images/ckjs/2020-02-28/%E5%A4%A7%E5%AE%B6%E8%AE%BA%E5%9D%9B%EF%BC%88%E6%9C%B1%E5%B0%91%E6%B0%9120200119%EF%BC%89.pdf)
 - [Monkey Patching in Java](https://www.baeldung.com/java-monkey-patching)
+- [What's the difference between faking, mocking, and stubbing?](https://stackoverflow.com/questions/346372/whats-the-difference-between-faking-mocking-and-stubbing)

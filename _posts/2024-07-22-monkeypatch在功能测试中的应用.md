@@ -12,9 +12,15 @@ time: '2024.07.22 10:32:00'
 
 # 背景
 Monkey Patch可以让我们在运行时对类或模块进行修改。在测试阶段，Monkey Patch是一种接管部分被测代码运行环境的简单方法，并将输入依赖和输出依赖替换为更方便进行测试的对象或函数。
-通过Wiki描述，Monkey Patch这个词可能有两种来源：
+通过[Wiki描述]((https://en.wikipedia.org/wiki/Monkey_patch)，Monkey Patch这个词可能有两种来源：
 - 来源于Guerilla Patch(杂牌军Patch)，它指的是偷偷地修改代码。因为Guerilla发音很像Gorilla(猩猩)，后面改成Monkey(猴子)可能是因为让他听起来不是那么吓人；
 - 指的是Monkeying about(捣鼓)；
+
+对系统进行测试隔离的对象类别：
+- Mock对象：通过JMock等三方工具创建而来，并能设置预期(Expect)值；
+- Fake对象：需要自己手动创建和实现，有完整的实现逻辑，但不适用于现网运行；
+- Stub（桩）对象：和Fake对象类似，需要自己手动创建和实现，实现可能会很简单，一个函数可能就只有一个`return`语句；
+- Dummy对象：用来作为被测系统的数据填充；
 
 # 参考文档
 - [Martin Fowler: Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)

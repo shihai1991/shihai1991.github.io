@@ -16,3 +16,6 @@ time: '2024.08.22 10:32:00'
 - [Chrome DevTools 协议](https://chromedevtools.github.io/devtools-protocol/)
 - [Issue: chromedp scroll to bottom? How do you do that](https://github.com/chromedp/chromedp/issues/525)
 - [Issue: how to get all subnode in a element](https://github.com/chromedp/chromedp/issues/12)
+- [Issue: chrome failed to start: Opening in existing browser session](https://github.com/chromedp/chromedp/issues/1147)
+- [Issue: how scoll page by chromedp?](https://github.com/chromedp/chromedp/issues/840)
+- [Issue: how scoll page by chromedp?](https://github.com/chromedp/chromedp/issues/840)

@@ -19,3 +19,4 @@ time: '2024.08.22 10:32:00'
 - [Issue: chrome failed to start: Opening in existing browser session](https://github.com/chromedp/chromedp/issues/1147)
 - [Issue: how scoll page by chromedp?](https://github.com/chromedp/chromedp/issues/840)
 - [Issue: how scoll page by chromedp?](https://github.com/chromedp/chromedp/issues/840)
+- [Issue: consider APIs to help deal with iframes](https://github.com/chromedp/chromedp/issues/72)

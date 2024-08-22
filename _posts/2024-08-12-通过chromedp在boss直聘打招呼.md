@@ -20,4 +20,4 @@ time: '2024.08.22 10:32:00'
 - [Issue: how scoll page by chromedp?](https://github.com/chromedp/chromedp/issues/840)
 - [Issue: how scoll page by chromedp?](https://github.com/chromedp/chromedp/issues/840)
 - [Issue: consider APIs to help deal with iframes](https://github.com/chromedp/chromedp/issues/72)
-- [Chromedp: find nodes in iframe]([https://github.com/chromedp/chromedp/blob/master/nav_test.go#L242](https://github.com/chromedp/chromedp/blob/b4a7766ebb2fa574c0681764f4c59319254fd22f/nav_test.go#L242))
+- [Chromedp: find nodes in iframe](https://github.com/chromedp/chromedp/blob/b4a7766ebb2fa574c0681764f4c59319254fd22f/nav_test.go#L242))

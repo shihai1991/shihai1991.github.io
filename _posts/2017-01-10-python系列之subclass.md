@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: python-系列之subclass
+title: python系列-subclass
 category: python
 tags:
   - python

@@ -47,11 +47,15 @@ if(navigator.serviceWorker){
     
     if(data.command == "UPDATE_FOUND"){
       console.log("UPDATE_FOUND_BY_SW", data);
+      // Show brief notification that content is updating, then auto-reload
       createSnackbar({
-        message: "Content updated.",
-        actionText:"refresh",
-        action: function(e){location.reload()}
-      })
+        message: "Content updated, refreshing...",
+        duration: 1000
+      });
+      // Auto-reload after brief delay to show the notification
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
     }
   }
 }

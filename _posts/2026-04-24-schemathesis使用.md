@@ -41,8 +41,8 @@ def create_user(item: UserCreate):
 
 # 使用schemathesis
 ## CLI执行
-直接使用Fuzz测试来测试api，参数自动生成：`schemathesis run http://127.0.0.1/openapi.json`。
-指定具体的api进行测试：`schemathesis run http://127.0.0.1/openapi.json --include-path="/user/{user_id}" --include-method="GET"`
+- 直接使用Fuzz测试来测试api，参数自动生成：`schemathesis run http://127.0.0.1/openapi.json`。
+- 指定具体的api进行测试：`schemathesis run http://127.0.0.1/openapi.json --include-path="/user/{user_id}" --include-method="GET"`
 
 ## pytest用例
 编写pytest用例并保存到test.py中，用`pytest test.py`来执行用例。不过这个用例有个问题，这里实际schemathesis会生成多个Fuzz用例，这里修改参数只是强行修改了参数，实际效果就是相同参数的用例会跑多次。

@@ -10,7 +10,9 @@ pip install fastapi uvicorn schemathesis
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI(title="Demo API for Schemathesis")
+app = FastAPI(title="Demo API for Schemathesis",
+              servers=[{"url": "xxxx", "description": "测试环境"}])
+
 
 # 请求体模型
 class UserCreate(BaseModel):

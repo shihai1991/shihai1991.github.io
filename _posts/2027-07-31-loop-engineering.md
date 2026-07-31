@@ -333,5 +333,5 @@ Loop Engineering 标记的是一次身份变化：从操作 agent 的人，变�
 *橙皮书免费下载：[huasheng.ai/orange-books](https://huasheng.ai/orange-books)*
 
 # 参考文章
-[loop-engineering-orange-book](https://github.com/alchaincyf/loop-engineering-orange-book)
+[loop-engineering-orange-book](https://github.com/alchaincyf/loop-engineering-orange-book)  
 [loop-engineering](https://github.com/cobusgreyling/loop-engineering)

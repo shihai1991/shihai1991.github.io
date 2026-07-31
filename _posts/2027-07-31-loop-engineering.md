@@ -1,3 +1,14 @@
+---
+layout: post
+title: "Loop Engineering：从喂 Prompt 到设计让 Agent 自己干活的系统"
+category: books
+catalog: false
+published: false
+tags:
+  - books
+time: '2026.07.31 16:28:00'
+---
+
 # Loop Engineering：从喂 Prompt 到设计让 Agent 自己干活的系统
 
 > 本文是对花叔所著《Loop Engineering 橙皮书》(v260615) 的完整总结，原书发布于 2026 年 6 月。

@@ -1,10 +1,12 @@
 ---
 layout: post
 title: "张小珺对话杨植麟｜K2时代AI：走出缸中之脑，走向Agent自进化"
-categories: AI大
-tags: Kimi, Moonshot, 杨植麟, K3, Agent, 智能体, 测试时缩放, 大模型
-author: Summary
-date: 2026-08-03
+category: AI
+catalog: true
+published: false
+tags:
+  - AI
+time: '2026-08-03 23:00'
 excerpt: 复盘张小珺专访月之暗面杨植麟，解读K2技术定位、Test-time Scaling新范式、AI三段进化路线，访谈中的技术预判已在K3落地印证。
 ---
 

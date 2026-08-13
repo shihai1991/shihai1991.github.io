@@ -1732,3 +1732,21 @@ img::-moz-selection {
     max-width: 1280px;
   }
 }
+/* Home/page header: fade the background image into the page background
+   at the bottom, softening the hard edge between header image and the
+   white content area. Scoped to .site-heading headers so post headers
+   (which carry a date .meta at the bottom) are untouched. The gradient's
+   top quarter is fully transparent so it never washes out the title. */
+.intro-header:has(.site-heading) {
+  position: relative;
+}
+.intro-header:has(.site-heading)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 25%, #ffffff 100%);
+  pointer-events: none;
+}

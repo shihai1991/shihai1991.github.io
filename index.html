@@ -23,7 +23,7 @@ description: "随遇而安"
         </div>
     </a>
     <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        {{ post.date | date: "%Y年%-m月%-d日" }}
     </p>
 </div>
 <hr>

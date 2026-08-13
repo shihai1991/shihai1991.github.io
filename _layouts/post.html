@@ -29,7 +29,7 @@ layout: default
                 </select>
                 {% endif %}
 
-				{{ content }}
+				{{ content | replace: '<img', '<img loading="lazy"' }}
 
                 <hr style="visibility: hidden;">
                 <ul class="pager">

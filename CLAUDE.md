@@ -41,9 +41,11 @@ filename matches the `Gruntfile.js` less-task path (derived from `pkg.name`), bu
 - The LESS source does **not** compile under modern `lessc` (4.x): `less/mixins.less` embeds `//`
   comments inside a multi-line `font-family`, which old `less` accepted but 4.x rejects
   (`ParseError`). The committed `css/shihai-blog.css` was built by an older `less` and is what ships.
-- So `grunt` fails and there is no working recompile step. To change styles in practice: edit the
-  committed `css/shihai-blog.css` directly **and** mirror the change in `less/shihai-blog.less` for
-  source accuracy.
+- `css/shihai-blog.css` ships **minified** (clean-css). To change styles: edit
+  `less/shihai-blog.less` (the readable source) **and** re-minify with
+  `cleancss css/shihai-blog.css -o css/shihai-blog.css` (install: `npm i -D clean-css-cli`) — the
+  shipped `.css` is single-line and not hand-editable. There is no working `grunt`/`lessc` pipeline,
+  so this manual less→minify is the workflow.
 - `_config.yml` excludes `less/`, `Gruntfile.js`, `package.json`, READMEs from the Pages build, so
   LESS sources are never deployed — only the compiled `css/` is.
 

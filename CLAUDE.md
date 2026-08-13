@@ -32,14 +32,18 @@ site relies on GitHub Pages' bundled gems, so install the gem manually for local
 - Top-level `index.html` (paginated post list), `about.html`, `archive.html`, `404.html`, `feed.xml`.
 
 ### Styling build (IMPORTANT)
-The live CSS is `css/shihai-blog.css`. Its **LESS source entry is `less/hux-blog.less`** (which
-`@import`s `variables`, `mixins`, `sidebar`, `side-catalog`, `snackbar`, `highlight`). However,
-`Gruntfile.js` is **stale**: its `uglify`/`less` tasks target `js/shihai-blog.js` and
-`less/shihai-blog.less` (derived from `pkg.name`) — neither file exists. Consequences:
-- `grunt` (default task) **will fail** as configured.
-- `js/hux-blog.min.js` is committed pre-minified; there is no unminified `shihai-blog.js` source.
-- To genuinely recompile LESS by hand: `lessc less/hux-blog.less css/shihai-blog.css` (then commit
-  the CSS, since GitHub Pages does not run Grunt).
+The live CSS is `css/shihai-blog.css`. Its **LESS source entry is `less/shihai-blog.less`** (which
+`@import`s `variables`, `mixins`, `sidebar`, `side-catalog`, `snackbar`, `highlight`). The LESS
+filename matches the `Gruntfile.js` less-task path (derived from `pkg.name`), but the toolchain is
+**not usable as-is**:
+- The `uglify` task targets `js/shihai-blog.js`, which does not exist — only the pre-minified
+  `js/hux-blog.min.js` is committed (loaded by `_includes/footer.html`, precached by `sw.js`).
+- The LESS source does **not** compile under modern `lessc` (4.x): `less/mixins.less` embeds `//`
+  comments inside a multi-line `font-family`, which old `less` accepted but 4.x rejects
+  (`ParseError`). The committed `css/shihai-blog.css` was built by an older `less` and is what ships.
+- So `grunt` fails and there is no working recompile step. To change styles in practice: edit the
+  committed `css/shihai-blog.css` directly **and** mirror the change in `less/shihai-blog.less` for
+  source accuracy.
 - `_config.yml` excludes `less/`, `Gruntfile.js`, `package.json`, READMEs from the Pages build, so
   LESS sources are never deployed — only the compiled `css/` is.
 

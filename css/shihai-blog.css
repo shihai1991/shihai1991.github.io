@@ -1719,3 +1719,15 @@ img::-moz-selection {
 .no-scroll {
   overflow-y: hidden;
 }
+/* Container width override
+   Bootstrap 3 ships a fixed .container { width: 1170px } at the lg
+   breakpoint, which reads narrow on modern displays. Switch to a
+   max-width so the reading area widens to 1280px on large screens
+   without overflowing viewports between 1200px and 1280px.
+   (post content is col-lg-8, so it scales with this.) */
+@media (min-width: 1200px) {
+  .container {
+    width: auto;
+    max-width: 1280px;
+  }
+}

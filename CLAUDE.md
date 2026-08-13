@@ -37,7 +37,7 @@ The live CSS is `css/shihai-blog.css`. Its **LESS source entry is `less/shihai-b
 filename matches the `Gruntfile.js` less-task path (derived from `pkg.name`), but the toolchain is
 **not usable as-is**:
 - The `uglify` task targets `js/shihai-blog.js`, which does not exist — only the pre-minified
-  `js/hux-blog.min.js` is committed (loaded by `_includes/footer.html`, precached by `sw.js`).
+  `js/shihai-blog.min.js` is committed (loaded by `_includes/footer.html`, precached by `sw.js`).
 - The LESS source does **not** compile under modern `lessc` (4.x): `less/mixins.less` embeds `//`
   comments inside a multi-line `font-family`, which old `less` accepted but 4.x rejects
   (`ParseError`). The committed `css/shihai-blog.css` was built by an older `less` and is what ships.

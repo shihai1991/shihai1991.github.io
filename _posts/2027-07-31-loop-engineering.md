@@ -2,10 +2,11 @@
 layout: post
 title: "Loop Engineering：从喂 Prompt 到设计让 Agent 自己干活的系统"
 category: books
-catalog: false
-published: false
+catalog: true
+published: true
 tags:
   - books
+  - AI
 time: '2026.07.31 16:28:00'
 ---
 
